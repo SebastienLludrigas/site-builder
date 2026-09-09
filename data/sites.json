@@ -1,0 +1,1200 @@
+[
+  {
+    "id": "site-patisserie-delice",
+    "title": "Atelier Pâtisserie & Café Délice",
+    "slug": "patisserie-delice",
+    "description": "Boulangerie artisanale, viennoiseries dorées au beurre AOP et café de spécialité à Paris.",
+    "createdAt": "2026-09-01T08:00:00.000Z",
+    "updatedAt": "2026-09-09T17:30:00.000Z",
+    "published": true,
+    "theme": {
+      "palette": "amber",
+      "primaryColor": "#b45309",
+      "secondaryColor": "#78350f",
+      "accentColor": "#f59e0b",
+      "backgroundColor": "#fffbf5",
+      "textColor": "#292524",
+      "fontHeading": "Playfair Display",
+      "fontBody": "Inter",
+      "borderRadius": "rounded-2xl"
+    },
+    "settings": {
+      "favicon": "🥐",
+      "logoText": "Atelier Délice",
+      "showBranding": true,
+      "contactEmail": "bonjour@patisserie-delice.fr"
+    },
+    "sections": [
+      {
+        "id": "nav-1",
+        "type": "navbar",
+        "data": {
+          "logoText": "Atelier Délice",
+          "logoIcon": "Croissant",
+          "links": [
+            {
+              "label": "Accueil",
+              "href": "#hero"
+            },
+            {
+              "label": "Engagements",
+              "href": "#features"
+            },
+            {
+              "label": "Histoire",
+              "href": "#about"
+            },
+            {
+              "label": "La Carte",
+              "href": "#menu"
+            },
+            {
+              "label": "Galerie",
+              "href": "#gallery"
+            },
+            {
+              "label": "Avis",
+              "href": "#testimonials"
+            },
+            {
+              "label": "Contact",
+              "href": "#contact"
+            }
+          ],
+          "ctaButton": {
+            "show": true,
+            "text": "Réserver une table",
+            "href": "#contact"
+          }
+        }
+      },
+      {
+        "id": "hero-1",
+        "type": "hero",
+        "data": {
+          "layout": "split",
+          "badge": "✨ Élu Meilleur Croissant de Paris 2025",
+          "title": "L'art de la haute pâtisserie & café de terroir",
+          "subtitle": "Chaque matin dès l'aube, nous pétrissons nos farines biologiques d'Île-de-France et façonnons des douceurs croustillantes au beurre de Normandie AOP.",
+          "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
+          "primaryBtn": {
+            "text": "Découvrir la carte",
+            "href": "#menu"
+          },
+          "secondaryBtn": {
+            "text": "Venir au salon",
+            "href": "#contact"
+          },
+          "statsBadge": {
+            "count": "100%",
+            "label": "Fait maison & Bio"
+          }
+        }
+      },
+      {
+        "id": "features-1",
+        "type": "features",
+        "data": {
+          "badge": "Savoir-faire",
+          "title": "Nos Engagements Artisanaux",
+          "subtitle": "La passion du goût authentique, sans aucun compromis sur la qualité des matières premières.",
+          "layout": "4-cols",
+          "items": [
+            {
+              "icon": "Wheat",
+              "title": "Farines 100% Bio",
+              "description": "Moulues sur meule de pierre par notre meunier partenaire en Île-de-France."
+            },
+            {
+              "icon": "Clock",
+              "title": "Levain Vivant 10 Ans",
+              "description": "Fermentation longue de 24h pour une digestibilité optimale et des arômes profonds."
+            },
+            {
+              "icon": "Sparkles",
+              "title": "Beurre de Baratte AOP",
+              "description": "Beurre de Charentes-Poitou et de Normandie apportant un feuilletage d'une finesse incomparable."
+            },
+            {
+              "icon": "Coffee",
+              "title": "Café de Spécialité",
+              "description": "Grains bio sourcés éthiquement et torréfiés localement à Paris chaque semaine."
+            }
+          ]
+        }
+      },
+      {
+        "id": "about-1",
+        "type": "about",
+        "data": {
+          "layout": "image-right",
+          "badge": "Notre Histoire",
+          "title": "Deux générations d'amour pour le croustillant",
+          "text": "Fondé en 2012 par le chef pâtissier Julien Martin, l'Atelier Délice est né d'une envie simple : réenchanter le petit-déjeuner et le goûter parisien avec des douceurs préparées sous vos yeux, dans le respect des traditions de notre terroir.",
+          "bulletPoints": [
+            "Levain naturel élevé quotidiennement avec de l'eau purifiée et du miel local",
+            "Fournées continues toute la journée pour des baguettes croustillantes à toute heure",
+            "Salon de thé chaleureux avec terrasse arborée au cœur du 9e arrondissement"
+          ],
+          "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80",
+          "highlightCard": {
+            "number": "14",
+            "label": "Années d'excellence"
+          }
+        }
+      },
+      {
+        "id": "menu-1",
+        "type": "menu",
+        "data": {
+          "badge": "Gourmandises",
+          "title": "Nos Créations Phares",
+          "subtitle": "Préparées chaque matin dans notre laboratoire ouvert sur la boutique.",
+          "categories": [
+            {
+              "name": "Viennoiseries Artisanales",
+              "items": [
+                {
+                  "name": "Croissant Pur Beurre de Tourage",
+                  "description": "Feuilletage caramélisé, croustillant à souhait et mie aérée",
+                  "price": "2,20 €",
+                  "tag": "Best-seller"
+                },
+                {
+                  "name": "Pain au Chocolat Praliné Noisette",
+                  "description": "Trois barres de chocolat noir 65% et cœur de praliné maison",
+                  "price": "2,80 €"
+                },
+                {
+                  "name": "Roulé Feuilleté Cardamome & Sucre Roux",
+                  "description": "Inspiration scandinave revisitée avec du beurre AOP",
+                  "price": "3,50 €",
+                  "tag": "Coup de cœur"
+                },
+                {
+                  "name": "Brioche Tréssée à la Fleur d'Oranger",
+                  "description": "Moelleuse et dorée, parsemée de perles de sucre craquantes",
+                  "price": "3,90 €"
+                }
+              ]
+            },
+            {
+              "name": "Haute Pâtisserie",
+              "items": [
+                {
+                  "name": "Tartelette Framboise & Pistache d'Iran",
+                  "description": "Pâte sablée croustillante, ganache pistache et framboises fraîches",
+                  "price": "6,50 €",
+                  "tag": "Signature"
+                },
+                {
+                  "name": "Éclair Craquant Chocolat Noir 72%",
+                  "description": "Pâte à choux fondante, crémeux intense Guanaja et glaçage miroir",
+                  "price": "5,40 €"
+                },
+                {
+                  "name": "Paris-Brest Noisettes du Piémont",
+                  "description": "Praliné pur coulant, mousseline légère et noisettes torréfiées",
+                  "price": "6,80 €"
+                },
+                {
+                  "name": "Millefeuille Vanille Bourbon de Madagascar",
+                  "description": "Feuilletage inversé caramélisé, crème diplomate vanillée",
+                  "price": "7,00 €"
+                }
+              ]
+            },
+            {
+              "name": "Café & Boissons Chaudes",
+              "items": [
+                {
+                  "name": "Flat White Lait d'Avoine Bio",
+                  "description": "Double shot espresso blend Éthiopie/Colombie et micro-mousse crémeuse",
+                  "price": "4,50 €"
+                },
+                {
+                  "name": "Chai Latte Maison aux Épices Douces",
+                  "description": "Thé noir bio infusé au gingembre, cannelle, poivre et cardamome",
+                  "price": "4,80 €"
+                },
+                {
+                  "name": "Chocolat Chaud Grand Cru Valrhona",
+                  "description": "Chocolat noir 70% fondu à l'ancienne avec une touche de chantilly vanillée",
+                  "price": "5,20 €"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gallery-1",
+        "type": "gallery",
+        "data": {
+          "badge": "Portfolio Gourmand",
+          "title": "Instants Pris sur le Vif",
+          "subtitle": "Un aperçu de nos créations quotidiennes et de l'ambiance chaleureuse du salon.",
+          "layout": "grid",
+          "items": [
+            {
+              "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
+              "title": "Viennoiseries sorties du four",
+              "category": "Viennoiserie"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+              "title": "Gâteau forêt noire moderne",
+              "category": "Pâtisserie"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+              "title": "Pains au levain sur meule",
+              "category": "Boulangerie"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+              "title": "Extraction espresso de spécialité",
+              "category": "Café"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+              "title": "Ambiance du salon de thé",
+              "category": "Lieu"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80",
+              "title": "Tartelettes aux fraises fraîches",
+              "category": "Pâtisserie"
+            }
+          ]
+        }
+      },
+      {
+        "id": "testimonials-1",
+        "type": "testimonials",
+        "data": {
+          "badge": "Témoignages",
+          "title": "Ce Que Disent Nos Habitués",
+          "subtitle": "Plus de 1 200 avis 5 étoiles laissés par les gourmands du quartier et d'ailleurs.",
+          "items": [
+            {
+              "author": "Camille Dupont",
+              "role": "Critique gastronomique locale",
+              "rating": 5,
+              "quote": "Leur croissant feuilleté au beurre AOP est tout simplement le meilleur que j'ai dégusté à Paris ces dix dernières années. Croustillant à l'extérieur, fondant à l'intérieur !",
+              "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+            },
+            {
+              "author": "Thomas Laurent",
+              "role": "Architecte & voisin régulier",
+              "rating": 5,
+              "quote": "Je viens chaque matin travailler 1h au salon de thé. L'ambiance est lumineuse, l'équipe a toujours le sourire et le Flat White est préparé à la perfection.",
+              "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+            },
+            {
+              "author": "Sophie de Montmirail",
+              "role": "Cliente fidèle depuis 2018",
+              "rating": 5,
+              "quote": "Nous commandons tous les gâteaux d'anniversaire de la famille ici. La tartelette framboise-pistache a fait l'unanimité auprès de nos 30 invités le week-end dernier.",
+              "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+            }
+          ]
+        }
+      },
+      {
+        "id": "contact-1",
+        "type": "contact",
+        "data": {
+          "badge": "Réservation & Infos",
+          "title": "Venir Nous Rendre Visite ou Commander",
+          "subtitle": "Pour une commande spéciale de gâteaux ou réserver une table de brunch, écrivez-nous ou passez directement.",
+          "address": "28 Rue des Martyrs, 75009 Paris",
+          "phone": "01 42 68 90 12",
+          "email": "bonjour@patisserie-delice.fr",
+          "openingHours": "Mardi au Dimanche : 07h30 – 19h30 (Fermé le lundi)",
+          "formFields": [
+            "name",
+            "email",
+            "phone",
+            "service",
+            "message"
+          ],
+          "servicesList": [
+            "Réservation table brunch",
+            "Commande gâteau personnalisé",
+            "Événement privé / Traiteur",
+            "Autre demande"
+          ],
+          "submitButtonText": "Envoyer ma demande",
+          "successMessage": "Merci pour votre message ! Notre chef pâtissier vous répondra sous quelques heures."
+        }
+      },
+      {
+        "id": "footer-1",
+        "type": "footer",
+        "data": {
+          "logoText": "Atelier Délice",
+          "description": "Boulangerie-pâtisserie artisanale et salon de thé bio à Paris 9e. Fait avec passion chaque jour.",
+          "socialLinks": [
+            {
+              "platform": "Instagram",
+              "url": "https://instagram.com"
+            },
+            {
+              "platform": "Facebook",
+              "url": "https://facebook.com"
+            },
+            {
+              "platform": "TikTok",
+              "url": "https://tiktok.com"
+            }
+          ],
+          "copyright": "© 2026 Atelier Délice Paris. Tous droits réservés."
+        }
+      }
+    ]
+  },
+  {
+    "id": "site-novapulse-ai",
+    "title": "NovaPulse AI — Plateforme d'Intelligence Augmentée",
+    "slug": "novapulse-ai",
+    "description": "SaaS analytique de nouvelle génération : prédictions en temps réel et assistant IA pour entreprises.",
+    "createdAt": "2026-09-02T11:00:00.000Z",
+    "updatedAt": "2026-09-09T18:15:00.000Z",
+    "published": true,
+    "theme": {
+      "palette": "indigo",
+      "primaryColor": "#6366f1",
+      "secondaryColor": "#0f172a",
+      "accentColor": "#06b6d4",
+      "backgroundColor": "#090d16",
+      "textColor": "#f8fafc",
+      "fontHeading": "Outfit",
+      "fontBody": "Inter",
+      "borderRadius": "rounded-xl"
+    },
+    "settings": {
+      "favicon": "⚡",
+      "logoText": "NovaPulse AI",
+      "showBranding": true,
+      "contactEmail": "contact@novapulse.ai"
+    },
+    "sections": [
+      {
+        "id": "nav-2",
+        "type": "navbar",
+        "data": {
+          "logoText": "NovaPulse AI",
+          "logoIcon": "Zap",
+          "links": [
+            {
+              "label": "Produit",
+              "href": "#hero"
+            },
+            {
+              "label": "Performance",
+              "href": "#stats"
+            },
+            {
+              "label": "Fonctionnalités",
+              "href": "#features"
+            },
+            {
+              "label": "Tarifs",
+              "href": "#pricing"
+            },
+            {
+              "label": "FAQ",
+              "href": "#faq"
+            },
+            {
+              "label": "Contact",
+              "href": "#contact"
+            }
+          ],
+          "ctaButton": {
+            "show": true,
+            "text": "Démarrer l'essai",
+            "href": "#pricing"
+          }
+        }
+      },
+      {
+        "id": "hero-2",
+        "type": "hero",
+        "data": {
+          "layout": "centered",
+          "badge": "⚡ NovaPulse 3.5 — Modèles Multimodaux Actifs",
+          "title": "Transformez vos flux de données en décisions stratégiques instantanées",
+          "subtitle": "Connectez vos bases de données, CRM et outils métiers. NovaPulse identifie automatiquement les tendances clés, génère vos rapports et répond en langage naturel.",
+          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+          "primaryBtn": {
+            "text": "Commencer 14 jours gratuits",
+            "href": "#pricing"
+          },
+          "secondaryBtn": {
+            "text": "Réserver une démonstration",
+            "href": "#contact"
+          },
+          "statsBadge": {
+            "count": "99.98%",
+            "label": "Disponibilité garantie"
+          }
+        }
+      },
+      {
+        "id": "stats-2",
+        "type": "stats",
+        "data": {
+          "title": "Une puissance d'analyse éprouvée à grande échelle",
+          "items": [
+            {
+              "number": "10x",
+              "label": "Gain de temps sur la synthèse de données"
+            },
+            {
+              "number": "99.9%",
+              "label": "Précision des modèles d'extraction"
+            },
+            {
+              "number": "500+",
+              "label": "Entreprises tech & PME connectées"
+            },
+            {
+              "number": "< 45ms",
+              "label": "Temps de latence moyen par requête"
+            }
+          ]
+        }
+      },
+      {
+        "id": "features-2",
+        "type": "features",
+        "data": {
+          "badge": "Technologie",
+          "title": "Une Infrastructure Conçue pour la Performance",
+          "subtitle": "Déployez en quelques minutes des capacités d'analyse IA autrefois réservées aux géants de la tech.",
+          "layout": "3-cols",
+          "items": [
+            {
+              "icon": "Database",
+              "title": "Connecteurs Universels",
+              "description": "Intégration native en 1 clic avec PostgreSQL, Snowflake, BigQuery, Notion, Stripe et HubSpot."
+            },
+            {
+              "icon": "Cpu",
+              "title": "RAG & Recherche Sémantique",
+              "description": "Interrogez vos documents PDF, contrats et historiques avec une citation exacte de chaque source."
+            },
+            {
+              "icon": "ShieldCheck",
+              "title": "Sécurité & Confort RGPD",
+              "description": "Hébergement souverain européen, chiffrement de bout en bout AES-256 et zéro entraînement sur vos données."
+            },
+            {
+              "icon": "TrendingUp",
+              "title": "Détection Proactive d'Anomalies",
+              "description": "Alertes intelligentes instantanées dès qu'un écart statistique anormal est identifié dans votre chiffre d'affaires."
+            },
+            {
+              "icon": "Layers",
+              "title": "Workflows Automatisés",
+              "description": "Créez des chaînes d'actions intelligentes déclenchées par des seuils ou des plannings personnalisés."
+            },
+            {
+              "icon": "Terminal",
+              "title": "API REST & Webhooks",
+              "description": "Contrôlez NovaPulse par programmation grâce à notre SDK Python/TypeScript ultra documenté."
+            }
+          ]
+        }
+      },
+      {
+        "id": "pricing-2",
+        "type": "pricing",
+        "data": {
+          "badge": "Investissement",
+          "title": "Des Tarifs Clairs, Conçus pour Évoluer",
+          "subtitle": "Testez gratuitement pendant 14 jours sans carte de crédit.",
+          "hasPeriodToggle": true,
+          "yearlyDiscountText": "-25% en annuel",
+          "plans": [
+            {
+              "name": "Starter",
+              "priceMonthly": "49 €",
+              "priceYearly": "37 €",
+              "description": "Idéal pour les indépendants et petites équipes découvrant l'analyse IA.",
+              "popular": false,
+              "buttonText": "Commencer l'essai",
+              "buttonHref": "#contact",
+              "features": [
+                "Jusqu'à 3 sources de données",
+                "10 000 requêtes d'analyse / mois",
+                "Export des rapports en PDF & CSV",
+                "Support par e-mail en 24h",
+                "Sécurité RGPD standard"
+              ]
+            },
+            {
+              "name": "Pro Performance",
+              "priceMonthly": "129 €",
+              "priceYearly": "97 €",
+              "description": "Pour les entreprises en croissance nécessitant des analyses continues.",
+              "popular": true,
+              "buttonText": "Essayer Pro 14 jours",
+              "buttonHref": "#contact",
+              "features": [
+                "Sources de données illimitées",
+                "100 000 requêtes d'analyse / mois",
+                "Alertes d'anomalies en direct sur Slack",
+                "RAG sémantique sur tous vos documents",
+                "Support prioritaire par chat direct",
+                "Accès complet aux API REST"
+              ]
+            },
+            {
+              "name": "Enterprise Cloud",
+              "priceMonthly": "399 €",
+              "priceYearly": "299 €",
+              "description": "Infrastructure sur mesure et accompagnement d'un ingénieur dédié.",
+              "popular": false,
+              "buttonText": "Contacter l'équipe",
+              "buttonHref": "#contact",
+              "features": [
+                "Requêtes & volumétrie sur mesure",
+                "Déploiement VPC privé ou On-Premise",
+                "SLA garanti 99.99% contractuel",
+                "Audit de conformité & DPA personnalisé",
+                "Ingénieur IA dédié & formation d'équipe"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "faq-2",
+        "type": "faq",
+        "data": {
+          "badge": "Réponses",
+          "title": "Questions Fréquemment Posées",
+          "subtitle": "Tout ce que vous devez savoir avant de déployer NovaPulse.",
+          "items": [
+            {
+              "question": "Mes données d'entreprise sont-elles utilisées pour entraîner des modèles publics ?",
+              "answer": "Absolument jamais. Vos données restent dans votre espace sécurisé isolé et hermétique. Conformément à nos engagements contractuels et au RGPD européen, aucune donnée client ne sert au perfectionnement de modèles tiers."
+            },
+            {
+              "question": "Combien de temps prend la mise en place de la plateforme ?",
+              "answer": "Pour 90% de nos clients, la première connexion à PostgreSQL, Snowflake ou HubSpot prend moins de 10 minutes grâce à nos assistants guidés en 3 étapes."
+            },
+            {
+              "question": "Puis-je annuler ou changer de forfait à tout moment ?",
+              "answer": "Oui, la résiliation se fait en un clic depuis votre espace administrateur, sans engagement de durée pour les abonnements mensuels."
+            },
+            {
+              "question": "Existe-t-il un accompagnement au démarrage ?",
+              "answer": "Chaque nouvel utilisateur bénéficie d'une session d'accueil de 30 minutes avec un ingénieur produit pour configurer ses premiers tableaux de bord."
+            }
+          ]
+        }
+      },
+      {
+        "id": "contact-2",
+        "type": "contact",
+        "data": {
+          "badge": "Contact & Démo",
+          "title": "Demandez une Démonstration Personnalisée",
+          "subtitle": "Nos spécialistes vous présentent la plateforme sur vos propres cas d'usage métiers.",
+          "address": "Station F, 5 Parvis Alan Turing, 75013 Paris",
+          "phone": "+33 1 89 20 45 00",
+          "email": "demo@novapulse.ai",
+          "openingHours": "Lundi au Vendredi : 09h00 – 19h00",
+          "formFields": [
+            "name",
+            "email",
+            "phone",
+            "service",
+            "message"
+          ],
+          "servicesList": [
+            "Démonstration entreprise",
+            "Question technique & sécurité",
+            "Devis volume sur mesure",
+            "Partenariat intégrateur"
+          ],
+          "submitButtonText": "Demander ma démonstration",
+          "successMessage": "Votre demande a bien été envoyée ! Un ingénieur solution NovaPulse vous contactera sous 2 heures."
+        }
+      },
+      {
+        "id": "footer-2",
+        "type": "footer",
+        "data": {
+          "logoText": "NovaPulse AI",
+          "description": "La plateforme d'analyse intelligente pour les entreprises d'aujourd'hui et de demain.",
+          "socialLinks": [
+            {
+              "platform": "LinkedIn",
+              "url": "https://linkedin.com"
+            },
+            {
+              "platform": "Twitter",
+              "url": "https://x.com"
+            },
+            {
+              "platform": "GitHub",
+              "url": "https://github.com"
+            }
+          ],
+          "copyright": "© 2026 NovaPulse Technologies SAS. Tous droits réservés. Hébergé en France."
+        }
+      }
+    ]
+  },
+  {
+    "id": "site-elena-vance-photo",
+    "title": "Elena Vance — Photographie d'Art & Direction Visuelle",
+    "slug": "elena-vance-photo",
+    "description": "Photographie éditoriale de mode, portraits d'art et campagnes visuelles à Paris et Milan.",
+    "createdAt": "2026-09-03T14:00:00.000Z",
+    "updatedAt": "2026-09-09T17:50:00.000Z",
+    "published": true,
+    "theme": {
+      "palette": "neutral",
+      "primaryColor": "#18181b",
+      "secondaryColor": "#71717a",
+      "accentColor": "#d4af37",
+      "backgroundColor": "#fafafa",
+      "textColor": "#18181b",
+      "fontHeading": "Playfair Display",
+      "fontBody": "Plus Jakarta Sans",
+      "borderRadius": "rounded-none"
+    },
+    "settings": {
+      "favicon": "📷",
+      "logoText": "ELENA VANCE",
+      "showBranding": true,
+      "contactEmail": "studio@elenavance.com"
+    },
+    "sections": [
+      {
+        "id": "nav-3",
+        "type": "navbar",
+        "data": {
+          "logoText": "ELENA VANCE",
+          "logoIcon": "Camera",
+          "links": [
+            {
+              "label": "Portfolio",
+              "href": "#gallery"
+            },
+            {
+              "label": "Démarche",
+              "href": "#about"
+            },
+            {
+              "label": "Prestations",
+              "href": "#features"
+            },
+            {
+              "label": "Témoignages",
+              "href": "#testimonials"
+            },
+            {
+              "label": "Contact",
+              "href": "#contact"
+            }
+          ],
+          "ctaButton": {
+            "show": true,
+            "text": "Réserver un shooting",
+            "href": "#contact"
+          }
+        }
+      },
+      {
+        "id": "hero-3",
+        "type": "hero",
+        "data": {
+          "layout": "split",
+          "badge": "Lauréate — Prix de la Photographie Créative 2025",
+          "title": "Capturer la poésie brute du réel et la force des regards",
+          "subtitle": "Direction artistique, séries de mode éditoriales et portraits intimistes entre lumière naturelle et studio argentique.",
+          "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+          "primaryBtn": {
+            "text": "Découvrir la galerie",
+            "href": "#gallery"
+          },
+          "secondaryBtn": {
+            "text": "Prendre contact",
+            "href": "#contact"
+          },
+          "statsBadge": {
+            "count": "12 ans",
+            "label": "D'expérience internationale"
+          }
+        }
+      },
+      {
+        "id": "gallery-3",
+        "type": "gallery",
+        "data": {
+          "badge": "Œuvres Récentes",
+          "title": "Sélection Photographique",
+          "subtitle": "Une traversée entre ombre, lumière et textures organiques.",
+          "layout": "grid",
+          "filterCategories": [
+            "Tous",
+            "Mode",
+            "Portrait",
+            "Architecture",
+            "Édition"
+          ],
+          "items": [
+            {
+              "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+              "title": "Lumière d'Automne — Série Éditoriale",
+              "category": "Portrait"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
+              "title": "Mouvement & Voiles — Milan Fashion Week",
+              "category": "Mode"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+              "title": "Géométries du béton brut",
+              "category": "Architecture"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+              "title": "Regard d'artiste — Portrait studio",
+              "category": "Portrait"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80",
+              "title": "Haute Couture — Collection Printemps",
+              "category": "Mode"
+            },
+            {
+              "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+              "title": "Ombres portées — La Défense",
+              "category": "Architecture"
+            }
+          ]
+        }
+      },
+      {
+        "id": "about-3",
+        "type": "about",
+        "data": {
+          "layout": "image-left",
+          "badge": "Démarche Artistique",
+          "title": "L'émotion pure avant la technique",
+          "text": "Basée dans le Marais à Paris, je collabore avec des maisons de couture, des magazines de presse internationale et des artistes passionnés. Mon approche privilégie la complicité avec le sujet, l'attente du moment suspendu et le grain argentique authentique.",
+          "bulletPoints": [
+            "Prises de vue moyen format (Hasselblad & Leica M) pour un piqué et une douceur uniques",
+            "Élaboration collaborative du moodboard et recherche scénographique sur mesure",
+            "Post-production fine et tirages d'art certifiés Digigraphie"
+          ],
+          "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80",
+          "highlightCard": {
+            "number": "80+",
+            "label": "Publications magazines"
+          }
+        }
+      },
+      {
+        "id": "features-3",
+        "type": "features",
+        "data": {
+          "badge": "Collaborations",
+          "title": "Prestations & Domaines d'Intervention",
+          "subtitle": "De la conception créative à la livraison des fichiers haute résolution.",
+          "layout": "3-cols",
+          "items": [
+            {
+              "icon": "Camera",
+              "title": "Campagnes de Mode & Lookbooks",
+              "description": "Mise en valeur de vos collections textiles et accessoires avec une direction artistique forte."
+            },
+            {
+              "icon": "Smile",
+              "title": "Portraits d'Art & Personnalités",
+              "description": "Séances privées pour artistes, créateurs, dirigeants et talents en quête d'une image singulière."
+            },
+            {
+              "icon": "BookOpen",
+              "title": "Tirages d'Art & Expositions",
+              "description": "Vente de tirages limités numérotés et scénographie d'expositions institutionnelles."
+            }
+          ]
+        }
+      },
+      {
+        "id": "testimonials-3",
+        "type": "testimonials",
+        "data": {
+          "badge": "Témoignages",
+          "title": "Mots de mes Commanditaires",
+          "subtitle": "Ce qu'ils ont pensé de notre collaboration créative.",
+          "items": [
+            {
+              "author": "Adrien de La Tour",
+              "role": "Directeur de création — Maison Vernet",
+              "rating": 5,
+              "quote": "Elena a su capter l'esprit de notre collection automne-hiver avec une grâce inouïe. Ses images ont élevé notre image de marque sur tous les supports.",
+              "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
+            },
+            {
+              "author": "Mathilde Vasseur",
+              "role": "Rédactrice en chef — L'Éphémère Magazine",
+              "rating": 5,
+              "quote": "Collaborer avec Elena est toujours un bonheur : précision, calme sur les plateaux et un sens inné du cadre qui ne déçoit jamais.",
+              "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+            }
+          ]
+        }
+      },
+      {
+        "id": "contact-3",
+        "type": "contact",
+        "data": {
+          "badge": "Réservation",
+          "title": "Parlons de Votre Prochain Projet",
+          "subtitle": "Disponible pour des projets en France et à l'international.",
+          "address": "14 Rue de Turenne, 75004 Paris",
+          "phone": "+33 6 45 89 12 30",
+          "email": "studio@elenavance.com",
+          "openingHours": "Sur rendez-vous uniquement",
+          "formFields": [
+            "name",
+            "email",
+            "phone",
+            "service",
+            "message"
+          ],
+          "servicesList": [
+            "Shooting Lookbook / Mode",
+            "Portrait personnel / professionnel",
+            "Projet éditorial presse",
+            "Acquisition tirage d'art"
+          ],
+          "submitButtonText": "Envoyer ma proposition",
+          "successMessage": "Merci pour votre message ! Je vous réponds personnellement sous 24h ouvrées."
+        }
+      },
+      {
+        "id": "footer-3",
+        "type": "footer",
+        "data": {
+          "logoText": "ELENA VANCE",
+          "description": "Photographie d'art et création visuelle contemporaine.",
+          "socialLinks": [
+            {
+              "platform": "Instagram",
+              "url": "https://instagram.com"
+            },
+            {
+              "platform": "Behance",
+              "url": "https://behance.net"
+            },
+            {
+              "platform": "Pinterest",
+              "url": "https://pinterest.com"
+            }
+          ],
+          "copyright": "© 2026 Elena Vance Studio. Tous droits de reproduction réservés."
+        }
+      }
+    ]
+  },
+  {
+    "id": "site-sommet-tech-2026",
+    "title": "Sommet Tech & Innovation Paris 2026",
+    "slug": "sommet-tech-2026",
+    "description": "Le plus grand rassemblement européen dédié à l'IA générative, la deeptech et la transition numérique.",
+    "createdAt": "2026-09-04T09:00:00.000Z",
+    "updatedAt": "2026-09-09T18:45:00.000Z",
+    "published": true,
+    "theme": {
+      "palette": "purple",
+      "primaryColor": "#7c3aed",
+      "secondaryColor": "#1e1b4b",
+      "accentColor": "#ec4899",
+      "backgroundColor": "#0b0f19",
+      "textColor": "#f1f5f9",
+      "fontHeading": "Space Grotesk",
+      "fontBody": "Inter",
+      "borderRadius": "rounded-2xl"
+    },
+    "settings": {
+      "favicon": "🚀",
+      "logoText": "Sommet Tech 2026",
+      "showBranding": true,
+      "contactEmail": "contact@sommet-tech2026.fr"
+    },
+    "sections": [
+      {
+        "id": "nav-4",
+        "type": "navbar",
+        "data": {
+          "logoText": "Sommet Tech 2026",
+          "logoIcon": "Rocket",
+          "links": [
+            {
+              "label": "Accueil",
+              "href": "#hero"
+            },
+            {
+              "label": "Compte à rebours",
+              "href": "#countdown"
+            },
+            {
+              "label": "Speakers",
+              "href": "#features"
+            },
+            {
+              "label": "Chiffres",
+              "href": "#stats"
+            },
+            {
+              "label": "Billetterie",
+              "href": "#pricing"
+            },
+            {
+              "label": "Newsletter",
+              "href": "#newsletter"
+            },
+            {
+              "label": "Accès & Contact",
+              "href": "#contact"
+            }
+          ],
+          "ctaButton": {
+            "show": true,
+            "text": "Prendre mon Pass",
+            "href": "#pricing"
+          }
+        }
+      },
+      {
+        "id": "hero-4",
+        "type": "hero",
+        "data": {
+          "layout": "full-bg",
+          "badge": "🎟️ Billetterie Ouverte — Tarif Early Bird jusqu'au 30 Septembre",
+          "title": "Façonner l'Avenir du Numérique, de l'IA et du Quantique",
+          "subtitle": "3 jours intensifs de keynotes inspirantes, de démonstrations en direct et de networking d'élite avec 4 000 leaders de la tech mondiale.",
+          "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+          "primaryBtn": {
+            "text": "Réserver son pass",
+            "href": "#pricing"
+          },
+          "secondaryBtn": {
+            "text": "Voir les intervenants",
+            "href": "#features"
+          },
+          "statsBadge": {
+            "count": "15-17 Oct",
+            "label": "Palais des Congrès"
+          }
+        }
+      },
+      {
+        "id": "countdown-4",
+        "type": "countdown",
+        "data": {
+          "badge": "Ouverture Proche",
+          "title": "Le Compte à Rebours est Lancé",
+          "subtitle": "Rejoignez la communauté le 15 octobre 2026 dès 8h30 à Paris.",
+          "targetDate": "2026-10-15T08:30:00",
+          "note": "⚡ Attention : les places pour les masterclasses techniques sont limitées à 150 personnes.",
+          "ctaButton": {
+            "text": "Bloquer mon tarif early bird",
+            "href": "#pricing"
+          }
+        }
+      },
+      {
+        "id": "features-4",
+        "type": "features",
+        "data": {
+          "badge": "Visionnaires",
+          "title": "Intervenants & Keynotes d'Exception",
+          "subtitle": "Des personnalités pionnières qui redéfinissent les standards technologiques mondiaux.",
+          "layout": "4-cols",
+          "items": [
+            {
+              "icon": "Cpu",
+              "title": "Dr. Aurélie Chen",
+              "description": "Directrice de la recherche IA chez QuantumScale, pionnière des architectures neuronales frugales."
+            },
+            {
+              "icon": "Shield",
+              "title": "Sarah Benali",
+              "description": "Présidente de CyberDefense Alliance, experte en résilience des infrastructures critiques."
+            },
+            {
+              "icon": "Rocket",
+              "title": "Marc Delorme",
+              "description": "Fondateur & CEO de NeoOrbit, premier lanceur spatial réutilisable européen."
+            },
+            {
+              "icon": "Globe",
+              "title": "Thomas Valois",
+              "description": "Chief Technology Officer chez CloudGlobal, bâtisseur d'infrastructures à 100M d'utilisateurs."
+            }
+          ]
+        }
+      },
+      {
+        "id": "stats-4",
+        "type": "stats",
+        "data": {
+          "title": "L'événement tech incontournable de l'automne",
+          "items": [
+            {
+              "number": "4 000+",
+              "label": "Participants attendus"
+            },
+            {
+              "number": "80+",
+              "label": "Speakers internationaux"
+            },
+            {
+              "number": "40h",
+              "label": "De masterclasses & ateliers"
+            },
+            {
+              "number": "150+",
+              "label": "Startups exposantes au village"
+            }
+          ]
+        }
+      },
+      {
+        "id": "pricing-4",
+        "type": "pricing",
+        "data": {
+          "badge": "Accréditations",
+          "title": "Choisissez Votre Formule de Participation",
+          "subtitle": "Tous les pass incluent l'accès à l'application mobile de networking et aux replays des keynotes.",
+          "hasPeriodToggle": false,
+          "plans": [
+            {
+              "name": "Pass Découverte",
+              "priceMonthly": "190 €",
+              "priceYearly": "190 €",
+              "description": "Accès plénières et village des startups pour découvrir les tendances.",
+              "popular": false,
+              "buttonText": "Sélectionner Découverte",
+              "buttonHref": "#contact",
+              "features": [
+                "Accès aux 3 journées de conférences plénières",
+                "Entrée libre au village des 150 startups",
+                "Pauses café et animations partenaires",
+                "Application de networking entre participants"
+              ]
+            },
+            {
+              "name": "Pass Intégral Pro",
+              "priceMonthly": "450 €",
+              "priceYearly": "450 €",
+              "description": "La formule la plus plébiscitée par les équipes tech et managers.",
+              "popular": true,
+              "buttonText": "Prendre le Pass Intégral",
+              "buttonHref": "#contact",
+              "features": [
+                "Tous les avantages du Pass Découverte",
+                "Accès prioritaire aux 40h de Masterclasses",
+                "Déjeuners buffet networking inclus chaque midi",
+                "Accès à la soirée officielle Sommet Tech Night",
+                "Replays vidéo HD intégrals pendant 12 mois"
+              ]
+            },
+            {
+              "name": "Pass VIP & Entreprise",
+              "priceMonthly": "950 €",
+              "priceYearly": "950 €",
+              "description": "Pour les dirigeants souhaitant un accès exclusif aux conférenciers.",
+              "popular": false,
+              "buttonText": "Accès VIP Exclusif",
+              "buttonHref": "#contact",
+              "features": [
+                "Tous les avantages du Pass Intégral",
+                "Lounge VIP privatif avec bar & conciergerie",
+                "Dîner de gala avec les conférenciers le jeudi soir",
+                "Session de pitch privée auprès des fonds VC partenaires",
+                "Prise en charge vestiaire & parking réservé"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "newsletter-4",
+        "type": "newsletter",
+        "data": {
+          "badge": "Alertes",
+          "title": "Recevez les Nouvelles Révélations de Speakers",
+          "subtitle": "Deux emails par mois maximum avec le programme détaillé et les actualités du sommet.",
+          "buttonText": "S'abonner gratuitement",
+          "placeholder": "Votre adresse e-mail professionnelle",
+          "disclaimer": "Nous respectons votre vie privée. Désinscription en 1 clic."
+        }
+      },
+      {
+        "id": "contact-4",
+        "type": "contact",
+        "data": {
+          "badge": "Informations & Sponsors",
+          "title": "Accréditations Presse & Devenir Partenaire",
+          "subtitle": "Notre équipe événementielle est à votre disposition pour toute demande de sponsoring ou d'interview.",
+          "address": "Palais des Congrès, 2 Place de la Porte Maillot, 75017 Paris",
+          "phone": "01 56 78 90 00",
+          "email": "partenariats@sommet-tech2026.fr",
+          "openingHours": "Standard ouvert 9h – 18h",
+          "formFields": [
+            "name",
+            "email",
+            "phone",
+            "service",
+            "message"
+          ],
+          "servicesList": [
+            "Devenir Sponsor de l'événement",
+            "Accréditation Presse / Médias",
+            "Réservation groupe entreprise (>5 pass)",
+            "Question sur l'accessibilité"
+          ],
+          "submitButtonText": "Envoyer ma demande",
+          "successMessage": "Merci ! Notre responsable partenariats reviendra vers vous sous 24 heures."
+        }
+      },
+      {
+        "id": "footer-4",
+        "type": "footer",
+        "data": {
+          "logoText": "Sommet Tech 2026",
+          "description": "L'événement de référence pour penser les technologies de demain.",
+          "socialLinks": [
+            {
+              "platform": "Twitter",
+              "url": "https://x.com"
+            },
+            {
+              "platform": "LinkedIn",
+              "url": "https://linkedin.com"
+            },
+            {
+              "platform": "YouTube",
+              "url": "https://youtube.com"
+            }
+          ],
+          "copyright": "© 2026 Sommet Tech Paris. Événement produit par TechSummit Europe."
+        }
+      }
+    ]
+  }
+]
