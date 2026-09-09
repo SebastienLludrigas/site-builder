@@ -180,4 +180,31 @@ describe('Dashboard', () => {
     expect(screen.getByText('Safe Site')).toBeInTheDocument();
     expect(global.fetch).toHaveBeenCalledTimes(1); // only the initial GET, no DELETE call
   });
+
+  it('copies the live site link to the clipboard', async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => [makeSite({ slug: 'my-bakery' })] });
+    const writeText = vi.fn().mockResolvedValue();
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+
+    renderDashboard();
+    await screen.findByText('My Bakery');
+
+    fireEvent.click(screen.getByTitle('Copy live website link'));
+
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith(`${window.location.origin}/site/my-bakery`));
+    expect(await screen.findByText('Link copied to clipboard.')).toBeInTheDocument();
+  });
+
+  it('shows an error toast when copying the link fails', async () => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => [makeSite({ slug: 'my-bakery' })] });
+    const writeText = vi.fn().mockRejectedValue(new Error('denied'));
+    Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+
+    renderDashboard();
+    await screen.findByText('My Bakery');
+
+    fireEvent.click(screen.getByTitle('Copy live website link'));
+
+    expect(await screen.findByText(/Could not copy the link/i)).toBeInTheDocument();
+  });
 });

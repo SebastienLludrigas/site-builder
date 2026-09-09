@@ -15,7 +15,8 @@ import {
   Sparkles,
   CheckCircle2,
   Inbox,
-  Eye
+  Eye,
+  Link2
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import CreateSiteModal from '../components/CreateSiteModal';
@@ -105,6 +106,17 @@ export default function Dashboard({ onOpenEditor }) {
         }
       }
     });
+  };
+
+  const handleCopyLink = async (slug) => {
+    const url = `${window.location.origin}/site/${slug}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast('Link copied to clipboard.', 'success');
+    } catch (err) {
+      console.error('Error copying link:', err);
+      showToast('Could not copy the link. Copy it manually from the address bar instead.', 'error');
+    }
   };
 
   const handleSiteCreated = (newSite) => {
@@ -414,6 +426,15 @@ export default function Dashboard({ onOpenEditor }) {
                         title={`View inbox messages (${site.submissionsCount || 0})`}
                       >
                         <MessageSquare className="w-4 h-4" />
+                      </button>
+
+                      {/* Copy live link */}
+                      <button
+                        onClick={() => handleCopyLink(site.slug)}
+                        className="p-1.5 text-slate-400 hover:text-indigo-400 hover:bg-slate-800 rounded-lg transition"
+                        title="Copy live website link"
+                      >
+                        <Link2 className="w-4 h-4" />
                       </button>
 
                       {/* Duplicate button */}
