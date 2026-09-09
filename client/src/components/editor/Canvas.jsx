@@ -642,6 +642,43 @@ function renderSectionComponent(section, ctx) {
       );
     }
 
+    case 'testimonials': {
+      const items = d.items || [];
+      const cols = isMobile ? 'grid-cols-1' : (isTablet ? 'grid-cols-2' : 'grid-cols-3');
+      return (
+        <section className={`px-4 sm:px-6 max-w-6xl mx-auto ${isMobile ? 'py-12' : 'py-20'}`}>
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            {d.badge && <span className="site-badge px-3 py-1 text-xs font-semibold mb-3 inline-block">{d.badge}</span>}
+            <h2 className={`site-font-heading font-extrabold tracking-tight mb-2 ${isMobile ? 'text-2xl' : 'text-3xl'}`}>{d.title || 'Customer Reviews'}</h2>
+            {d.subtitle && <p className="text-xs sm:text-sm opacity-80">{d.subtitle}</p>}
+          </div>
+          <div className={`grid ${cols} gap-4 sm:gap-6`}>
+            {items.map((item, idx) => (
+              <div key={idx} className="site-card p-5 sm:p-6 flex flex-col justify-between">
+                <div>
+                  <div className="text-amber-500 text-base mb-3.5 tracking-wide">
+                    {'★'.repeat(item.rating || 5)}
+                  </div>
+                  <p className="text-xs sm:text-sm italic opacity-90 leading-relaxed mb-5">
+                    « {item.quote} »
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  {item.avatar && (
+                    <img src={item.avatar} alt={item.author || ''} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+                  )}
+                  <div>
+                    <h4 className="font-bold text-xs sm:text-sm">{item.author}</h4>
+                    <p className="text-[11px] opacity-70">{item.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
     case 'faq': {
       const items = d.items || [];
       return (
