@@ -232,9 +232,9 @@ export default function Dashboard({ onOpenEditor }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Loading your websites" role="status">
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden animate-pulse">
+                <div className="h-7 bg-slate-950 border-b border-slate-800" />
                 <div className="h-44 bg-slate-800" />
                 <div className="p-5 space-y-3">
-                  <div className="h-3 w-24 bg-slate-800 rounded" />
                   <div className="h-4 w-3/4 bg-slate-800 rounded" />
                   <div className="h-3 w-full bg-slate-800 rounded" />
                   <div className="h-3 w-2/3 bg-slate-800 rounded" />
@@ -274,6 +274,19 @@ export default function Dashboard({ onOpenEditor }) {
                   className="group bg-slate-900 border border-slate-800 hover:border-indigo-500/60 rounded-2xl overflow-hidden flex flex-col justify-between transition duration-200 shadow-md hover:shadow-xl hover:shadow-indigo-500/5"
                 >
                   <div>
+                    {/* Mini browser chrome, framing the thumbnail as a live hosted page */}
+                    <div className="h-7 bg-slate-950 border-b border-slate-800 flex items-center gap-2 px-3">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-slate-700" />
+                        <span className="w-2 h-2 rounded-full bg-slate-700" />
+                        <span className="w-2 h-2 rounded-full bg-slate-700" />
+                      </div>
+                      <div className="flex-1 flex items-center gap-1 bg-slate-900 rounded-md px-2 py-0.5 min-w-0">
+                        <Globe className="w-2.5 h-2.5 text-slate-600 flex-shrink-0" />
+                        <span className="text-[10px] font-mono text-slate-500 truncate">/site/{site.slug}</span>
+                      </div>
+                    </div>
+
                     {/* Thumbnail banner */}
                     <div className="relative h-44 bg-slate-950 overflow-hidden border-b border-slate-800">
                       {site.heroImage ? (
@@ -318,11 +331,6 @@ export default function Dashboard({ onOpenEditor }) {
 
                     {/* Body Info */}
                     <div className="p-5">
-                      <div className="flex items-center gap-2 text-xs text-indigo-400 font-mono mb-1.5">
-                        <Globe className="w-3.5 h-3.5" />
-                        <span>/site/{site.slug}</span>
-                      </div>
-
                       <h3 className="font-bold text-base text-white group-hover:text-indigo-300 transition leading-snug line-clamp-1">
                         {site.title}
                       </h3>
