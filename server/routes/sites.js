@@ -32,14 +32,14 @@ sitesRouter.get('/', (req, res) => {
 // Get site by ID
 sitesRouter.get('/:id', (req, res) => {
   const site = db.getSiteById(req.params.id);
-  if (!site) return res.status(404).json({ error: 'Site introuvable' });
+  if (!site) return res.status(404).json({ error: 'Site not found' });
   res.json(site);
 });
 
 // Create new site
 sitesRouter.post('/', (req, res) => {
   const { title, slug, description, templateId } = req.body;
-  if (!title) return res.status(400).json({ error: 'Le titre est obligatoire' });
+  if (!title) return res.status(400).json({ error: 'Title is required' });
 
   let newSiteData = { title, slug, description };
 
@@ -60,21 +60,21 @@ sitesRouter.post('/', (req, res) => {
 // Update site
 sitesRouter.put('/:id', (req, res) => {
   const updated = db.updateSite(req.params.id, req.body);
-  if (!updated) return res.status(404).json({ error: 'Site introuvable' });
+  if (!updated) return res.status(404).json({ error: 'Site not found' });
   res.json(updated);
 });
 
 // Delete site
 sitesRouter.delete('/:id', (req, res) => {
   const deleted = db.deleteSite(req.params.id);
-  if (!deleted) return res.status(404).json({ error: 'Site introuvable' });
+  if (!deleted) return res.status(404).json({ error: 'Site not found' });
   res.json({ success: true });
 });
 
 // Duplicate site
 sitesRouter.post('/:id/duplicate', (req, res) => {
   const copy = db.duplicateSite(req.params.id);
-  if (!copy) return res.status(404).json({ error: 'Site introuvable' });
+  if (!copy) return res.status(404).json({ error: 'Site not found' });
   res.status(201).json(copy);
 });
 
@@ -87,7 +87,7 @@ sitesRouter.post('/reset-demos', (req, res) => {
 // Export site as standalone ZIP file
 sitesRouter.get('/:id/export', (req, res) => {
   const site = db.getSiteById(req.params.id);
-  if (!site) return res.status(404).json({ error: 'Site introuvable' });
+  if (!site) return res.status(404).json({ error: 'Site not found' });
 
   const htmlContent = renderSiteHtml(site, true);
   const archive = new ZipArchive({ zlib: { level: 9 } });
@@ -103,15 +103,15 @@ sitesRouter.get('/:id/export', (req, res) => {
   // Append index.html
   archive.append(htmlContent, { name: 'index.html' });
 
-  // Append a helpful README.txt
-  const readme = `Site exporté avec SiteCraft
+  // Append a helpful README.txt in English
+  const readme = `Website exported with SiteCraft
 =================================
-Nom du site: ${site.title}
-Date d'exportation: ${new Date().toLocaleString('fr-FR')}
+Site Title: ${site.title}
+Export Date: ${new Date().toISOString()}
 
-Comment visualiser votre site :
-Double-cliquez simplement sur le fichier "index.html" pour l'ouvrir dans n'importe quel navigateur web !
-Vous pouvez également envoyer ce fichier à n'importe quel hébergeur (GitHub Pages, Netlify, Vercel, OVH, etc.).
+How to view your site:
+Simply double-click "index.html" to open it in any modern web browser!
+You can also deploy these files directly to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, S3, etc.).
 `;
   archive.append(readme, { name: 'README.txt' });
 

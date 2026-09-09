@@ -30,7 +30,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
       });
 
       if (!res.ok) {
-        throw new Error('Erreur lors du téléchargement du fichier.');
+        throw new Error('Failed to upload image file.');
       }
 
       const data = await res.json();
@@ -62,8 +62,8 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
               <ImageIcon className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-white">Choisir une image</h3>
-              <p className="text-xs text-slate-400">Sélectionnez une photo gratuite, téléversez un fichier ou collez une URL.</p>
+              <h3 className="text-base font-bold text-white">Select Image</h3>
+              <p className="text-xs text-slate-400">Choose a royalty-free photo, upload from your device, or paste a direct URL.</p>
             </div>
           </div>
           <button
@@ -85,7 +85,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
             }`}
           >
             <ImageIcon className="w-3.5 h-3.5" />
-            <span>Bibliothèque photos gratuites</span>
+            <span>Curated Photo Library</span>
           </button>
 
           <button
@@ -97,7 +97,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
             }`}
           >
             <Upload className="w-3.5 h-3.5" />
-            <span>Téléverser depuis l'ordinateur</span>
+            <span>Upload from Computer</span>
           </button>
 
           <button
@@ -109,7 +109,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
             }`}
           >
             <LinkIcon className="w-3.5 h-3.5" />
-            <span>Adresse URL externe</span>
+            <span>External Image URL</span>
           </button>
         </div>
 
@@ -182,17 +182,17 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
                 {uploading ? (
                   <div className="flex flex-col items-center gap-3">
                     <Loader2 className="w-8 h-8 text-indigo-400 animate-spin" />
-                    <span className="text-sm font-semibold text-slate-300">Téléversement en cours...</span>
+                    <span className="text-sm font-semibold text-slate-300">Uploading file...</span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center text-center">
                     <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3">
                       <Upload className="w-6 h-6" />
                     </div>
-                    <span className="text-sm font-bold text-slate-200">Cliquez pour choisir un fichier image</span>
-                    <span className="text-xs text-slate-400 mt-1">JPG, PNG, WebP, GIF jusqu'à 10 Mo</span>
+                    <span className="text-sm font-bold text-slate-200">Click to choose an image file</span>
+                    <span className="text-xs text-slate-400 mt-1">JPG, PNG, WebP, GIF up to 10MB</span>
                     <span className="mt-4 px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg shadow transition">
-                      Parcourir les fichiers
+                      Browse Local Files
                     </span>
                   </div>
                 )}
@@ -209,7 +209,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
             <form onSubmit={handleCustomUrlSubmit} className="max-w-md mx-auto pt-6 flex flex-col gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                  Lien de l'image (URL directe)
+                  Direct Image URL
                 </label>
                 <input
                   type="url"
@@ -225,7 +225,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
                 <div className="rounded-xl overflow-hidden border border-slate-700 aspect-video max-h-48 bg-slate-950">
                   <img
                     src={customUrl}
-                    alt="Aperçu"
+                    alt="Preview"
                     className="w-full h-full object-cover"
                     onError={(e) => { e.target.style.display = 'none'; }}
                   />
@@ -238,13 +238,13 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
                   onClick={onClose}
                   className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-lg"
                 >
-                  Annuler
+                  Cancel
                 </button>
                 <button
                   type="submit"
                   className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg shadow"
                 >
-                  Appliquer cette image
+                  Apply Image
                 </button>
               </div>
             </form>

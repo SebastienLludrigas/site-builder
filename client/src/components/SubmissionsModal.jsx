@@ -36,7 +36,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Voulez-vous vraiment supprimer ce message ?')) return;
+    if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
       await fetch(`/api/submissions/${id}`, { method: 'DELETE' });
       const updated = submissions.filter(s => s.id !== id);
@@ -72,13 +72,13 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
             </div>
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                <span>Boîte de Réception Locale</span>
+                <span>Local Dashboard Inbox</span>
                 <span className="text-xs font-semibold px-2 py-0.5 bg-slate-800 text-slate-400 rounded-full">
                   {filteredSubmissions.length} message(s)
                 </span>
               </h2>
               <p className="text-xs text-slate-400">
-                Tous les formulaires soumis sur vos sites hébergés localement sont archivés ici.
+                All form submissions captured from your locally hosted websites are archived here.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
               onChange={(e) => setSelectedSiteFilter(e.target.value)}
               className="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-1.5 outline-none focus:border-indigo-500"
             >
-              <option value="all">Tous les sites ({submissions.length})</option>
+              <option value="all">All Websites ({submissions.length})</option>
               {sites.map(site => (
                 <option key={site.id} value={site.id}>
                   {site.title}
@@ -112,17 +112,17 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
           {/* List panel */}
           <div className="w-2/5 border-r border-slate-800 overflow-y-auto bg-slate-950/20">
             {loading ? (
-              <div className="p-8 text-center text-slate-400 text-sm">Chargement des messages...</div>
+              <div className="p-8 text-center text-slate-400 text-sm">Loading messages...</div>
             ) : filteredSubmissions.length === 0 ? (
               <div className="p-8 text-center text-slate-500 text-sm">
                 <MessageSquare className="w-8 h-8 mx-auto mb-2 opacity-40" />
-                Aucun message reçu pour le moment.
+                No messages received yet.
               </div>
             ) : (
               <div className="divide-y divide-slate-800/60">
                 {filteredSubmissions.map(sub => {
                   const isSelected = activeMessage?.id === sub.id;
-                  const dateStr = new Date(sub.createdAt).toLocaleDateString('fr-FR', {
+                  const dateStr = new Date(sub.createdAt).toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'short',
                     hour: '2-digit',
@@ -146,10 +146,10 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                         <span className="text-[11px] text-slate-500">{dateStr}</span>
                       </div>
                       <div className="font-semibold text-sm text-slate-100 truncate">
-                        {sub.data?.name || sub.data?.email || 'Visiteur anonyme'}
+                        {sub.data?.name || sub.data?.email || 'Anonymous Visitor'}
                       </div>
                       <div className="text-xs text-slate-400 line-clamp-2">
-                        {sub.data?.message || sub.data?.service || 'Demande de contact'}
+                        {sub.data?.message || sub.data?.service || 'Contact Inquiry'}
                       </div>
                     </button>
                   );
@@ -166,20 +166,20 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                 <div className="flex items-start justify-between pb-4 border-b border-slate-800">
                   <div>
                     <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                      Provenance : {getSiteName(activeMessage.siteId)}
+                      Source Website: {getSiteName(activeMessage.siteId)}
                     </span>
                     <h3 className="text-xl font-bold text-white mt-2">
-                      {activeMessage.data?.name || 'Nom non renseigné'}
+                      {activeMessage.data?.name || 'Name not provided'}
                     </h3>
                     <p className="text-xs text-slate-400 mt-0.5">
-                      Reçu le {new Date(activeMessage.createdAt).toLocaleString('fr-FR')}
+                      Received on {new Date(activeMessage.createdAt).toLocaleString('en-US')}
                     </p>
                   </div>
 
                   <button
                     onClick={() => handleDelete(activeMessage.id)}
                     className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition"
-                    title="Supprimer ce message"
+                    title="Delete message"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -206,7 +206,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                     <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex items-center gap-3">
                       <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                       <div>
-                        <div className="text-[11px] text-slate-400">Téléphone</div>
+                        <div className="text-[11px] text-slate-400">Phone</div>
                         <a
                           href={`tel:${activeMessage.data.phone}`}
                           className="text-xs font-semibold text-slate-200 hover:text-emerald-400"
@@ -221,7 +221,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                     <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex items-center gap-3 col-span-2">
                       <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                       <div>
-                        <div className="text-[11px] text-slate-400">Objet / Prestation demandée</div>
+                        <div className="text-[11px] text-slate-400">Subject / Requested Service</div>
                         <div className="text-xs font-semibold text-slate-200">
                           {activeMessage.data.service}
                         </div>
@@ -233,10 +233,10 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                 {/* Message body */}
                 <div>
                   <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                    Message transmis :
+                    Submitted Message:
                   </div>
                   <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 text-sm text-slate-200 whitespace-pre-wrap leading-relaxed">
-                    {activeMessage.data?.message || '(Aucun message textuel supplémentaire)'}
+                    {activeMessage.data?.message || '(No additional message content)'}
                   </div>
                 </div>
 
@@ -244,18 +244,18 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                 {activeMessage.data?.email && (
                   <div className="pt-4 border-t border-slate-800 flex justify-end">
                     <a
-                      href={`mailto:${activeMessage.data.email}?subject=Suite à votre message sur ${encodeURIComponent(getSiteName(activeMessage.siteId))}`}
+                      href={`mailto:${activeMessage.data.email}?subject=Regarding your message on ${encodeURIComponent(getSiteName(activeMessage.siteId))}`}
                       className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold shadow-md shadow-indigo-600/30 transition"
                     >
                       <Mail className="w-3.5 h-3.5" />
-                      <span>Répondre par email</span>
+                      <span>Reply via Email</span>
                     </a>
                   </div>
                 )}
               </div>
             ) : (
               <div className="h-full flex items-center justify-center text-slate-500 text-sm">
-                Sélectionnez un message à gauche pour afficher ses détails.
+                Select a message on the left to view full details.
               </div>
             )}
           </div>

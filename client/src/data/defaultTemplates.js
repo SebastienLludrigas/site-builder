@@ -1,127 +1,127 @@
 export const AVAILABLE_SECTIONS = [
   {
     type: "hero",
-    name: "En-tête Hero",
-    category: "Accroche",
+    name: "Hero Header",
+    category: "Header",
     icon: "LayoutTemplate",
-    description: "Grande section d'accroche avec titre percutant, sous-titre, boutons et image valorisante.",
+    description: "High-impact hero banner with compelling title, subtitle, CTA buttons, and badge.",
     defaultData: {
       layout: "split",
-      badge: "✨ Nouvelle Offre 2026",
-      title: "Donnez vie à vos projets les plus ambitieux",
-      subtitle: "La solution clé en main conçue pour vous simplifier le quotidien et ravir vos clients.",
+      badge: "✨ New 2026 Release",
+      title: "Bring Your Most Ambitious Ideas to Life",
+      subtitle: "The complete turnkey platform designed to streamline your daily workflow and delight your audience.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80",
-      primaryBtn: { text: "Découvrir maintenant", href: "#features" },
-      secondaryBtn: { text: "Nous contacter", href: "#contact" },
-      statsBadge: { count: "100%", label: "Satisfaction garantie" }
+      primaryBtn: { text: "Discover More", href: "#features" },
+      secondaryBtn: { text: "Get in Touch", href: "#contact" },
+      statsBadge: { count: "100%", label: "Satisfaction Guaranteed" }
     }
   },
   {
     type: "features",
-    name: "Fonctionnalités & Services",
-    category: "Contenu",
+    name: "Features & Services",
+    category: "Content",
     icon: "Sparkles",
-    description: "Grille de cartes présentant vos atouts clés, services ou fonctionnalités.",
+    description: "Grid of feature cards highlighting your core strengths, perks, or services.",
     defaultData: {
-      badge: "Points forts",
-      title: "Pourquoi choisir nos services ?",
-      subtitle: "Un ensemble d'avantages pensés pour vous garantir un résultat impeccable.",
+      badge: "Highlights",
+      title: "Why Choose Our Platform?",
+      subtitle: "Carefully engineered benefits designed to deliver outstanding outcomes.",
       layout: "3-cols",
       items: [
         {
           icon: "Sparkles",
-          title: "Qualité Irréprochable",
-          description: "Chaque détail est soigné pour dépasser vos attentes les plus exigeantes."
+          title: "Uncompromising Quality",
+          description: "Every single detail is polished to exceed your highest expectations."
         },
         {
           icon: "Clock",
-          title: "Rapidité & Réactivité",
-          description: "Une équipe disponible et à votre écoute pour concrétiser vos demandes sans délai."
+          title: "Speed & Agility",
+          description: "A responsive and dedicated team ready to bring your ideas to market fast."
         },
         {
           icon: "ShieldCheck",
-          title: "Garantie & Sérénité",
-          description: "Bénéficiez d'un accompagnement transparent et d'engagements clairs du début à la fin."
+          title: "Guaranteed Reliability",
+          description: "Enjoy transparent guidance, secure operations, and complete peace of mind."
         }
       ]
     }
   },
   {
     type: "about",
-    name: "À Propos & Histoire",
-    category: "Contenu",
+    name: "About & Story",
+    category: "Content",
     icon: "FileText",
-    description: "Présentation de votre équipe, de votre atelier ou de votre mission avec image.",
+    description: "Introduce your founders, workshop, heritage, or mission with side-by-side imagery.",
     defaultData: {
       layout: "image-right",
-      badge: "Qui sommes-nous ?",
-      title: "Une passion transmise avec authenticité",
-      text: "Depuis notre création, notre mission est de concilier savoir-faire traditionnel et approches contemporaines pour offrir des expériences mémorables à chacun de nos visiteurs.",
+      badge: "About Us",
+      title: "Passion Driven by Authenticity",
+      text: "Since our founding, our mission has been to combine timeless craftsmanship with cutting-edge methods to create remarkable experiences for our community.",
       bulletPoints: [
-        "Sélection rigoureuse des meilleurs partenaires locaux",
-        "Écoute attentive de vos besoins sur mesure",
-        "Plus de dix ans d'expérience au service de votre satisfaction"
+        "Meticulous curation of top-tier local partners",
+        "Attentive listening tailored to your bespoke needs",
+        "Over a decade of industry expertise at your service"
       ],
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
       highlightCard: {
         number: "10+",
-        label: "Années d'expertise"
+        label: "Years of Experience"
       }
     }
   },
   {
     type: "gallery",
-    name: "Galerie Photos / Portfolio",
-    category: "Médias",
+    name: "Photo Gallery / Portfolio",
+    category: "Media",
     icon: "Image",
-    description: "Vitrine visuelle avec zoom lightbox pour présenter vos réalisations.",
+    description: "Visual portfolio with lightbox zoom to showcase your finest work.",
     defaultData: {
-      badge: "Réalisations",
-      title: "Notre Galerie Photos",
-      subtitle: "Découvrez en images un aperçu de nos dernières créations.",
+      badge: "Portfolio",
+      title: "Our Visual Showcase",
+      subtitle: "Explore a curated selection of our latest works and creative projects.",
       layout: "grid",
       items: [
         {
           image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
-          title: "Création artisanale #1",
-          category: "Sélection"
+          title: "Artisanal Creation #1",
+          category: "Selected"
         },
         {
           image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-          title: "Création artisanale #2",
-          category: "Sélection"
+          title: "Artisanal Creation #2",
+          category: "Selected"
         },
         {
           image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
-          title: "Création artisanale #3",
-          category: "Sélection"
+          title: "Artisanal Creation #3",
+          category: "Selected"
         }
       ]
     }
   },
   {
     type: "menu",
-    name: "Carte Restaurant / Menu / Tarifs détaillés",
+    name: "Menu & Service Catalog",
     category: "Commerce",
     icon: "UtensilsCrossed",
-    description: "Idéal pour les restaurants, boulangeries, salons de beauté ou grilles de prestations.",
+    description: "Ideal for bakeries, restaurants, salons, and structured service lists.",
     defaultData: {
-      badge: "Nos Offres",
-      title: "Carte & Spécialités",
-      subtitle: "Des formules gourmandes et soignées préparées avec amour.",
+      badge: "Offerings",
+      title: "Menu & Specialties",
+      subtitle: "Handcrafted selections prepared with premium ingredients.",
       categories: [
         {
-          name: "Les Incontournables",
+          name: "Signature Highlights",
           items: [
-            { name: "Spécialité Maison du Chef", description: "Préparation artisanale aux saveurs délicates et équilibrées", price: "12,50 €", tag: "Populaire" },
-            { name: "Sélection Gourmande du Jour", description: "Ingrédients frais du marché selon l'arrivage matinal", price: "9,90 €" }
+            { name: "House Signature Special", description: "Bespoke preparation with delicate balance and rich aromas", price: "$12.50", tag: "Popular" },
+            { name: "Market Fresh Catch of the Day", description: "Locally sourced fresh seasonal ingredients", price: "$9.90" }
           ]
         },
         {
-          name: "Desserts & Boissons",
+          name: "Desserts & Refreshments",
           items: [
-            { name: "Douceur Sablée aux Fruits", description: "Pâte croquante dorée et crème onctueuse", price: "6,00 €" },
-            { name: "Boisson Maison Fraîche", description: "Infusion naturelle de menthe et citron bio", price: "4,50 €" }
+            { name: "Golden Berry Tartlet", description: "Crisp buttery crust and velvety cream filling", price: "$6.00" },
+            { name: "House Infused Beverage", description: "Organic mint and fresh citrus slow infusion", price: "$4.50" }
           ]
         }
       ]
@@ -129,44 +129,44 @@ export const AVAILABLE_SECTIONS = [
   },
   {
     type: "pricing",
-    name: "Grille Tarifaire",
+    name: "Pricing Table",
     category: "Commerce",
     icon: "BadgeCheck",
-    description: "Tableaux de prix avec fonctionnalités, formule recommandée et bascule mensuel/annuel.",
+    description: "Tiered pricing table with feature checklists, popular badge, and billing cycle toggle.",
     defaultData: {
-      badge: "Abonnements",
-      title: "Des Tarifs Simples et Adaptés",
-      subtitle: "Choisissez l'offre qui correspond le mieux à votre situation.",
+      badge: "Plans",
+      title: "Simple, Transparent Pricing",
+      subtitle: "Choose the package tailored perfectly to your requirements.",
       hasPeriodToggle: true,
       yearlyDiscountText: "-20%",
       plans: [
         {
-          name: "Formule Découverte",
-          priceMonthly: "29 €",
-          priceYearly: "23 €",
-          description: "Pour faire ses premiers pas en toute autonomie.",
+          name: "Starter",
+          priceMonthly: "$29 /mo",
+          priceYearly: "$23 /mo",
+          description: "Get started independently with essential tools.",
           popular: false,
-          buttonText: "Sélectionner",
+          buttonText: "Select Starter",
           buttonHref: "#contact",
           features: [
-            "Accès aux fonctionnalités de base",
-            "Support par e-mail en 48h",
-            "Mises à jour incluses"
+            "Access to core features",
+            "Email support within 48h",
+            "Automatic product updates"
           ]
         },
         {
-          name: "Formule Avancée",
-          priceMonthly: "69 €",
-          priceYearly: "55 €",
-          description: "La formule la plus appréciée par nos utilisateurs réguliers.",
+          name: "Professional",
+          priceMonthly: "$69 /mo",
+          priceYearly: "$55 /mo",
+          description: "Our most popular plan for active and growing teams.",
           popular: true,
-          buttonText: "Choisir Avancée",
+          buttonText: "Choose Pro",
           buttonHref: "#contact",
           features: [
-            "Toutes les fonctionnalités en illimité",
-            "Support prioritaire 7j/7",
-            "Rapports détaillés personnalisés",
-            "Accompagnement initial offert"
+            "Unlimited feature access",
+            "Priority 24/7 assistance",
+            "Custom detailed reporting",
+            "Complimentary onboarding session"
           ]
         }
       ]
@@ -174,27 +174,27 @@ export const AVAILABLE_SECTIONS = [
   },
   {
     type: "testimonials",
-    name: "Témoignages & Avis Clients",
+    name: "Testimonials & Reviews",
     category: "Social",
     icon: "Star",
-    description: "Avis clients avec notation étoiles, photo avatar et citation élogieuse.",
+    description: "Customer social proof cards with star ratings, avatar photos, and verified quotes.",
     defaultData: {
-      badge: "Recommandations",
-      title: "Ce Que Pensent Nos Clients",
-      subtitle: "Découvrez les retours de personnes qui nous ont fait confiance.",
+      badge: "Reviews",
+      title: "Loved by Our Community",
+      subtitle: "Discover why clients consistently trust and recommend our work.",
       items: [
         {
-          author: "Sophie Bernard",
-          role: "Cliente Particulière",
+          author: "Sophia Reynolds",
+          role: "Verified Client",
           rating: 5,
-          quote: "Une expérience absolument parfaite du début à la fin. Le résultat dépasse largement ce que j'espérais !",
+          quote: "An absolutely seamless experience from start to finish. The final outcome exceeded all expectations!",
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
         },
         {
-          author: "Alexandre Mercier",
-          role: "Directeur d'agence",
+          author: "Alexander Brooks",
+          role: "Managing Director",
           rating: 5,
-          quote: "Professionnalisme, ponctualité et écoute sans faille. Je recommande les yeux fermés à tous mes proches.",
+          quote: "True professionalism, proactive communication, and zero hassle. Highly recommended!",
           avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
         }
       ]
@@ -202,128 +202,128 @@ export const AVAILABLE_SECTIONS = [
   },
   {
     type: "countdown",
-    name: "Compte à Rebours Interactif",
-    category: "Interactivité",
+    name: "Interactive Countdown",
+    category: "Interactive",
     icon: "Timer",
-    description: "Compteur interactif en temps réel (jours, heures, minutes, secondes) pour un événement ou un lancement.",
+    description: "Live real-time ticker (days, hours, minutes, seconds) for event launches and deadlines.",
     defaultData: {
-      badge: "Événement Imminent",
-      title: "Lancement Officiel dans :",
-      subtitle: "Tenez-vous prêt pour le grand jour !",
+      badge: "Upcoming Event",
+      title: "Official Launch In:",
+      subtitle: "Mark your calendar and get ready for the big day!",
       targetDate: "2026-11-20T10:00:00",
-      note: "⚡ Inscrivez-vous avant la date limite pour réserver votre place.",
+      note: "⚡ Space is strictly limited. Register early to claim your spot.",
       ctaButton: {
-        text: "Participer à l'événement",
+        text: "Reserve My Seat",
         href: "#contact"
       }
     }
   },
   {
     type: "faq",
-    name: "Questions Fréquentes (FAQ)",
-    category: "Interactivité",
+    name: "FAQ Accordion",
+    category: "Interactive",
     icon: "HelpCircle",
-    description: "Accordéon interactif de questions/réponses cliquables.",
+    description: "Collapsible accordion answering frequent visitor questions concisely.",
     defaultData: {
-      badge: "Aide & Réponses",
-      title: "Foire Aux Questions",
-      subtitle: "Tout ce qu'il faut savoir avant de nous rejoindre.",
+      badge: "FAQ",
+      title: "Frequently Asked Questions",
+      subtitle: "Everything you need to know before getting started.",
       items: [
         {
-          question: "Comment fonctionne la prise de contact ?",
-          answer: "Il vous suffit de remplir le formulaire ci-dessous. Nous revenons vers vous dans les plus brefs délais avec une réponse personnalisée."
+          question: "How do I get in touch to get started?",
+          answer: "Simply submit the contact form below. Our team reviews every message and responds promptly with tailored next steps."
         },
         {
-          question: "Proposez-vous des facilités de paiement ?",
-          answer: "Oui, nous offrons la possibilité d'étaler les règlements en plusieurs fois sans frais additionnels."
+          question: "Do you offer flexible payment plans?",
+          answer: "Yes, we support split installments across milestones at zero additional cost."
         },
         {
-          question: "Puis-je annuler ou reporter un rendez-vous ?",
-          answer: "Vous pouvez modifier votre créneau jusqu'à 24 heures à l'avance sans aucune pénalité."
+          question: "Can I reschedule or adjust a booking?",
+          answer: "You may adjust your time slot up to 24 hours prior to the scheduled date with zero penalty."
         }
       ]
     }
   },
   {
     type: "contact",
-    name: "Formulaire de Contact & Inbox",
-    category: "Interactivité",
+    name: "Contact Form & Inbox",
+    category: "Interactive",
     icon: "Mail",
-    description: "Formulaire interactif connecté à la boîte de réception locale avec coordonnées complètes.",
+    description: "Interactive submission form wired to your local inbox with company details.",
     defaultData: {
-      badge: "Échangeons",
-      title: "Prendre Contact",
-      subtitle: "Remplissez ce formulaire et votre message sera immédiatement enregistré dans notre boîte de réception.",
-      address: "10 Rue de la Paix, 75002 Paris",
-      phone: "01 23 45 67 89",
-      email: "contact@monsite.fr",
-      openingHours: "Du Lundi au Vendredi : 9h00 - 18h30",
+      badge: "Contact",
+      title: "Let's Talk",
+      subtitle: "Fill out the fields below and your inquiry will be delivered directly to our local dashboard inbox.",
+      address: "100 Broadway, New York, NY 10005",
+      phone: "+1 (555) 234-5678",
+      email: "hello@mywebsite.com",
+      openingHours: "Monday to Friday: 9:00 AM – 6:30 PM",
       formFields: ["name", "email", "phone", "service", "message"],
-      servicesList: ["Demande générale", "Demande de devis", "Rendez-vous conseil"],
-      submitButtonText: "Envoyer mon message",
-      successMessage: "Merci ! Votre message a bien été envoyé et sera traité très rapidement."
+      servicesList: ["General Inquiry", "Custom Quote Request", "Consultation Call"],
+      submitButtonText: "Send Message",
+      successMessage: "Thank you! Your message has been received and will be answered shortly."
     }
   },
   {
     type: "stats",
-    name: "Chiffres Clés / Statistiques",
+    name: "Key Figures & Stats",
     category: "Social",
     icon: "BarChart3",
-    description: "Compteurs imposants pour illustrer votre impact et crédibilité.",
+    description: "Bold stat counters showcasing your credibility and track record.",
     defaultData: {
-      title: "Nos résultats en chiffres",
+      title: "Proven Results in Numbers",
       items: [
-        { number: "98%", label: "Clients satisfaits" },
-        { number: "1 500+", label: "Projets concrétisés" },
-        { number: "24/7", label: "Assistance réactive" },
-        { number: "5★", label: "Note moyenne certifiée" }
+        { number: "98%", label: "Client Satisfaction" },
+        { number: "1,500+", label: "Completed Projects" },
+        { number: "24/7", label: "Responsive Support" },
+        { number: "4.9★", label: "Average Rating" }
       ]
     }
   },
   {
     type: "newsletter",
-    name: "Barre d'Inscription Newsletter",
-    category: "Interactivité",
+    name: "Newsletter Signup Banner",
+    category: "Interactive",
     icon: "Send",
-    description: "Boîte d'inscription email épurée pour capturer des leads.",
+    description: "Minimalist email capture strip for list building.",
     defaultData: {
-      badge: "Restez Informé",
-      title: "Ne manquez aucune de nos nouveautés",
-      subtitle: "Recevez nos meilleurs conseils et nos offres exclusives directement par email.",
-      buttonText: "S'inscrire",
-      placeholder: "Votre adresse e-mail...",
-      disclaimer: "Zéro spam garanti. Vous pouvez vous désinscrire à tout moment."
+      badge: "Stay Updated",
+      title: "Never Miss an Announcement",
+      subtitle: "Receive our latest insights and exclusive releases directly in your inbox.",
+      buttonText: "Subscribe",
+      placeholder: "Your email address...",
+      disclaimer: "Zero spam guaranteed. Unsubscribe anytime in one click."
     }
   },
   {
     type: "ctaBanner",
-    name: "Bannière d'Appel à l'Action",
-    category: "Accroche",
+    name: "Call to Action Banner",
+    category: "Header",
     icon: "Flame",
-    description: "Bannière colorée percutante pour inciter vos visiteurs à passer à l'action.",
+    description: "Vibrant high-conversion strip prompting visitors to take immediate action.",
     defaultData: {
-      title: "Prêt à transformer vos idées en réalité ?",
-      subtitle: "Rejoignez dès aujourd'hui les centaines de clients qui nous font confiance.",
-      buttonText: "Commencer dès maintenant",
+      title: "Ready to Turn Your Vision into Reality?",
+      subtitle: "Join hundreds of happy teams who rely on our tools every day.",
+      buttonText: "Get Started Now",
       buttonHref: "#contact",
-      secondaryButtonText: "En savoir plus",
+      secondaryButtonText: "Learn More",
       secondaryButtonHref: "#features"
     }
   },
   {
     type: "footer",
-    name: "Pied de Page (Footer)",
+    name: "Footer",
     category: "Structure",
     icon: "PanelBottom",
-    description: "Pied de page avec nom, description, liens sociaux et copyright.",
+    description: "Modern footer with brand mark, summary, social links, and copyright.",
     defaultData: {
-      logoText: "Mon Site Web",
-      description: "Votre présence en ligne moderne et soignée.",
+      logoText: "My Website",
+      description: "Crafted with elegance and precision for the modern web.",
       socialLinks: [
         { platform: "Instagram", url: "https://instagram.com" },
         { platform: "LinkedIn", url: "https://linkedin.com" }
       ],
-      copyright: "© 2026 Mon Site. Tous droits réservés."
+      copyright: "© 2026 My Website. All rights reserved."
     }
   }
 ];
@@ -331,7 +331,7 @@ export const AVAILABLE_SECTIONS = [
 export const THEME_PALETTES = [
   {
     id: "amber",
-    name: "Ambre Chaleureux & Boulangerie",
+    name: "Warm Amber & Bakery",
     primaryColor: "#b45309",
     secondaryColor: "#78350f",
     accentColor: "#f59e0b",
@@ -341,7 +341,7 @@ export const THEME_PALETTES = [
   },
   {
     id: "indigo",
-    name: "Indigo Cyber & SaaS High-Tech",
+    name: "Cyber Indigo & Modern SaaS",
     primaryColor: "#6366f1",
     secondaryColor: "#0f172a",
     accentColor: "#06b6d4",
@@ -351,7 +351,7 @@ export const THEME_PALETTES = [
   },
   {
     id: "neutral",
-    name: "Éditorial Noir & Blanc Minimaliste",
+    name: "Minimalist Monochrome Editorial",
     primaryColor: "#18181b",
     secondaryColor: "#71717a",
     accentColor: "#d4af37",
@@ -361,7 +361,7 @@ export const THEME_PALETTES = [
   },
   {
     id: "purple",
-    name: "Violet Sommet & Événement",
+    name: "Tech Summit & Event Violet",
     primaryColor: "#7c3aed",
     secondaryColor: "#1e1b4b",
     accentColor: "#ec4899",
@@ -371,7 +371,7 @@ export const THEME_PALETTES = [
   },
   {
     id: "emerald",
-    name: "Émeraude Forêt & Santé / Bio",
+    name: "Forest Emerald & Organic Wellness",
     primaryColor: "#059669",
     secondaryColor: "#064e3b",
     accentColor: "#34d399",
@@ -381,7 +381,7 @@ export const THEME_PALETTES = [
   },
   {
     id: "coral",
-    name: "Corail & Sunset Moderne",
+    name: "Modern Coral & Sunset",
     primaryColor: "#e11d48",
     secondaryColor: "#881337",
     accentColor: "#fb7185",
@@ -394,31 +394,31 @@ export const THEME_PALETTES = [
 export const TYPOGRAPHY_PRESETS = [
   {
     id: "inter",
-    name: "Inter (Net, Moderne & Universel)",
+    name: "Inter (Clean, Modern & Universal)",
     heading: "Inter",
     body: "Inter"
   },
   {
     id: "playfair",
-    name: "Playfair Display + Inter (Élégant, Luxe & Gastronomie)",
+    name: "Playfair Display + Inter (Luxury, Fine Dining & Elegant)",
     heading: "Playfair Display",
     body: "Inter"
   },
   {
     id: "outfit",
-    name: "Outfit + Inter (SaaS & Intelligence Artificielle)",
+    name: "Outfit + Inter (SaaS & Artificial Intelligence)",
     heading: "Outfit",
     body: "Inter"
   },
   {
     id: "space",
-    name: "Space Grotesk + Inter (Futuriste & Conférence)",
+    name: "Space Grotesk + Inter (Futuristic & Conference)",
     heading: "Space Grotesk",
     body: "Inter"
   },
   {
     id: "editorial",
-    name: "Playfair + Plus Jakarta Sans (Art & Photographie)",
+    name: "Playfair + Plus Jakarta Sans (Art & Photography)",
     heading: "Playfair Display",
     body: "Plus Jakarta Sans"
   }

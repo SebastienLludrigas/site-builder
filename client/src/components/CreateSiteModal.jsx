@@ -4,42 +4,42 @@ import { X, Sparkles, Globe, FileText, Check } from 'lucide-react';
 const TEMPLATES = [
   {
     id: "blank",
-    title: "Page Vierge",
-    subtitle: "Commencez avec une structure minimale et personnalisez à 100%",
+    title: "Blank Canvas",
+    subtitle: "Start with a clean slate and customize 100% of sections",
     icon: "⚡",
-    badge: "Personnalisé",
+    badge: "Custom",
     templateId: null
   },
   {
     id: "patisserie",
-    title: "Boulangerie & Salon de Thé",
-    subtitle: "Artisanat, carte de viennoiseries, galerie photos et réservations",
+    title: "Artisan Bakery & Café",
+    subtitle: "Craftsmanship, pastry menu, photo journal, and table reservations",
     icon: "🥐",
-    badge: "Commerce & Gastronomie",
+    badge: "Food & Hospitality",
     templateId: "site-patisserie-delice"
   },
   {
     id: "saas",
-    title: "Startup SaaS & Tech IA",
-    subtitle: "Dark mode moderne, grille tarifaire, métriques et démo",
+    title: "SaaS & AI Tech Platform",
+    subtitle: "Modern dark mode, tiered pricing, metrics, and demo requests",
     icon: "⚡",
-    badge: "Technologie & B2B",
+    badge: "Technology & B2B",
     templateId: "site-novapulse-ai"
   },
   {
     id: "portfolio",
-    title: "Portfolio Photographe & Art",
-    subtitle: "Design minimaliste épuré, séries photos lightbox et prestations",
+    title: "Artist & Photographer Portfolio",
+    subtitle: "Minimalist editorial layout, lightbox gallery, and commission requests",
     icon: "📷",
-    badge: "Créatif & Portfolios",
+    badge: "Creative & Arts",
     templateId: "site-elena-vance-photo"
   },
   {
     id: "conference",
-    title: "Conférence & Grand Événement",
-    subtitle: "Compte à rebours interactif, intervenants, billetterie",
+    title: "Tech Summit & Event",
+    subtitle: "Live countdown ticker, keynote speakers, and ticketing passes",
     icon: "🚀",
-    badge: "Événements & Billetterie",
+    badge: "Events & Ticketing",
     templateId: "site-sommet-tech-2026"
   }
 ];
@@ -70,7 +70,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim()) {
-      setError('Veuillez donner un nom à votre site.');
+      setError('Please provide a name for your website.');
       return;
     }
 
@@ -93,7 +93,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
 
       if (!res.ok) {
         const errData = await res.json();
-        throw new Error(errData.error || 'Erreur lors de la création du site');
+        throw new Error(errData.error || 'Failed to create website');
       }
 
       const newSite = await res.json();
@@ -117,8 +117,8 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">Créer un nouveau site</h2>
-              <p className="text-xs text-slate-400">Votre site sera instantanément hébergé localement sur votre machine.</p>
+              <h2 className="text-base font-bold text-white">Create a New Website</h2>
+              <p className="text-xs text-slate-400">Your site will be immediately hosted and accessible locally on your machine.</p>
             </div>
           </div>
           <button
@@ -141,13 +141,13 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                Nom du site *
+                Website Name *
               </label>
               <input
                 type="text"
                 value={title}
                 onChange={handleTitleChange}
-                placeholder="Ex: Mon Restaurant Paris, Portfolio Sophie..."
+                placeholder="e.g. Skyline Studio, Artisan Bakery, AI Tech..."
                 className="w-full bg-slate-800/80 border border-slate-700 text-slate-100 rounded-xl px-3.5 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition"
                 required
                 autoFocus
@@ -156,7 +156,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
 
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                Adresse locale (Slug URL)
+                Local Address (URL Slug)
               </label>
               <div className="flex items-center bg-slate-800/80 border border-slate-700 rounded-xl px-3 py-2 text-sm focus-within:border-indigo-500">
                 <span className="text-slate-500 text-xs mr-1">/site/</span>
@@ -164,7 +164,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
                   type="text"
                   value={slug}
                   onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]+/g, ''))}
-                  placeholder="mon-site"
+                  placeholder="my-site"
                   className="bg-transparent text-slate-100 outline-none w-full text-xs font-mono"
                   required
                 />
@@ -175,13 +175,13 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
           {/* Description */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-              Courte description
+              Short Description
             </label>
             <input
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Ex: Pâtisserie artisanale et salon de thé bio au cœur du Marais."
+              placeholder="e.g. Artisanal bakery and organic tea room in Paris."
               className="w-full bg-slate-800/80 border border-slate-700 text-slate-100 rounded-xl px-3.5 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition"
             />
           </div>
@@ -189,7 +189,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
           {/* Template Selection */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 mb-2">
-              Modèle de départ
+              Starting Template
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {TEMPLATES.map(t => {
@@ -231,7 +231,7 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
           <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
             <div className="text-xs text-slate-400 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Sera accessible sur <span className="text-indigo-300 font-mono">{typeof window !== 'undefined' ? window.location.origin : ''}/site/{slug || '...'}</span></span>
+              <span>Will be hosted at <span className="text-indigo-300 font-mono">{typeof window !== 'undefined' ? window.location.origin : ''}/site/{slug || '...'}</span></span>
             </div>
 
             <div className="flex items-center gap-3">
@@ -240,14 +240,14 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
                 onClick={onClose}
                 className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition"
               >
-                Annuler
+                Cancel
               </button>
               <button
                 type="submit"
                 disabled={loading}
                 className="px-5 py-2 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white text-xs font-semibold rounded-lg shadow-md shadow-indigo-600/30 transition flex items-center gap-2 disabled:opacity-50"
               >
-                {loading ? 'Création...' : 'Créer et Ouvrir l\'Éditeur'}
+                {loading ? 'Creating...' : 'Create & Open Editor'}
               </button>
             </div>
           </div>

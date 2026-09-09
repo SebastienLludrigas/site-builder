@@ -124,16 +124,16 @@ export default function Canvas({
             <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mx-auto mb-4">
               <Sparkles className="w-8 h-8" />
             </div>
-            <h3 className="text-lg font-bold mb-2">Votre site est encore vide</h3>
+            <h3 className="text-lg font-bold mb-2">Your website is empty</h3>
             <p className="text-sm opacity-70 mb-6 max-w-sm mx-auto">
-              Cliquez ci-dessous pour ajouter votre premier bloc (En-tête Hero, Fonctionnalités, Galerie...).
+              Click below to insert your first section (Hero header, Features, Gallery, etc.).
             </p>
             <button
               type="button"
               onClick={() => onInsertSectionAt(0)}
               className="px-5 py-2.5 bg-indigo-600 text-white rounded-xl font-semibold text-xs shadow-lg shadow-indigo-600/30 hover:bg-indigo-500 transition"
             >
-              + Ajouter un premier bloc
+              + Add First Section
             </button>
           </div>
         ) : (
@@ -163,7 +163,7 @@ export default function Canvas({
                         onClick={(e) => { e.stopPropagation(); onMoveSection(index, -1); }}
                         disabled={index === 0}
                         className="p-1 hover:bg-slate-800 rounded disabled:opacity-30"
-                        title="Monter"
+                        title="Move Up"
                       >
                         <ChevronUp className="w-3.5 h-3.5" />
                       </button>
@@ -174,7 +174,7 @@ export default function Canvas({
                         onClick={(e) => { e.stopPropagation(); onMoveSection(index, 1); }}
                         disabled={index === sections.length - 1}
                         className="p-1 hover:bg-slate-800 rounded disabled:opacity-30"
-                        title="Descendre"
+                        title="Move Down"
                       >
                         <ChevronDown className="w-3.5 h-3.5" />
                       </button>
@@ -184,7 +184,7 @@ export default function Canvas({
                         type="button"
                         onClick={(e) => { e.stopPropagation(); onDuplicateSection(section.id); }}
                         className="p-1 hover:bg-slate-800 rounded"
-                        title="Dupliquer"
+                        title="Duplicate"
                       >
                         <Copy className="w-3.5 h-3.5" />
                       </button>
@@ -194,7 +194,7 @@ export default function Canvas({
                         type="button"
                         onClick={(e) => { e.stopPropagation(); onEditSection(section); }}
                         className="p-1 hover:bg-indigo-600 rounded bg-indigo-600/60"
-                        title="Modifier le contenu"
+                        title="Edit Content"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </button>
@@ -204,7 +204,7 @@ export default function Canvas({
                         type="button"
                         onClick={(e) => { e.stopPropagation(); onDeleteSection(section.id); }}
                         className="p-1 hover:bg-red-600/80 rounded"
-                        title="Supprimer"
+                        title="Delete"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
@@ -245,7 +245,7 @@ export default function Canvas({
                       className="opacity-0 group-hover/add:opacity-100 transition absolute -top-3 px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-lg text-[11px] font-bold flex items-center gap-1 transform scale-90 hover:scale-100"
                     >
                       <Plus className="w-3 h-3" />
-                      <span>Ajouter une section</span>
+                      <span>Add Section</span>
                     </button>
                   </div>
                 )}
@@ -257,7 +257,7 @@ export default function Canvas({
         {/* SiteCraft Branding Badge */}
         {site.settings?.showBranding !== false && (
           <div className="py-6 text-center text-xs opacity-50 border-t border-black/10">
-            <span>✨ Fièrement propulsé par <strong>SiteCraft</strong></span>
+            <span>✨ Powered by <strong>SiteCraft</strong></span>
           </div>
         )}
       </div>
@@ -270,7 +270,7 @@ export default function Canvas({
         >
           <img
             src={lightboxImage}
-            alt="Aperçu"
+            alt="Preview"
             className="max-w-[90vw] max-h-[85vh] rounded-lg object-contain shadow-2xl"
           />
         </div>
@@ -553,14 +553,14 @@ function renderSectionComponent(section, ctx) {
                   onClick={() => ctx.setPricingPeriodYearly(false)}
                   className={`px-4 py-1.5 rounded-full text-xs font-semibold transition ${!isYearly ? 'bg-white shadow text-slate-900' : 'opacity-70'}`}
                 >
-                  Mensuel
+                  Monthly
                 </button>
                 <button
                   type="button"
                   onClick={() => ctx.setPricingPeriodYearly(true)}
                   className={`px-4 py-1.5 rounded-full text-xs font-semibold transition flex items-center gap-1.5 ${isYearly ? 'bg-white shadow text-slate-900' : 'opacity-70'}`}
                 >
-                  <span>Annuel</span>
+                  <span>Yearly</span>
                   <span className="bg-indigo-600 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">{d.yearlyDiscountText || '-20%'}</span>
                 </button>
               </div>
@@ -571,17 +571,17 @@ function renderSectionComponent(section, ctx) {
             {plans.map((p, i) => (
               <div key={i} className={`site-card p-6 flex flex-col justify-between ${p.popular ? 'ring-2 ring-indigo-500 shadow-xl' : ''}`}>
                 <div>
-                  {p.popular && <span className="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase mb-2 inline-block">Populaire</span>}
+                  {p.popular && <span className="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase mb-2 inline-block">Popular</span>}
                   <h3 className="font-bold text-xl mb-1">{p.name}</h3>
                   <p className="text-xs opacity-75 min-h-[32px]">{p.description}</p>
                   <div className="my-6">
                     <span className="site-font-heading text-4xl font-extrabold">
                       {isYearly ? (p.priceYearly || p.priceMonthly) : p.priceMonthly}
                     </span>
-                    <span className="text-xs opacity-70"> / mois</span>
+                    <span className="text-xs opacity-70"> / month</span>
                   </div>
                   <button type="button" className={`w-full py-2.5 text-xs font-semibold mb-6 ${p.popular ? 'site-btn-primary' : 'site-btn-secondary'}`}>
-                    {p.buttonText || 'Choisir ce forfait'}
+                    {p.buttonText || 'Choose Plan'}
                   </button>
                   <div className="space-y-2 border-t border-black/10 pt-4">
                     {(p.features || []).map((f, j) => (
@@ -643,10 +643,10 @@ function renderSectionComponent(section, ctx) {
 
           <div className="grid grid-cols-4 gap-3 max-w-md mx-auto mb-6">
             {[
-              { num: "36", label: "Jours" },
-              { num: "14", label: "Heures" },
+              { num: "36", label: "Days" },
+              { num: "14", label: "Hours" },
               { num: "28", label: "Minutes" },
-              { num: "45", label: "Secondes" }
+              { num: "45", label: "Seconds" }
             ].map((box, i) => (
               <div key={i} className="site-card p-4 text-center">
                 <div className="site-font-heading text-3xl font-extrabold text-indigo-500">{box.num}</div>
@@ -692,12 +692,12 @@ function renderSectionComponent(section, ctx) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="site-card p-6 space-y-4">
-              <h3 className="font-bold text-lg mb-2">Informations utiles</h3>
+              <h3 className="font-bold text-lg mb-2">Contact Information</h3>
               {d.address && (
                 <div className="flex items-start gap-3 text-xs">
                   <MapPin className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold">Adresse</div>
+                    <div className="font-semibold">Address</div>
                     <div className="opacity-80 mt-0.5">{d.address}</div>
                   </div>
                 </div>
@@ -706,7 +706,7 @@ function renderSectionComponent(section, ctx) {
                 <div className="flex items-start gap-3 text-xs">
                   <Phone className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold">Téléphone</div>
+                    <div className="font-semibold">Phone</div>
                     <div className="opacity-80 mt-0.5">{d.phone}</div>
                   </div>
                 </div>
@@ -715,7 +715,7 @@ function renderSectionComponent(section, ctx) {
                 <div className="flex items-start gap-3 text-xs">
                   <Mail className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold">E-mail</div>
+                    <div className="font-semibold">Email</div>
                     <div className="opacity-80 mt-0.5">{d.email}</div>
                   </div>
                 </div>
@@ -724,7 +724,7 @@ function renderSectionComponent(section, ctx) {
                 <div className="flex items-start gap-3 text-xs">
                   <Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-semibold">Horaires</div>
+                    <div className="font-semibold">Hours</div>
                     <div className="opacity-80 mt-0.5">{d.openingHours}</div>
                   </div>
                 </div>
@@ -732,27 +732,27 @@ function renderSectionComponent(section, ctx) {
             </div>
 
             <div className="site-card p-6">
-              <form onSubmit={(e) => { e.preventDefault(); alert('Dans le site en ligne, ce formulaire enverra directement le message dans votre boîte de réception !'); }} className="space-y-4 text-xs">
+              <form onSubmit={(e) => { e.preventDefault(); alert('In the live published site, this form will submit directly to your local inbox!'); }} className="space-y-4 text-xs">
                 <div>
-                  <label className="font-semibold block mb-1">Nom complet *</label>
-                  <input type="text" placeholder="Votre nom" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
+                  <label className="font-semibold block mb-1">Full Name *</label>
+                  <input type="text" placeholder="Your name" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="font-semibold block mb-1">E-mail *</label>
-                    <input type="email" placeholder="votre@email.fr" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
+                    <label className="font-semibold block mb-1">Email *</label>
+                    <input type="email" placeholder="you@example.com" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
                   </div>
                   <div>
-                    <label className="font-semibold block mb-1">Téléphone</label>
-                    <input type="tel" placeholder="06 00 00 00 00" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" />
+                    <label className="font-semibold block mb-1">Phone</label>
+                    <input type="tel" placeholder="+1 (555) 000-0000" className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" />
                   </div>
                 </div>
                 <div>
                   <label className="font-semibold block mb-1">Message *</label>
-                  <textarea rows={3} placeholder="Votre demande..." className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
+                  <textarea rows={3} placeholder="Your inquiry or message..." className="w-full p-2.5 rounded-lg border border-black/15 bg-black/5 outline-none" required />
                 </div>
                 <button type="submit" className="site-btn-primary w-full py-2.5 font-bold shadow">
-                  {d.submitButtonText || 'Envoyer le message'}
+                  {d.submitButtonText || 'Send Message'}
                 </button>
               </form>
             </div>
@@ -768,9 +768,9 @@ function renderSectionComponent(section, ctx) {
           <h2 className="site-font-heading text-2xl font-extrabold mb-2">{d.title}</h2>
           <p className="text-xs opacity-80 mb-6">{d.subtitle}</p>
           <div className="flex gap-2 max-w-md mx-auto">
-            <input type="email" placeholder={d.placeholder || 'Votre e-mail'} className="flex-1 p-2.5 rounded-xl border border-black/15 bg-black/5 text-xs outline-none" />
+            <input type="email" placeholder={d.placeholder || 'Your email'} className="flex-1 p-2.5 rounded-xl border border-black/15 bg-black/5 text-xs outline-none" />
             <button type="button" className="site-btn-primary px-5 py-2.5 text-xs font-semibold whitespace-nowrap shadow">
-              {d.buttonText || "S'inscrire"}
+              {d.buttonText || "Subscribe"}
             </button>
           </div>
           {d.disclaimer && <p className="text-[10px] opacity-60 mt-3">{d.disclaimer}</p>}
@@ -809,7 +809,7 @@ function renderSectionComponent(section, ctx) {
             </div>
           </div>
           <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-black/5 text-center opacity-60 text-[11px]">
-            {d.copyright || 'Tous droits réservés.'}
+            {d.copyright || 'All rights reserved.'}
           </div>
         </footer>
       );

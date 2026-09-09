@@ -38,9 +38,9 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
         <div className="px-5 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400">
-              Bloc : {section.type}
+              Block: {section.type}
             </span>
-            <h3 className="text-sm font-bold text-white">Personnaliser le contenu</h3>
+            <h3 className="text-sm font-bold text-white">Customize Section Content</h3>
           </div>
           <button
             onClick={onClose}
@@ -57,7 +57,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'navbar' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Nom / Logo affiché</label>
+                <label className="block font-semibold text-slate-300 mb-1">Brand / Logo Displayed</label>
                 <input
                   type="text"
                   value={data.logoText || ''}
@@ -68,13 +68,13 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Liens du menu</label>
+                  <label className="font-semibold text-slate-300">Navigation Links</label>
                   <button
                     type="button"
-                    onClick={() => updateData({ links: [...(data.links || []), { label: 'Nouveau lien', href: '#section' }] })}
+                    onClick={() => updateData({ links: [...(data.links || []), { label: 'New Link', href: '#section' }] })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter un lien
+                    <Plus className="w-3 h-3" /> Add link
                   </button>
                 </div>
                 <div className="space-y-2">
@@ -88,7 +88,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newLinks[idx].label = e.target.value;
                           updateData({ links: newLinks });
                         }}
-                        placeholder="Titre"
+                        placeholder="Label"
                         className="input-field flex-1 text-xs py-1"
                       />
                       <input
@@ -99,7 +99,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newLinks[idx].href = e.target.value;
                           updateData({ links: newLinks });
                         }}
-                        placeholder="#ancre"
+                        placeholder="#anchor"
                         className="input-field w-24 text-xs py-1 font-mono"
                       />
                       <button
@@ -118,13 +118,13 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div className="pt-2 border-t border-slate-800">
-                <label className="font-semibold text-slate-300 mb-1.5 block">Bouton d'action principal</label>
+                <label className="font-semibold text-slate-300 mb-1.5 block">Main Action Button</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
                     value={data.ctaButton?.text || ''}
                     onChange={(e) => updateData({ ctaButton: { ...data.ctaButton, text: e.target.value } })}
-                    placeholder="Texte du bouton"
+                    placeholder="Button text"
                     className="input-field"
                   />
                   <input
@@ -143,31 +143,31 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'hero' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Disposition (Layout)</label>
+                <label className="block font-semibold text-slate-300 mb-1">Layout Style</label>
                 <select
                   value={data.layout || 'split'}
                   onChange={(e) => updateData({ layout: e.target.value })}
                   className="input-field"
                 >
-                  <option value="split">Split (Texte à gauche, image à droite)</option>
-                  <option value="centered">Centré (Grand titre avec image en dessous)</option>
-                  <option value="full-bg">Plein écran avec image en fond sombre</option>
+                  <option value="split">Split (Text left, media right)</option>
+                  <option value="centered">Centered (Hero title with media below)</option>
+                  <option value="full-bg">Full-width background with dark overlay</option>
                 </select>
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Badge d'accroche (optionnel)</label>
+                <label className="block font-semibold text-slate-300 mb-1">Eyebrow Badge (optional)</label>
                 <input
                   type="text"
                   value={data.badge || ''}
                   onChange={(e) => updateData({ badge: e.target.value })}
-                  placeholder="Ex: ✨ Nouveauté 2026"
+                  placeholder="e.g. ✨ New 2026 Release"
                   className="input-field"
                 />
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre principal *</label>
+                <label className="block font-semibold text-slate-300 mb-1">Primary Heading *</label>
                 <textarea
                   rows={2}
                   value={data.title || ''}
@@ -177,7 +177,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Sous-titre explicatif</label>
+                <label className="block font-semibold text-slate-300 mb-1">Supporting Subtitle</label>
                 <textarea
                   rows={3}
                   value={data.subtitle || ''}
@@ -188,7 +188,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               {/* Image control */}
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Image Hero</label>
+                <label className="block font-semibold text-slate-300 mb-1">Hero Media Image</label>
                 {data.image && (
                   <div className="relative rounded-xl overflow-hidden aspect-video border border-slate-700 mb-2">
                     <img src={data.image} alt="Hero" className="w-full h-full object-cover" />
@@ -200,44 +200,44 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                   className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg flex items-center justify-center gap-2 border border-slate-700 transition"
                 >
                   <ImageIcon className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>Changer l'image</span>
+                  <span>Change Image</span>
                 </button>
               </div>
 
               {/* Action buttons */}
               <div className="pt-3 border-t border-slate-800 space-y-3">
-                <label className="font-semibold text-slate-300 block">Bouton Principal</label>
+                <label className="font-semibold text-slate-300 block">Primary CTA Button</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
                     value={data.primaryBtn?.text || ''}
                     onChange={(e) => updateData({ primaryBtn: { ...data.primaryBtn, text: e.target.value } })}
-                    placeholder="Texte bouton"
+                    placeholder="Button text"
                     className="input-field"
                   />
                   <input
                     type="text"
                     value={data.primaryBtn?.href || '#'}
                     onChange={(e) => updateData({ primaryBtn: { ...data.primaryBtn, href: e.target.value } })}
-                    placeholder="Lien / Ancre"
+                    placeholder="URL / #anchor"
                     className="input-field font-mono"
                   />
                 </div>
 
-                <label className="font-semibold text-slate-300 block">Bouton Secondaire</label>
+                <label className="font-semibold text-slate-300 block">Secondary CTA Button</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
                     value={data.secondaryBtn?.text || ''}
                     onChange={(e) => updateData({ secondaryBtn: { ...data.secondaryBtn, text: e.target.value } })}
-                    placeholder="Texte bouton"
+                    placeholder="Button text"
                     className="input-field"
                   />
                   <input
                     type="text"
                     value={data.secondaryBtn?.href || '#'}
                     onChange={(e) => updateData({ secondaryBtn: { ...data.secondaryBtn, href: e.target.value } })}
-                    placeholder="Lien / Ancre"
+                    placeholder="URL / #anchor"
                     className="input-field font-mono"
                   />
                 </div>
@@ -259,7 +259,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la section</label>
+                <label className="block font-semibold text-slate-300 mb-1">Section Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -269,7 +269,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Sous-titre</label>
+                <label className="block font-semibold text-slate-300 mb-1">Section Subtitle</label>
                 <textarea
                   rows={2}
                   value={data.subtitle || ''}
@@ -280,15 +280,15 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Liste des cartes ({data.items?.length || 0})</label>
+                  <label className="font-semibold text-slate-300">Feature Cards ({data.items?.length || 0})</label>
                   <button
                     type="button"
                     onClick={() => updateData({
-                      items: [...(data.items || []), { icon: 'Sparkles', title: 'Nouvel atout', description: 'Description du bénéfice...' }]
+                      items: [...(data.items || []), { icon: 'Sparkles', title: 'New Feature', description: 'Feature highlight details...' }]
                     })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter
+                    <Plus className="w-3 h-3" /> Add Card
                   </button>
                 </div>
 
@@ -296,7 +296,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                   {(data.items || []).map((item, idx) => (
                     <div key={idx} className="p-3 bg-slate-950/40 rounded-xl border border-slate-800 space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="font-semibold text-slate-400 text-[11px]">Carte #{idx + 1}</span>
+                        <span className="font-semibold text-slate-400 text-[11px]">Card #{idx + 1}</span>
                         <button
                           type="button"
                           onClick={() => {
@@ -316,7 +316,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].title = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Titre de la carte"
+                        placeholder="Card title"
                         className="input-field font-semibold"
                       />
                       <textarea
@@ -327,7 +327,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].description = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Description..."
+                        placeholder="Description text..."
                         className="input-field"
                       />
                     </div>
@@ -341,14 +341,14 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'about' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Position de l'image</label>
+                <label className="block font-semibold text-slate-300 mb-1">Media Position</label>
                 <select
                   value={data.layout || 'image-right'}
                   onChange={(e) => updateData({ layout: e.target.value })}
                   className="input-field"
                 >
-                  <option value="image-right">Image à droite</option>
-                  <option value="image-left">Image à gauche</option>
+                  <option value="image-right">Image on Right</option>
+                  <option value="image-left">Image on Left</option>
                 </select>
               </div>
 
@@ -373,7 +373,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Texte de présentation</label>
+                <label className="block font-semibold text-slate-300 mb-1">Body Narrative / Story</label>
                 <textarea
                   rows={4}
                   value={data.text || ''}
@@ -396,17 +396,17 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                   className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg flex items-center justify-center gap-2 border border-slate-700 transition"
                 >
                   <ImageIcon className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>Changer l'image</span>
+                  <span>Change Image</span>
                 </button>
               </div>
 
               {/* Bullet points */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Points clés</label>
+                  <label className="font-semibold text-slate-300">Key Highlights</label>
                   <button
                     type="button"
-                    onClick={() => updateData({ bulletPoints: [...(data.bulletPoints || []), 'Nouveau point clé'] })}
+                    onClick={() => updateData({ bulletPoints: [...(data.bulletPoints || []), 'New key highlight'] })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
                     <Plus className="w-3 h-3" /> Ajouter
@@ -446,7 +446,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'gallery' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la galerie</label>
+                <label className="block font-semibold text-slate-300 mb-1">Gallery Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -457,19 +457,19 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Photos ({data.items?.length || 0})</label>
+                  <label className="font-semibold text-slate-300">Images ({data.items?.length || 0})</label>
                   <button
                     type="button"
                     onClick={() => updateData({
                       items: [...(data.items || []), {
                         image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
-                        title: "Nouvelle photo",
-                        category: "Général"
+                        title: "New Showcase Photo",
+                        category: "General"
                       }]
                     })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter une photo
+                    <Plus className="w-3 h-3" /> Add Image
                   </button>
                 </div>
 
@@ -483,7 +483,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           updateData({ items: newItems });
                         })}
                         className="w-16 h-12 rounded-lg overflow-hidden border border-slate-700 cursor-pointer flex-shrink-0 relative group"
-                        title="Changer cette image"
+                        title="Change this image"
                       >
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
@@ -500,7 +500,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                             newItems[idx].title = e.target.value;
                             updateData({ items: newItems });
                           }}
-                          placeholder="Légende"
+                          placeholder="Title / Caption"
                           className="input-field py-1"
                         />
                         <input
@@ -511,7 +511,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                             newItems[idx].category = e.target.value;
                             updateData({ items: newItems });
                           }}
-                          placeholder="Catégorie"
+                          placeholder="Category"
                           className="input-field py-0.5 text-[11px]"
                         />
                       </div>
@@ -537,7 +537,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'menu' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la carte</label>
+                <label className="block font-semibold text-slate-300 mb-1">Menu / Catalog Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -548,18 +548,18 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Catégories de menu</label>
+                  <label className="font-semibold text-slate-300">Catalog Categories</label>
                   <button
                     type="button"
                     onClick={() => updateData({
                       categories: [...(data.categories || []), {
-                        name: "Nouvelle Catégorie",
-                        items: [{ name: "Article", description: "Détails de l'article", price: "10,00 €" }]
+                        name: "New Category",
+                        items: [{ name: "Specialty Item", description: "Item description and ingredients", price: "$10.00" }]
                       }]
                     })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter catégorie
+                    <Plus className="w-3 h-3" /> Add Category
                   </button>
                 </div>
 
@@ -601,7 +601,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                                 newCats[catIdx].items[itIdx].name = e.target.value;
                                 updateData({ categories: newCats });
                               }}
-                              placeholder="Nom"
+                              placeholder="Item Name"
                               className="input-field py-1 flex-1"
                             />
                             <input
@@ -612,7 +612,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                                 newCats[catIdx].items[itIdx].price = e.target.value;
                                 updateData({ categories: newCats });
                               }}
-                              placeholder="Prix"
+                              placeholder="Price"
                               className="input-field py-1 w-20 text-center font-bold"
                             />
                             <button
@@ -632,12 +632,12 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           type="button"
                           onClick={() => {
                             const newCats = [...data.categories];
-                            newCats[catIdx].items.push({ name: "Nouveau plat", description: "", price: "5,00 €" });
+                            newCats[catIdx].items.push({ name: "New Item", description: "", price: "$5.00" });
                             updateData({ categories: newCats });
                           }}
                           className="text-[11px] text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1 mt-1"
                         >
-                          <Plus className="w-3 h-3" /> Ajouter un plat
+                          <Plus className="w-3 h-3" /> Add Item
                         </button>
                       </div>
                     </div>
@@ -651,7 +651,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'pricing' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la section tarifs</label>
+                <label className="block font-semibold text-slate-300 mb-1">Pricing Section Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -661,7 +661,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div className="flex items-center justify-between p-3 bg-slate-950/40 rounded-xl border border-slate-800">
-                <span className="font-semibold text-slate-300">Activer bascule Mensuel / Annuel</span>
+                <span className="font-semibold text-slate-300">Enable Monthly / Yearly Toggle</span>
                 <input
                   type="checkbox"
                   checked={data.hasPeriodToggle !== false}
@@ -671,7 +671,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="font-semibold text-slate-300 mb-2 block">Plans tarifaires</label>
+                <label className="font-semibold text-slate-300 mb-2 block">Pricing Tier Cards</label>
                 <div className="space-y-3">
                   {(data.plans || []).map((plan, idx) => (
                     <div key={idx} className="p-3 bg-slate-950/40 rounded-xl border border-slate-800 space-y-2">
@@ -696,13 +696,13 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                               updateData({ plans: newPlans });
                             }}
                           />
-                          <span>Populaire</span>
+                          <span>Popular</span>
                         </label>
                       </div>
 
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <label className="text-[10px] text-slate-400">Prix Mensuel</label>
+                          <label className="text-[10px] text-slate-400">Monthly Price</label>
                           <input
                             type="text"
                             value={plan.priceMonthly}
@@ -715,7 +715,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           />
                         </div>
                         <div>
-                          <label className="text-[10px] text-slate-400">Prix Annuel</label>
+                          <label className="text-[10px] text-slate-400">Yearly Price</label>
                           <input
                             type="text"
                             value={plan.priceYearly || plan.priceMonthly}
@@ -737,7 +737,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newPlans[idx].description = e.target.value;
                           updateData({ plans: newPlans });
                         }}
-                        placeholder="Description..."
+                        placeholder="Description text..."
                         className="input-field text-xs py-1"
                       />
                     </div>
@@ -751,7 +751,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'faq' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la FAQ</label>
+                <label className="block font-semibold text-slate-300 mb-1">FAQ Section Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -766,11 +766,11 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                   <button
                     type="button"
                     onClick={() => updateData({
-                      items: [...(data.items || []), { question: 'Nouvelle question ?', answer: 'Réponse détaillée...' }]
+                      items: [...(data.items || []), { question: 'New Question?', answer: 'Detailed answer goes here...' }]
                     })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter question
+                    <Plus className="w-3 h-3" /> Add Question
                   </button>
                 </div>
 
@@ -798,7 +798,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].question = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Question ?"
+                        placeholder="Question prompt?"
                         className="input-field font-semibold"
                       />
                       <textarea
@@ -809,7 +809,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].answer = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Réponse..."
+                        placeholder="Answer details..."
                         className="input-field"
                       />
                     </div>
@@ -833,7 +833,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Date & Heure Cible (ISO)</label>
+                <label className="block font-semibold text-slate-300 mb-1">Target Date & Time (ISO)</label>
                 <input
                   type="datetime-local"
                   value={(data.targetDate || '').substring(0, 16)}
@@ -843,7 +843,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Texte / Note sous le compteur</label>
+                <label className="block font-semibold text-slate-300 mb-1">Notice / Note Under Ticker</label>
                 <input
                   type="text"
                   value={data.note || ''}
@@ -853,7 +853,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Texte du bouton</label>
+                <label className="block font-semibold text-slate-300 mb-1">Button Label</label>
                 <input
                   type="text"
                   value={data.ctaButton?.text || ''}
@@ -868,7 +868,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'contact' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de contact</label>
+                <label className="block font-semibold text-slate-300 mb-1">Contact Section Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -878,7 +878,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Adresse postale</label>
+                <label className="block font-semibold text-slate-300 mb-1">Street Address</label>
                 <input
                   type="text"
                   value={data.address || ''}
@@ -889,7 +889,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block font-semibold text-slate-300 mb-1">Téléphone</label>
+                  <label className="block font-semibold text-slate-300 mb-1">Phone Number</label>
                   <input
                     type="text"
                     value={data.phone || ''}
@@ -898,7 +898,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold text-slate-300 mb-1">E-mail</label>
+                  <label className="block font-semibold text-slate-300 mb-1">Email Address</label>
                   <input
                     type="email"
                     value={data.email || ''}
@@ -909,7 +909,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Horaires d'ouverture</label>
+                <label className="block font-semibold text-slate-300 mb-1">Operating Hours</label>
                 <input
                   type="text"
                   value={data.openingHours || ''}
@@ -919,10 +919,10 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Texte du bouton d'envoi</label>
+                <label className="block font-semibold text-slate-300 mb-1">Form Submit Button Text</label>
                 <input
                   type="text"
-                  value={data.submitButtonText || 'Envoyer mon message'}
+                  value={data.submitButtonText || 'Send Message'}
                   onChange={(e) => updateData({ submitButtonText: e.target.value })}
                   className="input-field"
                 />
@@ -934,7 +934,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'testimonials' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre de la section avis</label>
+                <label className="block font-semibold text-slate-300 mb-1">Testimonials Section Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -945,20 +945,20 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-semibold text-slate-300">Avis ({data.items?.length || 0})</label>
+                  <label className="font-semibold text-slate-300">Reviews ({data.items?.length || 0})</label>
                   <button
                     type="button"
                     onClick={() => updateData({
                       items: [...(data.items || []), {
-                        author: "Nouveau client",
-                        role: "Client",
+                        author: "New Client",
+                        role: "Verified Customer",
                         rating: 5,
-                        quote: "Service remarquable, je recommande vivement !"
+                        quote: "Outstanding service and exceptional quality. Highly recommended!"
                       }]
                     })}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
                   >
-                    <Plus className="w-3 h-3" /> Ajouter un avis
+                    <Plus className="w-3 h-3" /> Add Review
                   </button>
                 </div>
 
@@ -974,7 +974,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                             newItems[idx].author = e.target.value;
                             updateData({ items: newItems });
                           }}
-                          placeholder="Nom de l'auteur"
+                          placeholder="Author Name"
                           className="input-field font-semibold flex-1 mr-2"
                         />
                         <button
@@ -997,7 +997,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].role = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Rôle / Titre..."
+                        placeholder="Role / Company..."
                         className="input-field text-xs py-1"
                       />
 
@@ -1009,7 +1009,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                           newItems[idx].quote = e.target.value;
                           updateData({ items: newItems });
                         }}
-                        placeholder="Citation de l'avis..."
+                        placeholder="Review quote..."
                         className="input-field"
                       />
                     </div>
@@ -1023,7 +1023,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'footer' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Nom / Logo dans le pied de page</label>
+                <label className="block font-semibold text-slate-300 mb-1">Footer Brand Name / Logo</label>
                 <input
                   type="text"
                   value={data.logoText || ''}
@@ -1033,7 +1033,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Description courte</label>
+                <label className="block font-semibold text-slate-300 mb-1">Brief Summary</label>
                 <textarea
                   rows={2}
                   value={data.description || ''}
@@ -1043,7 +1043,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Mention de copyright</label>
+                <label className="block font-semibold text-slate-300 mb-1">Copyright Notice</label>
                 <input
                   type="text"
                   value={data.copyright || ''}
@@ -1064,7 +1064,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
             className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-lg shadow transition flex items-center gap-1.5"
           >
             <Check className="w-4 h-4" />
-            <span>Terminer la modification</span>
+            <span>Done Editing</span>
           </button>
         </div>
       </div>

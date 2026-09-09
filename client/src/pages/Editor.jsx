@@ -62,7 +62,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
     setLoading(true);
     try {
       const res = await fetch(`/api/sites/${siteId}`);
-      if (!res.ok) throw new Error('Impossible de charger le site');
+      if (!res.ok) throw new Error('Failed to load website');
       const data = await res.json();
       setSite(data);
       setHistory([JSON.parse(JSON.stringify(data))]);
@@ -181,7 +181,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
   };
 
   const handleDeleteSection = (sectionId) => {
-    if (!window.confirm('Voulez-vous vraiment supprimer cette section ?')) return;
+    if (!window.confirm('Are you sure you want to delete this section?')) return;
     const currentSections = (site.sections || []).filter(s => s.id !== sectionId);
     const updated = { ...site, sections: currentSections };
     updateSiteState(updated);
@@ -216,7 +216,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
       <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-          <span className="text-sm text-slate-400 font-semibold">Ouverture de l'éditeur...</span>
+          <span className="text-sm text-slate-400 font-semibold">Opening editor...</span>
         </div>
       </div>
     );
@@ -226,13 +226,13 @@ export default function Editor({ siteId, onBackToDashboard }) {
     return (
       <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-6">
         <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl max-w-md text-center">
-          <h2 className="text-lg font-bold mb-2">Erreur</h2>
-          <p className="text-xs text-slate-400 mb-6">{error || 'Site introuvable'}</p>
+          <h2 className="text-lg font-bold mb-2">Error</h2>
+          <p className="text-xs text-slate-400 mb-6">{error || 'Website not found'}</p>
           <button
             onClick={onBackToDashboard}
             className="px-4 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg"
           >
-            Retour au tableau de bord
+            Back to Dashboard
           </button>
         </div>
       </div>
@@ -250,10 +250,10 @@ export default function Editor({ siteId, onBackToDashboard }) {
           <button
             onClick={onBackToDashboard}
             className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition flex items-center gap-1 text-xs font-semibold"
-            title="Retour au tableau de bord"
+            title="Back to Dashboard"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Tableau de bord</span>
+            <span className="hidden sm:inline">Dashboard</span>
           </button>
 
           <div className="h-4 w-px bg-slate-800" />
@@ -279,21 +279,21 @@ export default function Editor({ siteId, onBackToDashboard }) {
             <button
               onClick={() => setViewport('desktop')}
               className={`p-1.5 rounded-lg transition ${viewport === 'desktop' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}
-              title="Aperçu Ordinateur"
+              title="Desktop View"
             >
               <Monitor className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewport('tablet')}
               className={`p-1.5 rounded-lg transition ${viewport === 'tablet' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}
-              title="Aperçu Tablette (768px)"
+              title="Tablet View (768px)"
             >
               <Tablet className="w-4 h-4" />
             </button>
             <button
               onClick={() => setViewport('mobile')}
               className={`p-1.5 rounded-lg transition ${viewport === 'mobile' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'}`}
-              title="Aperçu Mobile (375px)"
+              title="Mobile View (375px)"
             >
               <Smartphone className="w-4 h-4" />
             </button>
@@ -311,7 +311,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
             }`}
           >
             {isPreviewMode ? <Eye className="w-3.5 h-3.5 text-emerald-400" /> : <EyeOff className="w-3.5 h-3.5" />}
-            <span className="hidden md:inline">{isPreviewMode ? 'Mode Aperçu Actif' : 'Mode Édition'}</span>
+            <span className="hidden md:inline">{isPreviewMode ? 'Preview Mode' : 'Edit Mode'}</span>
           </button>
         </div>
 
@@ -323,7 +323,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
               onClick={handleUndo}
               disabled={historyIndex <= 0}
               className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg disabled:opacity-30 transition"
-              title="Annuler (Ctrl+Z)"
+              title="Undo (Ctrl+Z)"
             >
               <Undo className="w-4 h-4" />
             </button>
@@ -331,7 +331,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
               onClick={handleRedo}
               disabled={historyIndex >= history.length - 1}
               className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg disabled:opacity-30 transition"
-              title="Rétablir (Ctrl+Y)"
+              title="Redo (Ctrl+Y)"
             >
               <Redo className="w-4 h-4" />
             </button>
@@ -343,10 +343,10 @@ export default function Editor({ siteId, onBackToDashboard }) {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 rounded-lg border border-slate-700 transition"
-            title="Ouvrir le site hébergé en direct"
+            title="Open live hosted website"
           >
             <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Voir en direct</span>
+            <span>Live Preview</span>
           </a>
 
           {/* Save Button */}
@@ -360,16 +360,16 @@ export default function Editor({ siteId, onBackToDashboard }) {
             }`}
           >
             {isSaving ? (
-              <span>Sauvegarde...</span>
+              <span>Saving...</span>
             ) : hasUnsavedChanges ? (
               <>
                 <Save className="w-3.5 h-3.5" />
-                <span>Enregistrer</span>
+                <span>Save Changes</span>
               </>
             ) : (
               <>
                 <Check className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Enregistré</span>
+                <span>Saved</span>
               </>
             )}
           </button>
@@ -407,7 +407,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                 }`}
               >
                 <Palette className="w-4 h-4" />
-                <span>Thème</span>
+                <span>Theme</span>
               </button>
 
               <button
@@ -419,7 +419,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                 }`}
               >
                 <Settings className="w-4 h-4" />
-                <span>Réglages</span>
+                <span>Settings</span>
               </button>
             </div>
 
@@ -429,7 +429,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                 <div>
                   <div className="flex items-center justify-between mb-3 text-xs">
                     <span className="font-bold text-slate-300 uppercase tracking-wider text-[10px]">
-                      Structure de la page ({site.sections?.length || 0})
+                      Page Structure ({site.sections?.length || 0})
                     </span>
                   </div>
 
@@ -465,7 +465,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                               type="button"
                               onClick={(e) => { e.stopPropagation(); setEditingSection(sec); }}
                               className="p-1 hover:text-indigo-400 rounded"
-                              title="Modifier le contenu"
+                              title="Edit Content"
                             >
                               <Edit3 className="w-3.5 h-3.5" />
                             </button>
@@ -474,7 +474,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                               onClick={(e) => { e.stopPropagation(); handleMoveSection(idx, -1); }}
                               disabled={idx === 0}
                               className="p-1 hover:text-indigo-400 rounded disabled:opacity-20"
-                              title="Monter"
+                              title="Move Up"
                             >
                               <ChevronUp className="w-3.5 h-3.5" />
                             </button>
@@ -483,7 +483,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                               onClick={(e) => { e.stopPropagation(); handleMoveSection(idx, 1); }}
                               disabled={idx === (site.sections?.length || 0) - 1}
                               className="p-1 hover:text-indigo-400 rounded disabled:opacity-20"
-                              title="Descendre"
+                              title="Move Down"
                             >
                               <ChevronDown className="w-3.5 h-3.5" />
                             </button>
@@ -491,7 +491,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                               type="button"
                               onClick={(e) => { e.stopPropagation(); handleDeleteSection(sec.id); }}
                               className="p-1 hover:text-red-400 rounded"
-                              title="Supprimer"
+                              title="Delete"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
                             </button>
@@ -510,7 +510,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
                     className="w-full py-2.5 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Ajouter une nouvelle section</span>
+                    <span>Add New Section</span>
                   </button>
                 </div>
               </div>

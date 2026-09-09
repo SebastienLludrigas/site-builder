@@ -26,7 +26,7 @@ export function renderSiteHtml(site, isExport = false) {
   const sectionsHtml = (sections || []).map(sec => renderSection(sec, { primaryColor, accentColor, bgColor, textColor, radiusClass, slug, isExport })).join('\n');
 
   return `<!DOCTYPE html>
-<html lang="fr" style="scroll-behavior: smooth;">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -603,17 +603,17 @@ export function renderSiteHtml(site, isExport = false) {
   ${sectionsHtml}
 
   ${s.showBranding !== false ? `
-  <a href="/" class="sitecraft-badge" title="Créé avec SiteCraft">
-    <span>✨ Créé avec <strong>SiteCraft</strong></span>
+  <a href="/" class="sitecraft-badge" title="Built with SiteCraft">
+    <span>✨ Built with <strong>SiteCraft</strong></span>
   </a>
   ` : ''}
 
-  <div id="siteToast" class="site-toast">Message envoyé avec succès !</div>
+  <div id="siteToast" class="site-toast">Message sent successfully!</div>
 
   <!-- Lightbox Modal -->
   <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img id="lightboxImg" class="lightbox-img" src="" alt="Aperçu">
+    <img id="lightboxImg" class="lightbox-img" src="" alt="Preview">
   </div>
 
   <script>
@@ -667,7 +667,7 @@ export function renderSiteHtml(site, isExport = false) {
         const diff = targetDate - now;
 
         if (diff <= 0) {
-          wrapper.innerHTML = "<div style='font-size: 20px; font-weight: 700; color: var(--primary);'>L'événement a commencé !</div>";
+          wrapper.innerHTML = "<div style='font-size: 20px; font-weight: 700; color: var(--primary);'>The event has started!</div>";
           return;
         }
 
@@ -696,11 +696,11 @@ export function renderSiteHtml(site, isExport = false) {
       event.preventDefault();
       const form = event.target;
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerText : 'Envoyer';
+      const originalText = submitBtn ? submitBtn.innerText : 'Send';
       
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerText = 'Envoi en cours...';
+        submitBtn.innerText = 'Sending...';
       }
 
       const formData = new FormData(form);
@@ -719,7 +719,7 @@ export function renderSiteHtml(site, isExport = false) {
           submitBtn.innerText = originalText;
         }
         form.reset();
-        showToast(data.message || 'Votre message a été transmis avec succès !');
+        showToast(data.message || 'Your message has been sent successfully!');
       })
       .catch(err => {
         console.error(err);
@@ -727,7 +727,7 @@ export function renderSiteHtml(site, isExport = false) {
           submitBtn.disabled = false;
           submitBtn.innerText = originalText;
         }
-        showToast('Message enregistré localement !');
+        showToast('Message saved locally!');
       });
     }
 
@@ -896,7 +896,7 @@ function renderFeatures(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Fonctionnalités')}</h2>
+        <h2>${escapeHtml(d.title || 'Features')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
       <div class="${gridClass}">
@@ -975,7 +975,7 @@ function renderGallery(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Galerie')}</h2>
+        <h2>${escapeHtml(d.title || 'Gallery')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
@@ -1005,7 +1005,7 @@ function renderMenu(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Notre Carte')}</h2>
+        <h2>${escapeHtml(d.title || 'Our Menu')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
@@ -1048,14 +1048,14 @@ function renderPricing(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Tarifs')}</h2>
+        <h2>${escapeHtml(d.title || 'Pricing')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
 
         ${hasToggle ? `
         <div style="display: inline-flex; align-items: center; background: rgba(125,125,125,0.1); padding: 4px; border-radius: 9999px; margin-top: 24px;">
-          <button type="button" class="btn btn-secondary pricing-btn-period active" onclick="togglePricingPeriod(false)" style="padding: 8px 18px; font-size: 13px; border-radius: 9999px; box-shadow: none;">Mensuel</button>
+          <button type="button" class="btn btn-secondary pricing-btn-period active" onclick="togglePricingPeriod(false)" style="padding: 8px 18px; font-size: 13px; border-radius: 9999px; box-shadow: none;">Monthly</button>
           <button type="button" class="btn btn-secondary pricing-btn-period" onclick="togglePricingPeriod(true)" style="padding: 8px 18px; font-size: 13px; border-radius: 9999px; box-shadow: none; display: flex; align-items: center; gap: 6px;">
-            <span>Annuel</span>
+            <span>Yearly</span>
             <span style="background: var(--primary); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 9999px;">${escapeHtml(d.yearlyDiscountText || '-20%')}</span>
           </button>
         </div>
@@ -1065,21 +1065,21 @@ function renderPricing(d, ctx) {
       <div class="grid-3" style="align-items: stretch;">
         ${plans.map(p => `
           <div class="card pricing-card ${p.popular ? 'popular' : ''}">
-            ${p.popular ? `<span class="popular-tag">Populaire</span>` : ''}
+            ${p.popular ? `<span class="popular-tag">Popular</span>` : ''}
             <h3 style="font-size: 22px;">${escapeHtml(p.name)}</h3>
             <p style="font-size: 14px; opacity: 0.8; margin-top: 4px; min-height: 40px;">${escapeHtml(p.description || '')}</p>
             
             <div class="price-value">
               <span data-price-monthly="${escapeHtml(p.priceMonthly)}" data-price-yearly="${escapeHtml(p.priceYearly || p.priceMonthly)}">${escapeHtml(p.priceMonthly)}</span>
-              <span class="price-period"> / mois</span>
+              <span class="price-period"> / month</span>
             </div>
 
             <a href="${escapeHtml(p.buttonHref || '#contact')}" class="btn ${p.popular ? 'btn-primary' : 'btn-secondary'}" style="width: 100%; margin-bottom: 28px;">
-              ${escapeHtml(p.buttonText || 'Choisir')}
+              ${escapeHtml(p.buttonText || 'Get Started')}
             </a>
 
             <div style="border-top: 1px solid rgba(125,125,125,0.15); padding-top: 20px; margin-top: auto;">
-              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; opacity: 0.8;">Inclus dans l'offre :</div>
+              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; opacity: 0.8;">Included in this plan:</div>
               <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px;">
                 ${(p.features || []).map(f => `
                   <li style="display: flex; align-items: center; gap: 8px;">
@@ -1105,7 +1105,7 @@ function renderTestimonials(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Avis Clients')}</h2>
+        <h2>${escapeHtml(d.title || 'Customer Reviews')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
@@ -1143,7 +1143,7 @@ function renderFaq(d, ctx) {
     <div class="container" style="max-width: 800px;">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Foire Aux Questions')}</h2>
+        <h2>${escapeHtml(d.title || 'Frequently Asked Questions')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
@@ -1170,17 +1170,17 @@ function renderCountdown(d, ctx) {
   <section id="countdown" class="section-padding" style="background: rgba(125,125,125,0.03); text-align: center;">
     <div class="container">
       ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-      <h2 style="font-size: 36px; margin-bottom: 12px;">${escapeHtml(d.title || 'Compte à Rebours')}</h2>
+      <h2 style="font-size: 36px; margin-bottom: 12px;">${escapeHtml(d.title || 'Countdown Timer')}</h2>
       ${d.subtitle ? `<p style="font-size: 17px; opacity: 0.85;">${escapeHtml(d.subtitle)}</p>` : ''}
 
       <div class="countdown-grid" data-countdown-target="${escapeHtml(d.targetDate || '2026-12-31T00:00:00')}">
         <div class="countdown-box">
           <div class="countdown-number cd-days">00</div>
-          <div class="countdown-label">Jours</div>
+          <div class="countdown-label">Days</div>
         </div>
         <div class="countdown-box">
           <div class="countdown-number cd-hours">00</div>
-          <div class="countdown-label">Heures</div>
+          <div class="countdown-label">Hours</div>
         </div>
         <div class="countdown-box">
           <div class="countdown-number cd-minutes">00</div>
@@ -1188,7 +1188,7 @@ function renderCountdown(d, ctx) {
         </div>
         <div class="countdown-box">
           <div class="countdown-number cd-seconds">00</div>
-          <div class="countdown-label">Secondes</div>
+          <div class="countdown-label">Seconds</div>
         </div>
       </div>
 
@@ -1236,35 +1236,35 @@ function renderContact(d, ctx) {
     <div class="container">
       <div class="section-header">
         ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-        <h2>${escapeHtml(d.title || 'Contactez-nous')}</h2>
+        <h2>${escapeHtml(d.title || 'Contact Us')}</h2>
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; max-width: 1040px; margin: 0 auto;">
         <div class="card" style="height: fit-content;">
-          <h3 style="font-size: 20px; margin-bottom: 20px;">Coordonnées</h3>
+          <h3 style="font-size: 20px; margin-bottom: 20px;">Contact Information</h3>
           <div style="display: flex; flex-direction: column; gap: 20px;">
             ${d.address ? `
               <div>
-                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Adresse</div>
+                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Address</div>
                 <div style="font-size: 15px; margin-top: 4px;">${escapeHtml(d.address)}</div>
               </div>
             ` : ''}
             ${d.phone ? `
               <div>
-                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Téléphone</div>
+                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Phone</div>
                 <div style="font-size: 15px; margin-top: 4px;"><a href="tel:${escapeHtml(d.phone)}" style="color: var(--primary);">${escapeHtml(d.phone)}</a></div>
               </div>
             ` : ''}
             ${d.email ? `
               <div>
-                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">E-mail</div>
+                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Email</div>
                 <div style="font-size: 15px; margin-top: 4px;"><a href="mailto:${escapeHtml(d.email)}" style="color: var(--primary);">${escapeHtml(d.email)}</a></div>
               </div>
             ` : ''}
             ${d.openingHours ? `
               <div>
-                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Horaires</div>
+                <div style="font-size: 12px; text-transform: uppercase; font-weight: 700; opacity: 0.6;">Opening Hours</div>
                 <div style="font-size: 15px; margin-top: 4px;">${escapeHtml(d.openingHours)}</div>
               </div>
             ` : ''}
@@ -1275,29 +1275,29 @@ function renderContact(d, ctx) {
           <form onsubmit="handleSiteFormSubmit(event, '${escapeHtml(ctx.slug)}')">
             ${fields.includes('name') ? `
               <div class="form-group">
-                <label class="form-label" for="contact-name">Nom complet *</label>
-                <input type="text" id="contact-name" name="name" class="form-input" placeholder="Votre nom" required>
+                <label class="form-label" for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name" required>
               </div>
             ` : ''}
 
             <div style="display: grid; grid-template-columns: ${fields.includes('phone') ? '1fr 1fr' : '1fr'}; gap: 16px;">
               ${fields.includes('email') ? `
                 <div class="form-group">
-                  <label class="form-label" for="contact-email">Adresse e-mail *</label>
-                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="vous@exemple.fr" required>
+                  <label class="form-label" for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="you@example.com" required>
                 </div>
               ` : ''}
               ${fields.includes('phone') ? `
                 <div class="form-group">
-                  <label class="form-label" for="contact-phone">Numéro de téléphone</label>
-                  <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="06 00 00 00 00">
+                  <label class="form-label" for="contact-phone">Phone Number</label>
+                  <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
                 </div>
               ` : ''}
             </div>
 
             ${fields.includes('service') && services.length > 0 ? `
               <div class="form-group">
-                <label class="form-label" for="contact-service">Motif ou Prestation</label>
+                <label class="form-label" for="contact-service">Subject / Service</label>
                 <select id="contact-service" name="service" class="form-select">
                   ${services.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('')}
                 </select>
@@ -1306,13 +1306,13 @@ function renderContact(d, ctx) {
 
             ${fields.includes('message') ? `
               <div class="form-group">
-                <label class="form-label" for="contact-message">Votre message *</label>
-                <textarea id="contact-message" name="message" class="form-textarea" placeholder="Détaillez votre demande..." required></textarea>
+                <label class="form-label" for="contact-message">Your Message *</label>
+                <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell us how we can help you..." required></textarea>
               </div>
             ` : ''}
 
             <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
-              ${escapeHtml(d.submitButtonText || 'Envoyer le message')}
+              ${escapeHtml(d.submitButtonText || 'Send Message')}
             </button>
           </form>
         </div>
@@ -1327,14 +1327,14 @@ function renderNewsletter(d, ctx) {
   <section id="newsletter" class="section-padding" style="background: rgba(125,125,125,0.03);">
     <div class="container" style="max-width: 700px; text-align: center;">
       ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-      <h2 style="font-size: 32px; margin-bottom: 12px;">${escapeHtml(d.title || 'Restez connecté')}</h2>
+      <h2 style="font-size: 32px; margin-bottom: 12px;">${escapeHtml(d.title || 'Stay in the Loop')}</h2>
       <p style="font-size: 16px; opacity: 0.85; margin-bottom: 28px;">${escapeHtml(d.subtitle || '')}</p>
 
       <form onsubmit="handleSiteFormSubmit(event, '${escapeHtml(ctx.slug)}')" style="display: flex; gap: 12px; max-width: 480px; margin: 0 auto;">
         <input type="hidden" name="service" value="Newsletter">
-        <input type="email" name="email" class="form-input" placeholder="${escapeHtml(d.placeholder || 'Votre e-mail')}" required style="flex: 1;">
+        <input type="email" name="email" class="form-input" placeholder="${escapeHtml(d.placeholder || 'Your email address')}" required style="flex: 1;">
         <button type="submit" class="btn btn-primary" style="white-space: nowrap;">
-          ${escapeHtml(d.buttonText || "S'inscrire")}
+          ${escapeHtml(d.buttonText || "Subscribe")}
         </button>
       </form>
       ${d.disclaimer ? `<p style="font-size: 12px; opacity: 0.6; margin-top: 12px;">${escapeHtml(d.disclaimer)}</p>` : ''}
@@ -1347,7 +1347,7 @@ function renderCtaBanner(d, ctx) {
   return `
   <section class="section-padding" style="background: var(--primary); color: #fff; text-align: center;">
     <div class="container" style="max-width: 800px;">
-      <h2 style="color: #fff; font-size: 36px; margin-bottom: 16px;">${escapeHtml(d.title || "Passez à l'action dès aujourd'hui")}</h2>
+      <h2 style="color: #fff; font-size: 36px; margin-bottom: 16px;">${escapeHtml(d.title || "Take Action Today")}</h2>
       <p style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 32px;">${escapeHtml(d.subtitle || '')}</p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         ${d.buttonText ? `<a href="${escapeHtml(d.buttonHref || '#contact')}" class="btn" style="background: #fff; color: var(--primary); font-weight: 700;">${escapeHtml(d.buttonText)}</a>` : ''}
@@ -1384,7 +1384,7 @@ function renderFooter(d, ctx) {
       </div>
 
       <div style="border-top: 1px solid rgba(125,125,125,0.1); margin-top: 32px; padding-top: 24px; text-align: center; font-size: 13px; opacity: 0.6;">
-        ${escapeHtml(d.copyright || 'Tous droits réservés.')}
+        ${escapeHtml(d.copyright || 'All rights reserved.')}
       </div>
     </div>
   </footer>

@@ -13,11 +13,11 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
       <div className="space-y-3">
         <label className="font-bold text-slate-200 block text-xs flex items-center gap-2">
           <Settings className="w-4 h-4 text-indigo-400" />
-          <span>Paramètres généraux</span>
+          <span>General Settings</span>
         </label>
 
         <div>
-          <label className="block text-slate-400 font-semibold mb-1">Titre officiel du site</label>
+          <label className="block text-slate-400 font-semibold mb-1">Website Title</label>
           <input
             type="text"
             value={site.title || ''}
@@ -27,7 +27,7 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
         </div>
 
         <div>
-          <label className="block text-slate-400 font-semibold mb-1">Identifiant d'accès local (Slug URL)</label>
+          <label className="block text-slate-400 font-semibold mb-1">Local URL Slug</label>
           <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl px-3 py-2">
             <span className="text-slate-500 font-mono">/site/</span>
             <input
@@ -38,17 +38,17 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
             />
           </div>
           <p className="text-[10px] text-slate-500 mt-1">
-            Accessible en direct sur : <span className="text-indigo-400 font-mono">{typeof window !== 'undefined' ? window.location.origin : ''}/site/{site.slug}</span>
+            Direct local URL: <span className="text-indigo-400 font-mono">{typeof window !== 'undefined' ? window.location.origin : ''}/site/{site.slug}</span>
           </p>
         </div>
 
         <div>
-          <label className="block text-slate-400 font-semibold mb-1">Description référencement / SEO</label>
+          <label className="block text-slate-400 font-semibold mb-1">SEO & Tab Description</label>
           <textarea
             rows={3}
             value={site.description || ''}
             onChange={(e) => onUpdateSettings({ ...s, description: e.target.value })}
-            placeholder="Courte description affichée dans l'onglet du navigateur..."
+            placeholder="Short summary displayed in search previews and browser tab..."
             className="input-field"
           />
         </div>
@@ -56,7 +56,7 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
 
       {/* 2. FAVICON */}
       <div className="pt-4 border-t border-slate-800">
-        <label className="font-bold text-slate-200 block text-xs mb-2">Icône Favicon (Onglet navigateur)</label>
+        <label className="font-bold text-slate-200 block text-xs mb-2">Favicon Icon (Browser Tab)</label>
         <div className="flex flex-wrap gap-2">
           {EMOJI_FAVICONS.map(emoji => (
             <button
@@ -79,16 +79,16 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
       <div className="pt-4 border-t border-slate-800 space-y-3">
         <label className="font-bold text-slate-200 block text-xs flex items-center gap-2">
           <Mail className="w-4 h-4 text-indigo-400" />
-          <span>Boîte de réception & Alertes</span>
+          <span>Inbox & Routing</span>
         </label>
 
         <div>
-          <label className="block text-slate-400 font-semibold mb-1">E-mail de contact du site</label>
+          <label className="block text-slate-400 font-semibold mb-1">Official Contact Email</label>
           <input
             type="email"
             value={s.contactEmail || ''}
             onChange={(e) => onUpdateSettings({ ...s, contactEmail: e.target.value })}
-            placeholder="contact@mon-domaine.fr"
+            placeholder="contact@my-domain.com"
             className="input-field"
           />
         </div>
@@ -96,12 +96,12 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
 
       {/* 4. VISIBILITY & BRANDING */}
       <div className="pt-4 border-t border-slate-800 space-y-3">
-        <label className="font-bold text-slate-200 block text-xs mb-2">Publication & Affichage</label>
+        <label className="font-bold text-slate-200 block text-xs mb-2">Visibility & Branding</label>
         
         <div className="flex items-center justify-between p-3 bg-slate-900/60 rounded-xl border border-slate-800">
           <div>
-            <div className="font-semibold text-slate-200">Statut Publié</div>
-            <div className="text-[10px] text-slate-400">Rendre le site accessible sur /site/{site.slug}</div>
+            <div className="font-semibold text-slate-200">Published Status</div>
+            <div className="text-[10px] text-slate-400">Make the site accessible at /site/{site.slug}</div>
           </div>
           <input
             type="checkbox"
@@ -113,8 +113,8 @@ export default function SettingsPanel({ site, onUpdateSettings, onUpdateSlug, on
 
         <div className="flex items-center justify-between p-3 bg-slate-900/60 rounded-xl border border-slate-800">
           <div>
-            <div className="font-semibold text-slate-200">Badge SiteCraft</div>
-            <div className="text-[10px] text-slate-400">Afficher la pastille discrète en bas de page</div>
+            <div className="font-semibold text-slate-200">SiteCraft Badge</div>
+            <div className="text-[10px] text-slate-400">Display subtle footer credit badge on the page</div>
           </div>
           <input
             type="checkbox"

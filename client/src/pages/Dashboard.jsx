@@ -59,7 +59,7 @@ export default function Dashboard({ onOpenEditor }) {
   };
 
   const handleDelete = async (siteId, siteTitle) => {
-    if (!window.confirm(`Voulez-vous vraiment supprimer le site "${siteTitle}" ?`)) return;
+    if (!window.confirm(`Are you sure you want to delete the website "${siteTitle}"?`)) return;
     try {
       const res = await fetch(`/api/sites/${siteId}`, { method: 'DELETE' });
       if (res.ok) {
@@ -71,7 +71,7 @@ export default function Dashboard({ onOpenEditor }) {
   };
 
   const handleResetDemos = async () => {
-    if (!window.confirm("Voulez-vous réinitialiser les 4 sites d'exemple officiels (Atelier Pâtisserie, NovaPulse AI, Elena Vance Photo, Sommet Tech) ?")) return;
+    if (!window.confirm("Do you want to restore the 4 official showcase demo websites (Atelier Pastry, NovaPulse AI, Elena Vance Photo, Tech Summit)?")) return;
     try {
       const res = await fetch('/api/sites/reset-demos', { method: 'POST' });
       if (res.ok) {
@@ -127,13 +127,13 @@ export default function Dashboard({ onOpenEditor }) {
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 mb-3">
-                <Sparkles className="w-3.5 h-3.5" /> Créateur & Hébergeur Web Local
+                <Sparkles className="w-3.5 h-3.5" /> Local Website Builder & Hosting
               </span>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Vos Sites Web Hébergés Localement
+                Your Locally Hosted Websites
               </h1>
               <p className="text-sm text-slate-400 mt-1 max-w-xl">
-                Créez, modifiez et visitez vos sites en direct sans aucun déploiement cloud. Chaque site dispose de son URL locale et de sa boîte de réception connectée.
+                Create, customize, and visit your websites live with zero cloud deployment. Every site has its dedicated local URL and connected inbox.
               </p>
             </div>
 
@@ -141,17 +141,17 @@ export default function Dashboard({ onOpenEditor }) {
             <div className="flex gap-4 sm:gap-6 bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80">
               <div className="text-center px-2">
                 <div className="text-2xl font-extrabold text-indigo-400">{sites.length}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Sites créés</div>
+                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Websites</div>
               </div>
               <div className="w-px bg-slate-800" />
               <div className="text-center px-2">
                 <div className="text-2xl font-extrabold text-emerald-400">{publishedCount}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">En ligne</div>
+                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Live & Online</div>
               </div>
               <div className="w-px bg-slate-800" />
               <div className="text-center px-2">
                 <div className="text-2xl font-extrabold text-cyan-400">{totalSubmissions}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Messages reçus</div>
+                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Messages Received</div>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function Dashboard({ onOpenEditor }) {
                 filterTab === 'all' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
               }`}
             >
-              Tous ({sites.length})
+              All ({sites.length})
             </button>
             <button
               onClick={() => setFilterTab('published')}
@@ -175,7 +175,7 @@ export default function Dashboard({ onOpenEditor }) {
                 filterTab === 'published' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
               }`}
             >
-              Publiés ({publishedCount})
+              Published ({publishedCount})
             </button>
             <button
               onClick={() => setFilterTab('draft')}
@@ -183,7 +183,7 @@ export default function Dashboard({ onOpenEditor }) {
                 filterTab === 'draft' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
               }`}
             >
-              Brouillons ({sites.length - publishedCount})
+              Drafts ({sites.length - publishedCount})
             </button>
           </div>
 
@@ -194,7 +194,7 @@ export default function Dashboard({ onOpenEditor }) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Rechercher un site..."
+              placeholder="Search websites..."
               className="w-full bg-slate-900 border border-slate-800 text-slate-200 pl-10 pr-4 py-2 rounded-xl text-xs outline-none focus:border-indigo-500 transition"
             />
           </div>
@@ -203,28 +203,28 @@ export default function Dashboard({ onOpenEditor }) {
         {/* Sites Cards Grid */}
         {loading ? (
           <div className="py-20 text-center text-slate-500 text-sm">
-            Chargement de vos sites...
+            Loading your websites...
           </div>
         ) : filteredSites.length === 0 ? (
           <div className="py-20 text-center bg-slate-900/40 rounded-2xl border border-slate-800 p-8">
             <div className="w-14 h-14 rounded-2xl bg-slate-800 text-slate-500 flex items-center justify-center mx-auto mb-3">
               <Globe className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-slate-200 mb-1">Aucun site trouvé</h3>
+            <h3 className="font-bold text-slate-200 mb-1">No websites found</h3>
             <p className="text-xs text-slate-400 mb-5">
-              {searchQuery ? "Aucun résultat ne correspond à votre recherche." : "Commencez par créer votre premier site web dès maintenant !"}
+              {searchQuery ? "No websites match your search query." : "Start by creating your first website now!"}
             </p>
             <button
               onClick={() => setIsCreateModalOpen(true)}
               className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-semibold shadow hover:bg-indigo-500 transition"
             >
-              <Plus className="w-4 h-4" /> Créer un site
+              <Plus className="w-4 h-4" /> Create Website
             </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredSites.map(site => {
-              const updatedDate = new Date(site.updatedAt || site.createdAt).toLocaleDateString('fr-FR', {
+              const updatedDate = new Date(site.updatedAt || site.createdAt).toLocaleDateString('en-US', {
                 day: 'numeric',
                 month: 'short',
                 year: 'numeric'
@@ -261,7 +261,7 @@ export default function Dashboard({ onOpenEditor }) {
                             : 'bg-slate-800/90 text-slate-300'
                         }`}>
                           <span className={`w-1.5 h-1.5 rounded-full ${site.published !== false ? 'bg-white animate-pulse' : 'bg-slate-400'}`} />
-                          <span>{site.published !== false ? 'Hébergé & En direct' : 'Brouillon'}</span>
+                          <span>{site.published !== false ? 'Hosted & Live' : 'Draft'}</span>
                         </span>
                       </div>
 
@@ -270,10 +270,10 @@ export default function Dashboard({ onOpenEditor }) {
                         <button
                           onClick={() => openSiteInbox(site.id)}
                           className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-cyan-500 text-slate-950 shadow-lg flex items-center gap-1 hover:scale-105 transition animate-bounce"
-                          title="Nouveau message reçu !"
+                          title="New message received!"
                         >
                           <MessageSquare className="w-3 h-3" />
-                          <span>{site.unreadSubmissionsCount} nouveau(x)</span>
+                          <span>{site.unreadSubmissionsCount} new</span>
                         </button>
                       )}
                     </div>
@@ -290,7 +290,7 @@ export default function Dashboard({ onOpenEditor }) {
                       </h3>
 
                       <p className="text-xs text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
-                        {site.description || "Site web personnalisé créé avec SiteCraft."}
+                        {site.description || "Custom website built with SiteCraft."}
                       </p>
 
                       {/* Meta badges */}
@@ -318,10 +318,10 @@ export default function Dashboard({ onOpenEditor }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition"
-                        title="Consulter le site en direct dans un nouvel onglet"
+                        title="Open live website in a new tab"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
-                        <span>Visiter</span>
+                        <span>Visit</span>
                       </a>
 
                       {/* Edit site */}
@@ -330,7 +330,7 @@ export default function Dashboard({ onOpenEditor }) {
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg shadow-sm shadow-indigo-600/30 transition"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
-                        <span>Modifier</span>
+                        <span>Edit</span>
                       </button>
                     </div>
 
@@ -340,7 +340,7 @@ export default function Dashboard({ onOpenEditor }) {
                       <button
                         onClick={() => openSiteInbox(site.id)}
                         className="p-1.5 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition"
-                        title={`Consulter les messages (${site.submissionsCount || 0})`}
+                        title={`View inbox messages (${site.submissionsCount || 0})`}
                       >
                         <MessageSquare className="w-4 h-4" />
                       </button>
@@ -349,7 +349,7 @@ export default function Dashboard({ onOpenEditor }) {
                       <button
                         onClick={() => handleDuplicate(site.id)}
                         className="p-1.5 text-slate-400 hover:text-indigo-400 hover:bg-slate-800 rounded-lg transition"
-                        title="Dupliquer ce site"
+                        title="Duplicate website"
                       >
                         <Copy className="w-4 h-4" />
                       </button>
@@ -358,7 +358,7 @@ export default function Dashboard({ onOpenEditor }) {
                       <a
                         href={`/api/sites/${site.id}/export`}
                         className="p-1.5 text-slate-400 hover:text-emerald-400 hover:bg-slate-800 rounded-lg transition"
-                        title="Télécharger l'archive ZIP autonome"
+                        title="Download standalone HTML ZIP archive"
                       >
                         <Download className="w-4 h-4" />
                       </a>
@@ -367,7 +367,7 @@ export default function Dashboard({ onOpenEditor }) {
                       <button
                         onClick={() => handleDelete(site.id, site.title)}
                         className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-lg transition"
-                        title="Supprimer ce site"
+                        title="Delete website"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

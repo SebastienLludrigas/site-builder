@@ -40,11 +40,11 @@ function initializeDb() {
         siteSlug: "patisserie-delice",
         createdAt: "2026-09-08T10:15:00.000Z",
         data: {
-          name: "Émilie Renault",
-          email: "emilie.renault@example.com",
-          phone: "06 12 34 56 78",
-          service: "Réservation table brunch",
-          message: "Bonjour, nous aimerions réserver une table pour 4 personnes ce dimanche 13 septembre à 11h30 pour fêter un anniversaire. Merci d'avance !"
+          name: "Emily Reynolds",
+          email: "emily.reynolds@example.com",
+          phone: "+1 (555) 234-5678",
+          service: "Brunch Table Reservation",
+          message: "Hello! We would like to book a table for 4 this Sunday, September 13th at 11:30 AM to celebrate a birthday. Thank you in advance!"
         },
         read: true
       },
@@ -54,11 +54,11 @@ function initializeDb() {
         siteSlug: "novapulse-ai",
         createdAt: "2026-09-09T09:30:00.000Z",
         data: {
-          name: "Jean-Baptiste Moreau",
-          email: "jb.moreau@fintech-ventures.fr",
-          phone: "+33 6 88 99 00 11",
-          service: "Démonstration entreprise",
-          message: "Bonjour, nous sommes une fintech de 80 collaborateurs et aimerions évaluer votre solution d'analyse RAG sur nos flux de transactions financières. Est-il possible d'organiser un call jeudi ?"
+          name: "Jonathan Vance",
+          email: "j.vance@fintech-ventures.io",
+          phone: "+1 (555) 889-0011",
+          service: "Enterprise Demonstration",
+          message: "Hello, we are a fintech team of 80 specialists and would love to evaluate your RAG analytics engine on our financial transaction streams. Would it be possible to schedule a demo call this Thursday?"
         },
         read: false
       }
@@ -103,7 +103,7 @@ function slugify(text) {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '') || 'mon-site';
+    .replace(/(^-|-$)/g, '') || 'my-site';
 }
 
 export const db = {
@@ -135,9 +135,9 @@ export const db = {
 
     const newSite = {
       id: `site-${uuidv4()}`,
-      title: siteData.title || "Nouveau Site",
+      title: siteData.title || "New Site",
       slug: slug,
-      description: siteData.description || "Un site créé avec SiteCraft",
+      description: siteData.description || "A website created with SiteCraft",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       published: true,
@@ -154,7 +154,7 @@ export const db = {
       },
       settings: siteData.settings || {
         favicon: "🌐",
-        logoText: siteData.title || "Mon Site",
+        logoText: siteData.title || "My Site",
         showBranding: true,
         contactEmail: ""
       },
@@ -208,9 +208,9 @@ export const db = {
 
     const copy = JSON.parse(JSON.stringify(original));
     copy.id = `site-${uuidv4()}`;
-    copy.title = `${original.title} (Copie)`;
+    copy.title = `${original.title} (Copy)`;
     
-    let baseSlug = slugify(`${original.slug}-copie`);
+    let baseSlug = slugify(`${original.slug}-copy`);
     let slug = baseSlug;
     let counter = 1;
     while (sites.some(s => s.slug === slug)) {

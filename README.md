@@ -1,129 +1,129 @@
-# 🌐 SiteCraft — Créateur de Sites Web Intuitif & Hébergé Localement
+# 🌐 SiteCraft — Intuitive & Locally-Hosted Website Builder
 
-SiteCraft est une application web moderne et complète permettant à tout utilisateur non technique de concevoir, modifier et prévisualiser des sites web entièrement fonctionnels, hébergés localement sans aucun déploiement cloud.
+SiteCraft is a modern, full-featured web application that enables non-technical users to design, edit, preview, and host fully functional websites locally without any remote cloud deployment.
 
 ---
 
-## 🚀 Démarrage Rapide
+## 🚀 Quick Start
 
-### 1. Lancer l'application
-Le serveur démarre le backend et sert l'application web complète sur le port **3001** :
+### 1. Launch the Application
+Start the backend server and serve the complete web application on port **3001**:
 
 ```bash
 npm start
 ```
 
-Ou en mode développement (avec rechargement à chaud Vite) :
+Or in development mode (with Vite hot module replacement):
 ```bash
 npm run dev
 ```
 
-Ouvrez ensuite votre navigateur sur :
+Then open your browser at:
 👉 **[http://localhost:3001](http://localhost:3001)**
 
 ---
 
-## 🌟 Sites d'Exemple Pré-intégrés (Démo)
+## 🌟 Preloaded Showcase Demo Websites
 
-L'application est livrée avec **4 sites web complets et ultra réalistes**, directement consultables et modifiables dans l'outil :
+The application comes preloaded with **4 complete and realistic showcase websites**, ready to be browsed and edited directly within the tool:
 
-1. **🥐 [Atelier Pâtisserie & Café Délice](http://localhost:3001/site/patisserie-delice)**
-   - Boulangerie artisanale & salon de thé bio à Paris.
-   - *Fonctionnalités* : Carte gourmande avec prix et tags, galerie photos, avis clients 5 étoiles, formulaire de réservation de brunch ou commande personnalisée.
-   - *Design* : Typographie classique (Playfair Display), palette chaleureuse ambre & miel, cartes très arrondies.
+1. **🥐 [Delight Bakery & Cafe](http://localhost:3001/site/patisserie-delice)**
+   - Artisan bakery & organic specialty coffee house.
+   - *Features*: Menu showcase with tags and pricing, photo gallery, 5-star customer reviews, brunch reservation and custom cake order form.
+   - *Design*: Elegant serif typography (Playfair Display), warm amber & honey palette, smooth rounded cards.
 
-2. **⚡ [NovaPulse AI — Plateforme d'Intelligence Augmentée](http://localhost:3001/site/novapulse-ai)**
-   - Solution SaaS B2B de traitement et d'analyse de données d'entreprise par IA.
-   - *Fonctionnalités* : Métriques en temps réel, grille tarifaire interactive avec bascule mensuelle / annuelle (-25%), accordéon FAQ interactif, formulaire de demande de démo d'entreprise.
-   - *Design* : Dark mode futuriste indigo & cyan, typographie tech Outfit, bordures épurées.
+2. **⚡ [NovaPulse AI — Augmented Intelligence Platform](http://localhost:3001/site/novapulse-ai)**
+   - High-tech B2B SaaS platform for enterprise data analytics and AI workflows.
+   - *Features*: Live performance metrics, interactive pricing tiers with monthly / annual toggle (-25%), expandable FAQ accordion, enterprise demo request form.
+   - *Design*: Futuristic dark mode theme with indigo & cyan accents, Outfit font, clean sharp borders.
 
-3. **📷 [Elena Vance — Photographie d'Art & Direction Visuelle](http://localhost:3001/site/elena-vance-photo)**
-   - Portfolio d'une photographe de mode et direction artistique entre Paris et Milan.
-   - *Fonctionnalités* : Galerie photos avec lightbox plein écran, filtres thématiques (Mode, Portrait, Architecture), prestations sur mesure, formulaire de contact pour shooting.
-   - *Design* : Minimalisme éditorial noir & or, typographie soignée serif, angles nets sans arrondi.
+3. **📷 [Elena Vance — Fine Art & Editorial Photography](http://localhost:3001/site/elena-vance-photo)**
+   - Editorial portfolio of a fashion and fine art photographer based in Paris and Milan.
+   - *Features*: Photo showcase with full-screen lightbox, categorized collections (Fashion, Portrait, Architecture), custom services, photoshoot booking form.
+   - *Design*: Minimalist monochrome and gold editorial aesthetic, refined serif typography, crisp square cards.
 
-4. **🚀 [Sommet Tech & Innovation Paris 2026](http://localhost:3001/site/sommet-tech-2026)**
-   - Grande conférence européenne deeptech & intelligence artificielle.
-   - *Fonctionnalités* : **Compte à rebours interactif en temps réel** vers la date de l'événement, liste des conférenciers de renom, chiffres clés, billetterie par formules, barre d'inscription newsletter, formulaire sponsors & presse.
-   - *Design* : Palette violette & rose vibrante, typographie Space Grotesk.
+4. **🚀 [Tech & Innovation Summit 2026](http://localhost:3001/site/sommet-tech-2026)**
+   - Premier European conference for deep tech, generative AI, and quantum computing.
+   - *Features*: **Live real-time ticking countdown timer**, keynote speakers grid, conference statistics, pass pricing tiers, newsletter subscription bar, sponsor and press contact form.
+   - *Design*: Vibrant purple & pink theme, modern Space Grotesk typography.
 
 ---
 
-## 🛠️ Fonctionnalités de l'Outil
+## 🛠️ Application Features
 
-### 1. Tableau de bord (Dashboard)
-- Vue d'ensemble de tous les sites créés avec aperçu visuel, date de mise à jour, état de publication (Publié / Brouillon).
-- **Accès direct en un clic** :
-  - 👁️ **Visiter** : Ouvre le site hébergé en direct (`/site/:slug`).
-  - ✏️ **Modifier** : Ouvre l'éditeur visuel en direct.
-  - 📬 **Boîte de réception** : Affiche tous les messages reçus via les formulaires du site avec badge de messages non lus.
-  - 📋 **Dupliquer** : Clone instantanément un site existant.
-  - 📥 **Exporter en ZIP** : Télécharge une archive autonome prête à être ouverte sans serveur ou hébergée n'importe où.
-  - 🗑️ **Supprimer** : Suppression sécurisée avec confirmation.
-  - 🔄 **Restaurer les démos** : Permet de réinitialiser à tout moment les 4 sites d'exemple officiels.
+### 1. Dashboard
+- Comprehensive overview of all created sites with live thumbnail preview, last modified date, and publication status (Published / Draft).
+- **One-Click Actions**:
+  - 👁️ **Visit**: Opens the live hosted site (`/site/:slug`) in a new tab.
+  - ✏️ **Edit**: Opens the visual WYSIWYG editor.
+  - 📬 **Inbox**: View all contact messages and leads received via the site's forms, with an unread badge indicator.
+  - 📋 **Duplicate**: Instantly clone an existing site.
+  - 📥 **Export to ZIP**: Download a standalone, zero-dependency ZIP archive (`index.html` + assets) ready to be opened in any browser or hosted anywhere.
+  - 🗑️ **Delete**: Safe removal with confirmation.
+  - 🔄 **Restore Demos**: Reset the 4 official showcase websites at any time.
 
-### 2. Éditeur Visuel Intuitif (WYSIWYG)
-- **Sélecteur d'affichage réactif** :
-  - 💻 **Ordinateur** (100%)
-  - 📱 **Tablette** (768px)
+### 2. Intuitive Visual Editor (WYSIWYG)
+- **Responsive Viewport Switcher**:
+  - 💻 **Desktop** (100%)
+  - 📱 **Tablet** (768px)
   - 📱 **Mobile** (375px)
-- **Mode Aperçu / Mode Édition** : Bascule instantanée pour masquer les bordures d'outils et tester la navigation comme un visiteur réel.
-- **Historique Annuler / Rétablir (Undo / Redo)** : Pour expérimenter sans crainte d'erreur.
-- **Ajout de blocs riche et visuel** :
-  - En-tête / Barre de navigation
-  - Section Hero (Split, Centré, Plein écran avec fond)
-  - Fonctionnalités & Services (Grille 2, 3 ou 4 colonnes)
-  - À propos / Histoire (Image gauche ou droite, points clés)
-  - Galerie photos (Grille avec lightbox plein écran)
-  - Carte restaurant / Menu / Catalogue de prestations avec prix
-  - Grille tarifaire (avec toggle mensuel / annuel)
-  - Avis & Témoignages clients avec étoiles
-  - Foire aux questions (FAQ) avec accordéon interactif
-  - Compte à rebours interactif (Jours / Heures / Minutes / Secondes)
-  - Chiffres clés / Statistiques
-  - Formulaire de contact / Réservation
-  - Inscription newsletter
-  - Bannière d'appel à l'action (CTA)
-  - Pied de page (Footer) avec réseaux sociaux et copyright
-- **Gestionnaire d'images complet** :
-  - Bibliothèque de photos gratuites haute résolution classées par thématique (Gastronomie, Tech, Mode, Événements, Nature).
-  - Téléversement direct de photos depuis son propre ordinateur (stockées localement dans `uploads/`).
-  - Lien URL personnalisé.
-- **Personnalisation du thème** :
-  - Palettes harmonieuses prêtes à l'emploi.
-  - Sélecteur de couleurs personnalisées (Primaire, Accent, Arrière-plan, Texte).
-  - Choix de typographies (Inter, Playfair Display, Outfit, Space Grotesk, Plus Jakarta Sans).
-  - Arrondi des cartes et boutons (Droit, Discret, Moderne, Généreux).
+- **Preview / Edit Mode**: Toggle instantly between editor controls and a clean visitor browsing preview.
+- **Undo / Redo History Stack**: Experiment freely with full state rollback.
+- **Rich Section Library**:
+  - Navbar / Header with sticky branding, nav links, and CTA button.
+  - Hero section (Split layout, Centered, Fullscreen background).
+  - Features & Services grid (2, 3, or 4 columns).
+  - About / Story section (Left or right image with key bullet points).
+  - Photo Gallery with full-screen lightbox modal.
+  - Restaurant Menu / Service catalog with prices, descriptions, and tags.
+  - Pricing tables with interactive monthly / yearly billing toggle.
+  - Testimonials & Customer reviews with star ratings and avatars.
+  - Interactive FAQ accordion.
+  - Live Countdown Timer (Days / Hours / Minutes / Seconds).
+  - Key Statistics / Numbers counter.
+  - Contact & Lead generation form.
+  - Newsletter subscription bar.
+  - Call-to-action (CTA) banner.
+  - Footer with social media links and copyright notice.
+- **Media & Image Picker**:
+  - Curated royalty-free high-resolution Unsplash photo library categorized by themes (Food, Tech, Fashion, Events, Nature).
+  - Local image file upload directly to disk (`uploads/` folder).
+  - Direct external URL input.
+- **Theme & Design Customization**:
+  - Pre-built harmonized color palettes.
+  - Custom color pickers (Primary, Accent, Background, Text).
+  - Curated Google Fonts typography pairings (Inter, Playfair Display, Outfit, Space Grotesk, Plus Jakarta Sans).
+  - Border radius customization (Square, Subtle, Modern, Rounded).
 
-### 3. Hébergement Local & Boîte de Réception Réelle
-- Tous les sites sont servis directement par l'application locale sur `http://localhost:3001/site/:slug`.
-- Chaque formulaire de contact ou inscription newsletter sur un site hébergé envoie réellement les données au serveur local.
-- Le propriétaire du site peut consulter tous ses messages dans la **Boîte de Réception Locale** (nom, email, téléphone, prestation demandée, message, date et heure) avec possibilité de réponse rapide par email ou de suppression.
+### 3. Local Hosting & Real Inbox
+- Every site is served locally by the application on `http://localhost:3001/site/:slug`.
+- Contact and booking forms actively submit data to the local server without third-party dependencies.
+- Site owners can view all received inquiries in the **Local Inbox** (name, email, phone, requested service, message, timestamp) with quick email reply links.
 
 ---
 
-## 📁 Architecture du Projet
+## 📁 Project Architecture
 
 ```
 site-builder/
 ├── data/
-│   ├── sites.json          # Données des sites créés et persistés
-│   └── submissions.json    # Messages et formulaires soumis
-├── uploads/                # Images téléversées localement
+│   ├── sites.json          # Persisted site configurations and sections
+│   └── submissions.json    # Received form submissions and contact leads
+├── uploads/                # Locally uploaded image files
 ├── server/
-│   ├── index.js            # Serveur Express (API + Hébergeur de sites + Fallback SPA)
-│   ├── db.js               # Persistance locale JSON avec slugification automatique
-│   ├── seedSites.js        # Données détaillées des 4 sites d'exemple
-│   ├── siteRenderer.js     # Moteur de rendu HTML autonome ultra rapide & interactif
+│   ├── index.js            # Express server (API, local site host, SPA static fallback)
+│   ├── db.js               # File-based JSON persistence layer with slug generation
+│   ├── seedSites.js        # Detailed data for the 4 showcase demo sites
+│   ├── siteRenderer.js     # Standalone responsive HTML/CSS/JS renderer for hosted sites & exports
 │   └── routes/
-│       ├── sites.js        # CRUD, duplication et export ZIP
-│       ├── submit.js       # Gestion des formulaires de contact & boîte de réception
-│       └── upload.js       # Téléversement d'images locales (Multer)
-├── client/                 # Interface React + Vite + Tailwind CSS
+│       ├── sites.js        # CRUD, duplicate, and standalone ZIP export routes
+│       ├── submit.js       # Form submission handling and inbox API
+│       └── upload.js       # Local image upload handler (Multer)
+├── client/                 # React + Vite + Tailwind CSS frontend
 │   ├── src/
-│   │   ├── components/     # Composants UI, Modales, Drawer d'édition
-│   │   ├── pages/          # Dashboard et Éditeur visuel
-│   │   └── data/           # Palettes de thèmes et bibliothèque d'images
-│   └── dist/               # Fichiers de production compilés servis par le serveur
+│   │   ├── components/     # UI components, modals, editor drawer
+│   │   ├── pages/          # Dashboard and visual Editor pages
+│   │   └── data/           # Theme palettes and curated stock images
+│   └── dist/               # Compiled client bundle served by Express
 └── README.md
 ```

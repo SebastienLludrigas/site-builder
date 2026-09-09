@@ -8,7 +8,7 @@ submitRouter.post('/:siteSlug', (req, res) => {
   const { siteSlug } = req.params;
   const site = db.getSiteBySlug(siteSlug);
   if (!site) {
-    return res.status(404).json({ error: 'Site introuvable' });
+    return res.status(404).json({ error: 'Site not found' });
   }
 
   const formData = req.body || {};
@@ -16,7 +16,7 @@ submitRouter.post('/:siteSlug', (req, res) => {
 
   res.json({
     success: true,
-    message: 'Merci ! Votre message a bien été transmis au propriétaire du site.',
+    message: 'Thank you! Your message has been sent to the site owner.',
     submissionId: submission.id
   });
 });

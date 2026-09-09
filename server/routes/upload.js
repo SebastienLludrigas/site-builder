@@ -29,14 +29,14 @@ const upload = multer({
     if (allowed.test(ext)) {
       cb(null, true);
     } else {
-      cb(new Error('Format non supporté (utilisez JPG, PNG, WebP, GIF ou SVG)'));
+      cb(new Error('Unsupported file format (please use JPG, PNG, WebP, GIF, or SVG)'));
     }
   }
 });
 
 uploadRouter.post('/', upload.single('image'), (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ error: 'Aucun fichier reçu' });
+    return res.status(400).json({ error: 'No file received' });
   }
 
   const fileUrl = `/uploads/${req.file.filename}`;

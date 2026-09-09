@@ -1,9 +1,9 @@
 export const SEED_SITES = [
   {
     id: "site-patisserie-delice",
-    title: "Atelier Pâtisserie & Café Délice",
+    title: "Atelier Pastry & Café Délice",
     slug: "patisserie-delice",
-    description: "Boulangerie artisanale, viennoiseries dorées au beurre AOP et café de spécialité à Paris.",
+    description: "Artisanal French bakery, golden AOP butter pastries, and specialty coffee in Paris.",
     createdAt: "2026-09-01T08:00:00.000Z",
     updatedAt: "2026-09-09T17:30:00.000Z",
     published: true,
@@ -22,7 +22,7 @@ export const SEED_SITES = [
       favicon: "🥐",
       logoText: "Atelier Délice",
       showBranding: true,
-      contactEmail: "bonjour@patisserie-delice.fr"
+      contactEmail: "hello@patisserie-delice.com"
     },
     sections: [
       {
@@ -32,17 +32,17 @@ export const SEED_SITES = [
           logoText: "Atelier Délice",
           logoIcon: "Croissant",
           links: [
-            { label: "Accueil", href: "#hero" },
-            { label: "Engagements", href: "#features" },
-            { label: "Histoire", href: "#about" },
-            { label: "La Carte", href: "#menu" },
-            { label: "Galerie", href: "#gallery" },
-            { label: "Avis", href: "#testimonials" },
+            { label: "Home", href: "#hero" },
+            { label: "Craft & Values", href: "#features" },
+            { label: "Story", href: "#about" },
+            { label: "Menu", href: "#menu" },
+            { label: "Gallery", href: "#gallery" },
+            { label: "Reviews", href: "#testimonials" },
             { label: "Contact", href: "#contact" }
           ],
           ctaButton: {
             show: true,
-            text: "Réserver une table",
+            text: "Book a Table",
             href: "#contact"
           }
         }
@@ -52,43 +52,43 @@ export const SEED_SITES = [
         type: "hero",
         data: {
           layout: "split",
-          badge: "✨ Élu Meilleur Croissant de Paris 2025",
-          title: "L'art de la haute pâtisserie & café de terroir",
-          subtitle: "Chaque matin dès l'aube, nous pétrissons nos farines biologiques d'Île-de-France et façonnons des douceurs croustillantes au beurre de Normandie AOP.",
+          badge: "✨ Voted Best Croissant in Paris 2025",
+          title: "The Art of Fine Pastry & Artisanal Coffee",
+          subtitle: "Every dawn, we knead organic stone-ground flours and shape golden, flaky pastries enriched with pure Normandy AOP churn butter.",
           image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80",
-          primaryBtn: { text: "Découvrir la carte", href: "#menu" },
-          secondaryBtn: { text: "Venir au salon", href: "#contact" },
-          statsBadge: { count: "100%", label: "Fait maison & Bio" }
+          primaryBtn: { text: "Explore the Menu", href: "#menu" },
+          secondaryBtn: { text: "Visit our Café", href: "#contact" },
+          statsBadge: { count: "100%", label: "Organic & Artisanal" }
         }
       },
       {
         id: "features-1",
         type: "features",
         data: {
-          badge: "Savoir-faire",
-          title: "Nos Engagements Artisanaux",
-          subtitle: "La passion du goût authentique, sans aucun compromis sur la qualité des matières premières.",
+          badge: "Craftsmanship",
+          title: "Our Artisanal Commitments",
+          subtitle: "A passion for authentic flavor, with zero compromise on the quality of our ingredients.",
           layout: "4-cols",
           items: [
             {
               icon: "Wheat",
-              title: "Farines 100% Bio",
-              description: "Moulues sur meule de pierre par notre meunier partenaire en Île-de-France."
+              title: "100% Organic Flours",
+              description: "Stone-ground by our partner miller in the Parisian countryside for nutrient-rich flavor."
             },
             {
               icon: "Clock",
-              title: "Levain Vivant 10 Ans",
-              description: "Fermentation longue de 24h pour une digestibilité optimale et des arômes profonds."
+              title: "10-Year Live Sourdough",
+              description: "Slow 24-hour natural fermentation for effortless digestibility and deep aromatic complexity."
             },
             {
               icon: "Sparkles",
-              title: "Beurre de Baratte AOP",
-              description: "Beurre de Charentes-Poitou et de Normandie apportant un feuilletage d'une finesse incomparable."
+              title: "AOP Churn Butter",
+              description: "Pure Charentes-Poitou and Normandy butter delivering an incomparably crisp, golden lamination."
             },
             {
               icon: "Coffee",
-              title: "Café de Spécialité",
-              description: "Grains bio sourcés éthiquement et torréfiés localement à Paris chaque semaine."
+              title: "Specialty Coffee",
+              description: "Ethically sourced organic beans, freshly roasted in Paris every single week."
             }
           ]
         }
@@ -98,18 +98,18 @@ export const SEED_SITES = [
         type: "about",
         data: {
           layout: "image-right",
-          badge: "Notre Histoire",
-          title: "Deux générations d'amour pour le croustillant",
-          text: "Fondé en 2012 par le chef pâtissier Julien Martin, l'Atelier Délice est né d'une envie simple : réenchanter le petit-déjeuner et le goûter parisien avec des douceurs préparées sous vos yeux, dans le respect des traditions de notre terroir.",
+          badge: "Our Story",
+          title: "Two Generations of Passion for Flaky Crusts",
+          text: "Founded in 2012 by pastry chef Julien Martin, Atelier Délice was born from a simple desire: bring true delight back to Parisian mornings and teatimes with delicacies baked right before your eyes, honoring timeless French bakery traditions.",
           bulletPoints: [
-            "Levain naturel élevé quotidiennement avec de l'eau purifiée et du miel local",
-            "Fournées continues toute la journée pour des baguettes croustillantes à toute heure",
-            "Salon de thé chaleureux avec terrasse arborée au cœur du 9e arrondissement"
+            "Daily live sourdough nurtured with pure filtered water and raw local honey",
+            "Continuous baking throughout the day for warm, crispy baguettes anytime you visit",
+            "Sunlit tea room and leafy courtyard terrace nestled in the heart of the 9th arrondissement"
           ],
           image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80",
           highlightCard: {
             number: "14",
-            label: "Années d'excellence"
+            label: "Years of Excellence"
           }
         }
       },
@@ -117,34 +117,34 @@ export const SEED_SITES = [
         id: "menu-1",
         type: "menu",
         data: {
-          badge: "Gourmandises",
-          title: "Nos Créations Phares",
-          subtitle: "Préparées chaque matin dans notre laboratoire ouvert sur la boutique.",
+          badge: "Delicacies",
+          title: "Our Signature Creations",
+          subtitle: "Handcrafted fresh every morning in our open bakery workshop.",
           categories: [
             {
-              name: "Viennoiseries Artisanales",
+              name: "Artisanal Viennoiserie",
               items: [
-                { name: "Croissant Pur Beurre de Tourage", description: "Feuilletage caramélisé, croustillant à souhait et mie aérée", price: "2,20 €", tag: "Best-seller" },
-                { name: "Pain au Chocolat Praliné Noisette", description: "Trois barres de chocolat noir 65% et cœur de praliné maison", price: "2,80 €" },
-                { name: "Roulé Feuilleté Cardamome & Sucre Roux", description: "Inspiration scandinave revisitée avec du beurre AOP", price: "3,50 €", tag: "Coup de cœur" },
-                { name: "Brioche Tréssée à la Fleur d'Oranger", description: "Moelleuse et dorée, parsemée de perles de sucre craquantes", price: "3,90 €" }
+                { name: "Pure Butter Croissant", description: "Caramelized puff pastry, delicate crunch, and tender honeycomb crumb", price: "€2.20", tag: "Bestseller" },
+                { name: "Hazelnut Praline Pain au Chocolat", description: "Three batons of 65% dark chocolate and house-made roasted praline core", price: "€2.80" },
+                { name: "Cardamom & Raw Sugar Bun", description: "Nordic-inspired delicacy reimagined with rich caramelized AOP churn butter", price: "€3.50", tag: "Chef's Pick" },
+                { name: "Orange Blossom Brioche", description: "Pillowy and golden, crowned with crunchy pearl sugar crystals", price: "€3.90" }
               ]
             },
             {
-              name: "Haute Pâtisserie",
+              name: "Fine Haute Pastry",
               items: [
-                { name: "Tartelette Framboise & Pistache d'Iran", description: "Pâte sablée croustillante, ganache pistache et framboises fraîches", price: "6,50 €", tag: "Signature" },
-                { name: "Éclair Craquant Chocolat Noir 72%", description: "Pâte à choux fondante, crémeux intense Guanaja et glaçage miroir", price: "5,40 €" },
-                { name: "Paris-Brest Noisettes du Piémont", description: "Praliné pur coulant, mousseline légère et noisettes torréfiées", price: "6,80 €" },
-                { name: "Millefeuille Vanille Bourbon de Madagascar", description: "Feuilletage inversé caramélisé, crème diplomate vanillée", price: "7,00 €" }
+                { name: "Raspberry & Pistachio Tartlet", description: "Crisp shortcrust, velvety Iranian pistachio ganache, fresh handpicked berries", price: "€6.50", tag: "Signature" },
+                { name: "72% Dark Chocolate Craquelin Éclair", description: "Tender choux pastry, intense Guanaja chocolate cream, mirror glaze", price: "€5.40" },
+                { name: "Piedmont Hazelnut Paris-Brest", description: "Flowing pure praline center, airy mousseline, and roasted hazelnut crunch", price: "€6.80" },
+                { name: "Bourbon Vanilla Millefeuille", description: "Caramelized inverted puff pastry and rich Madagascar vanilla diplomate cream", price: "€7.00" }
               ]
             },
             {
-              name: "Café & Boissons Chaudes",
+              name: "Coffee & Hot Beverages",
               items: [
-                { name: "Flat White Lait d'Avoine Bio", description: "Double shot espresso blend Éthiopie/Colombie et micro-mousse crémeuse", price: "4,50 €" },
-                { name: "Chai Latte Maison aux Épices Douces", description: "Thé noir bio infusé au gingembre, cannelle, poivre et cardamome", price: "4,80 €" },
-                { name: "Chocolat Chaud Grand Cru Valrhona", description: "Chocolat noir 70% fondu à l'ancienne avec une touche de chantilly vanillée", price: "5,20 €" }
+                { name: "Organic Oat Milk Flat White", description: "Double shot espresso blend from Ethiopia/Colombia with velvety microfoam", price: "€4.50" },
+                { name: "House Spiced Artisan Chai Latte", description: "Organic black tea infused with ginger, cinnamon, black pepper, and cardamom", price: "€4.80" },
+                { name: "Valrhona Grand Cru Hot Chocolate", description: "70% single-origin melted dark chocolate topped with fresh Bourbon chantilly", price: "€5.20" }
               ]
             }
           ]
@@ -154,40 +154,40 @@ export const SEED_SITES = [
         id: "gallery-1",
         type: "gallery",
         data: {
-          badge: "Portfolio Gourmand",
-          title: "Instants Pris sur le Vif",
-          subtitle: "Un aperçu de nos créations quotidiennes et de l'ambiance chaleureuse du salon.",
+          badge: "Photo Journal",
+          title: "Moments from the Workshop",
+          subtitle: "A daily glimpse of our fresh bakes and warm tea room atmosphere.",
           layout: "grid",
           items: [
             {
               image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
-              title: "Viennoiseries sorties du four",
+              title: "Freshly baked morning croissants",
               category: "Viennoiserie"
             },
             {
               image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
-              title: "Gâteau forêt noire moderne",
-              category: "Pâtisserie"
+              title: "Modern dark chocolate gateau",
+              category: "Pastry"
             },
             {
               image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-              title: "Pains au levain sur meule",
-              category: "Boulangerie"
+              title: "Stone-ground rustic sourdough loaves",
+              category: "Bakery"
             },
             {
               image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
-              title: "Extraction espresso de spécialité",
-              category: "Café"
+              title: "Specialty espresso extraction",
+              category: "Coffee"
             },
             {
               image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
-              title: "Ambiance du salon de thé",
-              category: "Lieu"
+              title: "Sunlit tea room interior",
+              category: "Ambiance"
             },
             {
               image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80",
-              title: "Tartelettes aux fraises fraîches",
-              category: "Pâtisserie"
+              title: "Fresh strawberry tartlets",
+              category: "Pastry"
             }
           ]
         }
@@ -196,29 +196,29 @@ export const SEED_SITES = [
         id: "testimonials-1",
         type: "testimonials",
         data: {
-          badge: "Témoignages",
-          title: "Ce Que Disent Nos Habitués",
-          subtitle: "Plus de 1 200 avis 5 étoiles laissés par les gourmands du quartier et d'ailleurs.",
+          badge: "Testimonials",
+          title: "What Our Regulars Say",
+          subtitle: "Over 1,200 five-star reviews from neighborhood food lovers and travelers.",
           items: [
             {
               author: "Camille Dupont",
-              role: "Critique gastronomique locale",
+              role: "Local Food Critic",
               rating: 5,
-              quote: "Leur croissant feuilleté au beurre AOP est tout simplement le meilleur que j'ai dégusté à Paris ces dix dernières années. Croustillant à l'extérieur, fondant à l'intérieur !",
+              quote: "Their AOP butter croissant is simply the best I have tasted anywhere in Paris in ten years. Crispy and golden outside, airy and melting within!",
               avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
             },
             {
               author: "Thomas Laurent",
-              role: "Architecte & voisin régulier",
+              role: "Architect & Daily Regular",
               rating: 5,
-              quote: "Je viens chaque matin travailler 1h au salon de thé. L'ambiance est lumineuse, l'équipe a toujours le sourire et le Flat White est préparé à la perfection.",
+              quote: "I come by every morning to work for an hour in the tea room. Bright atmosphere, cheerful staff, and the flat white is pulled to pure perfection.",
               avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
             },
             {
               author: "Sophie de Montmirail",
-              role: "Cliente fidèle depuis 2018",
+              role: "Loyal Patron since 2018",
               rating: 5,
-              quote: "Nous commandons tous les gâteaux d'anniversaire de la famille ici. La tartelette framboise-pistache a fait l'unanimité auprès de nos 30 invités le week-end dernier.",
+              quote: "We order every family celebration cake here. The raspberry-pistachio tart was an absolute sensation among our 30 party guests last weekend.",
               avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
             }
           ]
@@ -228,17 +228,17 @@ export const SEED_SITES = [
         id: "contact-1",
         type: "contact",
         data: {
-          badge: "Réservation & Infos",
-          title: "Venir Nous Rendre Visite ou Commander",
-          subtitle: "Pour une commande spéciale de gâteaux ou réserver une table de brunch, écrivez-nous ou passez directement.",
-          address: "28 Rue des Martyrs, 75009 Paris",
-          phone: "01 42 68 90 12",
-          email: "bonjour@patisserie-delice.fr",
-          openingHours: "Mardi au Dimanche : 07h30 – 19h30 (Fermé le lundi)",
+          badge: "Reservations & Orders",
+          title: "Visit Us or Place an Order",
+          subtitle: "For bespoke celebration cakes or weekend brunch table reservations, drop us a line or visit in person.",
+          address: "28 Rue des Martyrs, 75009 Paris, France",
+          phone: "+33 1 42 68 90 12",
+          email: "hello@patisserie-delice.com",
+          openingHours: "Tuesday to Sunday: 7:30 AM – 7:30 PM (Closed Mondays)",
           formFields: ["name", "email", "phone", "service", "message"],
-          servicesList: ["Réservation table brunch", "Commande gâteau personnalisé", "Événement privé / Traiteur", "Autre demande"],
-          submitButtonText: "Envoyer ma demande",
-          successMessage: "Merci pour votre message ! Notre chef pâtissier vous répondra sous quelques heures."
+          servicesList: ["Brunch Table Reservation", "Custom Celebration Cake", "Private Event / Catering", "General Inquiry"],
+          submitButtonText: "Send My Request",
+          successMessage: "Thank you for your message! Our pastry chef will reply within a few hours."
         }
       },
       {
@@ -246,22 +246,22 @@ export const SEED_SITES = [
         type: "footer",
         data: {
           logoText: "Atelier Délice",
-          description: "Boulangerie-pâtisserie artisanale et salon de thé bio à Paris 9e. Fait avec passion chaque jour.",
+          description: "Artisanal French bakery, fine pastry, and organic specialty tea room in Paris 9th. Handcrafted with passion every single day.",
           socialLinks: [
             { platform: "Instagram", url: "https://instagram.com" },
             { platform: "Facebook", url: "https://facebook.com" },
             { platform: "TikTok", url: "https://tiktok.com" }
           ],
-          copyright: "© 2026 Atelier Délice Paris. Tous droits réservés."
+          copyright: "© 2026 Atelier Délice Paris. All rights reserved."
         }
       }
     ]
   },
   {
     id: "site-novapulse-ai",
-    title: "NovaPulse AI — Plateforme d'Intelligence Augmentée",
+    title: "NovaPulse AI — Augmented Intelligence Platform",
     slug: "novapulse-ai",
-    description: "SaaS analytique de nouvelle génération : prédictions en temps réel et assistant IA pour entreprises.",
+    description: "Next-generation analytics SaaS: real-time predictive models and conversational AI copilot for modern teams.",
     createdAt: "2026-09-02T11:00:00.000Z",
     updatedAt: "2026-09-09T18:15:00.000Z",
     published: true,
@@ -290,16 +290,16 @@ export const SEED_SITES = [
           logoText: "NovaPulse AI",
           logoIcon: "Zap",
           links: [
-            { label: "Produit", href: "#hero" },
+            { label: "Product", href: "#hero" },
             { label: "Performance", href: "#stats" },
-            { label: "Fonctionnalités", href: "#features" },
-            { label: "Tarifs", href: "#pricing" },
+            { label: "Features", href: "#features" },
+            { label: "Pricing", href: "#pricing" },
             { label: "FAQ", href: "#faq" },
             { label: "Contact", href: "#contact" }
           ],
           ctaButton: {
             show: true,
-            text: "Démarrer l'essai",
+            text: "Start Free Trial",
             href: "#pricing"
           }
         }
@@ -309,25 +309,25 @@ export const SEED_SITES = [
         type: "hero",
         data: {
           layout: "centered",
-          badge: "⚡ NovaPulse 3.5 — Modèles Multimodaux Actifs",
-          title: "Transformez vos flux de données en décisions stratégiques instantanées",
-          subtitle: "Connectez vos bases de données, CRM et outils métiers. NovaPulse identifie automatiquement les tendances clés, génère vos rapports et répond en langage naturel.",
+          badge: "⚡ NovaPulse 3.5 — Multimodal Inference Models Active",
+          title: "Transform Raw Data Streams into Instant Strategic Decisions",
+          subtitle: "Connect your databases, CRM, and cloud workspaces. NovaPulse automatically spots key anomalies, compiles executive briefings, and answers complex queries in plain natural language.",
           image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-          primaryBtn: { text: "Commencer 14 jours gratuits", href: "#pricing" },
-          secondaryBtn: { text: "Réserver une démonstration", href: "#contact" },
-          statsBadge: { count: "99.98%", label: "Disponibilité garantie" }
+          primaryBtn: { text: "Start 14-Day Free Trial", href: "#pricing" },
+          secondaryBtn: { text: "Book an Architecture Demo", href: "#contact" },
+          statsBadge: { count: "99.98%", label: "Guaranteed Uptime" }
         }
       },
       {
         id: "stats-2",
         type: "stats",
         data: {
-          title: "Une puissance d'analyse éprouvée à grande échelle",
+          title: "Battle-Tested Analytics Power at Global Scale",
           items: [
-            { number: "10x", label: "Gain de temps sur la synthèse de données" },
-            { number: "99.9%", label: "Précision des modèles d'extraction" },
-            { number: "500+", label: "Entreprises tech & PME connectées" },
-            { number: "< 45ms", label: "Temps de latence moyen par requête" }
+            { number: "10x", label: "Time saved synthesizing cross-platform data" },
+            { number: "99.9%", label: "Model precision across structured extractions" },
+            { number: "500+", label: "Fast-scaling tech companies & teams connected" },
+            { number: "< 45ms", label: "Average inference latency per analytical query" }
           ]
         }
       },
@@ -335,40 +335,40 @@ export const SEED_SITES = [
         id: "features-2",
         type: "features",
         data: {
-          badge: "Technologie",
-          title: "Une Infrastructure Conçue pour la Performance",
-          subtitle: "Déployez en quelques minutes des capacités d'analyse IA autrefois réservées aux géants de la tech.",
+          badge: "Technology",
+          title: "An Infrastructure Engineered for Velocity",
+          subtitle: "Deploy enterprise generative AI capabilities once reserved for hyperscalers in under 15 minutes.",
           layout: "3-cols",
           items: [
             {
               icon: "Database",
-              title: "Connecteurs Universels",
-              description: "Intégration native en 1 clic avec PostgreSQL, Snowflake, BigQuery, Notion, Stripe et HubSpot."
+              title: "Universal Connectors",
+              description: "1-click native integrations with PostgreSQL, Snowflake, BigQuery, Notion, Stripe, and HubSpot."
             },
             {
               icon: "Cpu",
-              title: "RAG & Recherche Sémantique",
-              description: "Interrogez vos documents PDF, contrats et historiques avec une citation exacte de chaque source."
+              title: "RAG & Semantic Retrieval",
+              description: "Query PDF archives, contracts, and conversation logs with exact source citations on every token."
             },
             {
               icon: "ShieldCheck",
-              title: "Sécurité & Confort RGPD",
-              description: "Hébergement souverain européen, chiffrement de bout en bout AES-256 et zéro entraînement sur vos données."
+              title: "SOC2 & GDPR Compliant",
+              description: "Sovereign European cloud hosting, AES-256 end-to-end encryption, and strict zero data retention training."
             },
             {
               icon: "TrendingUp",
-              title: "Détection Proactive d'Anomalies",
-              description: "Alertes intelligentes instantanées dès qu'un écart statistique anormal est identifié dans votre chiffre d'affaires."
+              title: "Proactive Anomaly Alerts",
+              description: "Instant intelligent notifications the moment revenue metrics or churn signals deviate from baseline models."
             },
             {
               icon: "Layers",
-              title: "Workflows Automatisés",
-              description: "Créez des chaînes d'actions intelligentes déclenchées par des seuils ou des plannings personnalisés."
+              title: "Automated Workflows",
+              description: "Build intelligent trigger-action chains based on custom KPI thresholds and automated schedules."
             },
             {
               icon: "Terminal",
-              title: "API REST & Webhooks",
-              description: "Contrôlez NovaPulse par programmation grâce à notre SDK Python/TypeScript ultra documenté."
+              title: "REST API & Webhooks",
+              description: "Control NovaPulse programmatically with our thoroughly documented Python and TypeScript SDKs."
             }
           ]
         }
@@ -377,59 +377,60 @@ export const SEED_SITES = [
         id: "pricing-2",
         type: "pricing",
         data: {
-          badge: "Investissement",
-          title: "Des Tarifs Clairs, Conçus pour Évoluer",
-          subtitle: "Testez gratuitement pendant 14 jours sans carte de crédit.",
+          badge: "Investment",
+          title: "Transparent, Predictable Pricing for High-Growth Teams",
+          subtitle: "Start your 14-day risk-free trial with zero upfront commitment. Scale seamlessly as your data evolves.",
           hasPeriodToggle: true,
-          yearlyDiscountText: "-25% en annuel",
           plans: [
             {
               name: "Starter",
-              priceMonthly: "49 €",
-              priceYearly: "37 €",
-              description: "Idéal pour les indépendants et petites équipes découvrant l'analyse IA.",
+              priceMonthly: "$49 /mo",
+              priceYearly: "$39 /mo",
+              description: "Perfect for early-stage startups and agile engineering squads.",
               popular: false,
-              buttonText: "Commencer l'essai",
+              buttonText: "Start Free Starter Trial",
               buttonHref: "#contact",
               features: [
-                "Jusqu'à 3 sources de données",
-                "10 000 requêtes d'analyse / mois",
-                "Export des rapports en PDF & CSV",
-                "Support par e-mail en 24h",
-                "Sécurité RGPD standard"
+                "Up to 5 team members",
+                "5,000,000 data tokens / month",
+                "3 universal database connectors",
+                "Automated weekly executive digest",
+                "Standard email support (24h SLA)"
               ]
             },
             {
-              name: "Pro Performance",
-              priceMonthly: "129 €",
-              priceYearly: "97 €",
-              description: "Pour les entreprises en croissance nécessitant des analyses continues.",
+              name: "Professional",
+              priceMonthly: "$149 /mo",
+              priceYearly: "$119 /mo",
+              description: "Our most popular package for scaling data, product, and ops teams.",
               popular: true,
-              buttonText: "Essayer Pro 14 jours",
+              buttonText: "Start Free Pro Trial",
               buttonHref: "#contact",
               features: [
-                "Sources de données illimitées",
-                "100 000 requêtes d'analyse / mois",
-                "Alertes d'anomalies en direct sur Slack",
-                "RAG sémantique sur tous vos documents",
-                "Support prioritaire par chat direct",
-                "Accès complet aux API REST"
+                "Up to 25 team members",
+                "50,000,000 data tokens / month",
+                "Unlimited data connectors",
+                "Sub-second RAG retrieval engine",
+                "Real-time custom anomaly alerts",
+                "Full REST API & webhook access",
+                "Priority support with shared Slack channel"
               ]
             },
             {
-              name: "Enterprise Cloud",
-              priceMonthly: "399 €",
-              priceYearly: "299 €",
-              description: "Infrastructure sur mesure et accompagnement d'un ingénieur dédié.",
+              name: "Enterprise",
+              priceMonthly: "$499 /mo",
+              priceYearly: "$399 /mo",
+              description: "Dedicated infrastructure, custom model weights, and guaranteed enterprise SLAs.",
               popular: false,
-              buttonText: "Contacter l'équipe",
+              buttonText: "Talk to Solutions Team",
               buttonHref: "#contact",
               features: [
-                "Requêtes & volumétrie sur mesure",
-                "Déploiement VPC privé ou On-Premise",
-                "SLA garanti 99.99% contractuel",
-                "Audit de conformité & DPA personnalisé",
-                "Ingénieur IA dédié & formation d'équipe"
+                "Unlimited team seats",
+                "Dedicated private VPC deployment",
+                "Custom fine-tuning on internal corpus",
+                "99.99% uptime SLA guarantee",
+                "Dedicated solutions architect & 24/7 hotline",
+                "SSO / SAML authentication & compliance audits"
               ]
             }
           ]
@@ -439,25 +440,25 @@ export const SEED_SITES = [
         id: "faq-2",
         type: "faq",
         data: {
-          badge: "Réponses",
-          title: "Questions Fréquemment Posées",
-          subtitle: "Tout ce que vous devez savoir avant de déployer NovaPulse.",
+          badge: "Assurance",
+          title: "Frequently Asked Questions",
+          subtitle: "Everything you need to know about our data privacy, security, and onboarding.",
           items: [
             {
-              question: "Mes données d'entreprise sont-elles utilisées pour entraîner des modèles publics ?",
-              answer: "Absolument jamais. Vos données restent dans votre espace sécurisé isolé et hermétique. Conformément à nos engagements contractuels et au RGPD européen, aucune donnée client ne sert au perfectionnement de modèles tiers."
+              question: "How does NovaPulse connect to our proprietary databases?",
+              answer: "NovaPulse uses secure read-only connectors via IP whitelisting or SSH tunneling. We never store raw customer records without explicit configuration; queries are executed ephemerally through encrypted RAG embeddings."
             },
             {
-              question: "Combien de temps prend la mise en place de la plateforme ?",
-              answer: "Pour 90% de nos clients, la première connexion à PostgreSQL, Snowflake ou HubSpot prend moins de 10 minutes grâce à nos assistants guidés en 3 étapes."
+              question: "Are our enterprise data used to train public models?",
+              answer: "Never. Our contracts strictly enforce a zero-training policy. Your proprietary data and internal prompts remain entirely isolated within your dedicated encrypted tenant."
             },
             {
-              question: "Puis-je annuler ou changer de forfait à tout moment ?",
-              answer: "Oui, la résiliation se fait en un clic depuis votre espace administrateur, sans engagement de durée pour les abonnements mensuels."
+              question: "Can we export our analytics reports and models?",
+              answer: "Yes. You can export complete datasets and visual dashboards anytime in JSON, CSV, or formatted PDF, or query them downstream via our REST API."
             },
             {
-              question: "Existe-t-il un accompagnement au démarrage ?",
-              answer: "Chaque nouvel utilisateur bénéficie d'une session d'accueil de 30 minutes avec un ingénieur produit pour configurer ses premiers tableaux de bord."
+              question: "How quickly can our team get started?",
+              answer: "Most teams connect their first database and run their first predictive query in under 15 minutes without writing a single line of backend code."
             }
           ]
         }
@@ -466,17 +467,17 @@ export const SEED_SITES = [
         id: "contact-2",
         type: "contact",
         data: {
-          badge: "Contact & Démo",
-          title: "Demandez une Démonstration Personnalisée",
-          subtitle: "Nos spécialistes vous présentent la plateforme sur vos propres cas d'usage métiers.",
-          address: "Station F, 5 Parvis Alan Turing, 75013 Paris",
-          phone: "+33 1 89 20 45 00",
-          email: "demo@novapulse.ai",
-          openingHours: "Lundi au Vendredi : 09h00 – 19h00",
+          badge: "Get in Touch",
+          title: "Schedule an Enterprise Architecture Review",
+          subtitle: "Speak directly with our senior AI engineers to evaluate latency, security compliance, and ROI for your stack.",
+          address: "NovaPulse HQ, 45 Rue de Courcelles, 75008 Paris, France",
+          phone: "+33 1 89 20 44 00",
+          email: "contact@novapulse.ai",
+          openingHours: "Monday to Friday: 9:00 AM – 7:00 PM CET",
           formFields: ["name", "email", "phone", "service", "message"],
-          servicesList: ["Démonstration entreprise", "Question technique & sécurité", "Devis volume sur mesure", "Partenariat intégrateur"],
-          submitButtonText: "Demander ma démonstration",
-          successMessage: "Votre demande a bien été envoyée ! Un ingénieur solution NovaPulse vous contactera sous 2 heures."
+          servicesList: ["Live Enterprise Demo", "VPC & Security Assessment", "Partnership & Reseller Program", "General Technical Question"],
+          submitButtonText: "Schedule Call",
+          successMessage: "Thank you! An enterprise solution engineer will reach out within 2 business hours."
         }
       },
       {
@@ -484,22 +485,22 @@ export const SEED_SITES = [
         type: "footer",
         data: {
           logoText: "NovaPulse AI",
-          description: "La plateforme d'analyse intelligente pour les entreprises d'aujourd'hui et de demain.",
+          description: "Augmented intelligence platform empowering modern companies to make confident, data-driven decisions.",
           socialLinks: [
             { platform: "LinkedIn", url: "https://linkedin.com" },
             { platform: "Twitter", url: "https://x.com" },
             { platform: "GitHub", url: "https://github.com" }
           ],
-          copyright: "© 2026 NovaPulse Technologies SAS. Tous droits réservés. Hébergé en France."
+          copyright: "© 2026 NovaPulse Technologies SAS. All rights reserved."
         }
       }
     ]
   },
   {
     id: "site-elena-vance-photo",
-    title: "Elena Vance — Photographie d'Art & Direction Visuelle",
+    title: "Elena Vance — Fine Art & Editorial Photography",
     slug: "elena-vance-photo",
-    description: "Photographie éditoriale de mode, portraits d'art et campagnes visuelles à Paris et Milan.",
+    description: "Editorial fashion photography, fine art portraiture, and visual art direction based in Paris & Milan.",
     createdAt: "2026-09-03T14:00:00.000Z",
     updatedAt: "2026-09-09T17:50:00.000Z",
     published: true,
@@ -529,14 +530,14 @@ export const SEED_SITES = [
           logoIcon: "Camera",
           links: [
             { label: "Portfolio", href: "#gallery" },
-            { label: "Démarche", href: "#about" },
-            { label: "Prestations", href: "#features" },
-            { label: "Témoignages", href: "#testimonials" },
+            { label: "Vision", href: "#about" },
+            { label: "Services", href: "#features" },
+            { label: "Reviews", href: "#testimonials" },
             { label: "Contact", href: "#contact" }
           ],
           ctaButton: {
             show: true,
-            text: "Réserver un shooting",
+            text: "Book a Shoot",
             href: "#contact"
           }
         }
@@ -546,53 +547,53 @@ export const SEED_SITES = [
         type: "hero",
         data: {
           layout: "split",
-          badge: "Lauréate — Prix de la Photographie Créative 2025",
-          title: "Capturer la poésie brute du réel et la force des regards",
-          subtitle: "Direction artistique, séries de mode éditoriales et portraits intimistes entre lumière naturelle et studio argentique.",
+          badge: "Winner — Creative Photography Awards 2025",
+          title: "Capturing the Raw Poetry of Light and Human Emotion",
+          subtitle: "Art direction, editorial fashion narratives, and intimate portraits balanced between natural daylight and classic medium-format film.",
           image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
-          primaryBtn: { text: "Découvrir la galerie", href: "#gallery" },
-          secondaryBtn: { text: "Prendre contact", href: "#contact" },
-          statsBadge: { count: "12 ans", label: "D'expérience internationale" }
+          primaryBtn: { text: "View Portfolio", href: "#gallery" },
+          secondaryBtn: { text: "Get in Touch", href: "#contact" },
+          statsBadge: { count: "12 Years", label: "International Experience" }
         }
       },
       {
         id: "gallery-3",
         type: "gallery",
         data: {
-          badge: "Œuvres Récentes",
-          title: "Sélection Photographique",
-          subtitle: "Une traversée entre ombre, lumière et textures organiques.",
+          badge: "Selected Works",
+          title: "Visual Archive",
+          subtitle: "A journey through natural shadows, sculptured light, and organic textures.",
           layout: "grid",
-          filterCategories: ["Tous", "Mode", "Portrait", "Architecture", "Édition"],
+          filterCategories: ["All", "Fashion", "Portrait", "Architecture", "Editorial"],
           items: [
             {
               image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-              title: "Lumière d'Automne — Série Éditoriale",
+              title: "Autumn Glow — Editorial Series",
               category: "Portrait"
             },
             {
               image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
-              title: "Mouvement & Voiles — Milan Fashion Week",
-              category: "Mode"
+              title: "Motion & Drapes — Milan Fashion Week",
+              category: "Fashion"
             },
             {
               image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-              title: "Géométries du béton brut",
+              title: "Raw Brutalist Geometries",
               category: "Architecture"
             },
             {
               image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
-              title: "Regard d'artiste — Portrait studio",
+              title: "Artist Gaze — Studio Portrait",
               category: "Portrait"
             },
             {
               image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80",
-              title: "Haute Couture — Collection Printemps",
-              category: "Mode"
+              title: "Haute Couture — Spring Collection",
+              category: "Fashion"
             },
             {
               image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-              title: "Ombres portées — La Défense",
+              title: "Cast Shadows — Urban Lines",
               category: "Architecture"
             }
           ]
@@ -603,18 +604,18 @@ export const SEED_SITES = [
         type: "about",
         data: {
           layout: "image-left",
-          badge: "Démarche Artistique",
-          title: "L'émotion pure avant la technique",
-          text: "Basée dans le Marais à Paris, je collabore avec des maisons de couture, des magazines de presse internationale et des artistes passionnés. Mon approche privilégie la complicité avec le sujet, l'attente du moment suspendu et le grain argentique authentique.",
+          badge: "Artistic Vision",
+          title: "Pure Emotion Before Technical Dogma",
+          text: "Based in the Marais district in Paris, I collaborate with couture houses, international publications, and passionate creators. My approach centers on close intimacy with the subject, waiting patiently for the unscripted moment and honoring the rich grain of analog film.",
           bulletPoints: [
-            "Prises de vue moyen format (Hasselblad & Leica M) pour un piqué et une douceur uniques",
-            "Élaboration collaborative du moodboard et recherche scénographique sur mesure",
-            "Post-production fine et tirages d'art certifiés Digigraphie"
+            "Medium-format film & digital setups (Hasselblad & Leica M) for unrivaled color depth and softness",
+            "Collaborative moodboarding and tailored spatial scenography for every session",
+            "Master-grade fine art post-production and Digigraphie-certified archival art prints"
           ],
           image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80",
           highlightCard: {
             number: "80+",
-            label: "Publications magazines"
+            label: "Magazine Features"
           }
         }
       },
@@ -622,25 +623,25 @@ export const SEED_SITES = [
         id: "features-3",
         type: "features",
         data: {
-          badge: "Collaborations",
-          title: "Prestations & Domaines d'Intervention",
-          subtitle: "De la conception créative à la livraison des fichiers haute résolution.",
+          badge: "Services",
+          title: "Creative Focus & Commissioned Works",
+          subtitle: "From conceptual visual storytelling to final high-resolution delivery.",
           layout: "3-cols",
           items: [
             {
               icon: "Camera",
-              title: "Campagnes de Mode & Lookbooks",
-              description: "Mise en valeur de vos collections textiles et accessoires avec une direction artistique forte."
+              title: "Fashion Campaigns & Lookbooks",
+              description: "Showcasing textile craftsmanship and designer collections with bold, timeless art direction."
             },
             {
               icon: "Smile",
-              title: "Portraits d'Art & Personnalités",
-              description: "Séances privées pour artistes, créateurs, dirigeants et talents en quête d'une image singulière."
+              title: "Fine Art Portraits & Personalities",
+              description: "Private portraiture sessions for artists, founders, and creators seeking a distinct visual signature."
             },
             {
               icon: "BookOpen",
-              title: "Tirages d'Art & Expositions",
-              description: "Vente de tirages limités numérotés et scénographie d'expositions institutionnelles."
+              title: "Archival Prints & Exhibitions",
+              description: "Numbered limited-edition print sales and custom gallery curation for institutions and collectors."
             }
           ]
         }
@@ -649,22 +650,22 @@ export const SEED_SITES = [
         id: "testimonials-3",
         type: "testimonials",
         data: {
-          badge: "Témoignages",
-          title: "Mots de mes Commanditaires",
-          subtitle: "Ce qu'ils ont pensé de notre collaboration créative.",
+          badge: "Client Words",
+          title: "Reflections from Collaborators",
+          subtitle: "Feedback from artistic directors, curators, and editorial publishers.",
           items: [
             {
               author: "Adrien de La Tour",
-              role: "Directeur de création — Maison Vernet",
+              role: "Creative Director — Maison Vernet",
               rating: 5,
-              quote: "Elena a su capter l'esprit de notre collection automne-hiver avec une grâce inouïe. Ses images ont élevé notre image de marque sur tous les supports.",
+              quote: "Elena captured the soul of our autumn-winter collection with breathtaking grace. Her images elevated our brand presence across every global channel.",
               avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
             },
             {
               author: "Mathilde Vasseur",
-              role: "Rédactrice en chef — L'Éphémère Magazine",
+              role: "Editor-in-Chief — L'Éphémère Magazine",
               rating: 5,
-              quote: "Collaborer avec Elena est toujours un bonheur : précision, calme sur les plateaux et un sens inné du cadre qui ne déçoit jamais.",
+              quote: "Working with Elena is an absolute pleasure: quiet composure on set, meticulous precision, and an intuitive eye for framing that never fails to move.",
               avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
             }
           ]
@@ -674,17 +675,17 @@ export const SEED_SITES = [
         id: "contact-3",
         type: "contact",
         data: {
-          badge: "Réservation",
-          title: "Parlons de Votre Prochain Projet",
-          subtitle: "Disponible pour des projets en France et à l'international.",
-          address: "14 Rue de Turenne, 75004 Paris",
+          badge: "Inquiries",
+          title: "Let's Discuss Your Upcoming Project",
+          subtitle: "Available for commissioned assignments in Paris, London, Milan, and worldwide.",
+          address: "14 Rue de Turenne, 75004 Paris, France",
           phone: "+33 6 45 89 12 30",
           email: "studio@elenavance.com",
-          openingHours: "Sur rendez-vous uniquement",
+          openingHours: "By appointment only",
           formFields: ["name", "email", "phone", "service", "message"],
-          servicesList: ["Shooting Lookbook / Mode", "Portrait personnel / professionnel", "Projet éditorial presse", "Acquisition tirage d'art"],
-          submitButtonText: "Envoyer ma proposition",
-          successMessage: "Merci pour votre message ! Je vous réponds personnellement sous 24h ouvrées."
+          servicesList: ["Fashion Lookbook / Campaign", "Editorial / Magazine Feature", "Private Fine Art Portrait", "Art Print Collector Inquiry"],
+          submitButtonText: "Send Inquiry",
+          successMessage: "Thank you for reaching out. I personally review and answer inquiries within 24 business hours."
         }
       },
       {
@@ -692,22 +693,22 @@ export const SEED_SITES = [
         type: "footer",
         data: {
           logoText: "ELENA VANCE",
-          description: "Photographie d'art et création visuelle contemporaine.",
+          description: "Fine art photography and contemporary visual direction.",
           socialLinks: [
             { platform: "Instagram", url: "https://instagram.com" },
             { platform: "Behance", url: "https://behance.net" },
             { platform: "Pinterest", url: "https://pinterest.com" }
           ],
-          copyright: "© 2026 Elena Vance Studio. Tous droits de reproduction réservés."
+          copyright: "© 2026 Elena Vance Studio. All reproduction rights reserved."
         }
       }
     ]
   },
   {
     id: "site-sommet-tech-2026",
-    title: "Sommet Tech & Innovation Paris 2026",
+    title: "Global Tech & Innovation Summit 2026",
     slug: "sommet-tech-2026",
-    description: "Le plus grand rassemblement européen dédié à l'IA générative, la deeptech et la transition numérique.",
+    description: "Europe's premier technology summit dedicated to generative AI, quantum computing, and frontier deeptech.",
     createdAt: "2026-09-04T09:00:00.000Z",
     updatedAt: "2026-09-09T18:45:00.000Z",
     published: true,
@@ -724,29 +725,29 @@ export const SEED_SITES = [
     },
     settings: {
       favicon: "🚀",
-      logoText: "Sommet Tech 2026",
+      logoText: "Tech Summit 2026",
       showBranding: true,
-      contactEmail: "contact@sommet-tech2026.fr"
+      contactEmail: "contact@techsummit2026.org"
     },
     sections: [
       {
         id: "nav-4",
         type: "navbar",
         data: {
-          logoText: "Sommet Tech 2026",
+          logoText: "Tech Summit 2026",
           logoIcon: "Rocket",
           links: [
-            { label: "Accueil", href: "#hero" },
-            { label: "Compte à rebours", href: "#countdown" },
+            { label: "Home", href: "#hero" },
+            { label: "Countdown", href: "#countdown" },
             { label: "Speakers", href: "#features" },
-            { label: "Chiffres", href: "#stats" },
-            { label: "Billetterie", href: "#pricing" },
+            { label: "Key Figures", href: "#stats" },
+            { label: "Tickets", href: "#pricing" },
             { label: "Newsletter", href: "#newsletter" },
-            { label: "Accès & Contact", href: "#contact" }
+            { label: "Contact", href: "#contact" }
           ],
           ctaButton: {
             show: true,
-            text: "Prendre mon Pass",
+            text: "Get My Pass",
             href: "#pricing"
           }
         }
@@ -756,26 +757,26 @@ export const SEED_SITES = [
         type: "hero",
         data: {
           layout: "full-bg",
-          badge: "🎟️ Billetterie Ouverte — Tarif Early Bird jusqu'au 30 Septembre",
-          title: "Façonner l'Avenir du Numérique, de l'IA et du Quantique",
-          subtitle: "3 jours intensifs de keynotes inspirantes, de démonstrations en direct et de networking d'élite avec 4 000 leaders de la tech mondiale.",
+          badge: "🎟️ Registration Open — Early Bird Rates until September 30th",
+          title: "Shaping the Frontiers of AI, Quantum & Deeptech",
+          subtitle: "3 intensive days of keynote presentations, live hardware demos, and executive networking with 4,000 global tech leaders.",
           image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
-          primaryBtn: { text: "Réserver son pass", href: "#pricing" },
-          secondaryBtn: { text: "Voir les intervenants", href: "#features" },
-          statsBadge: { count: "15-17 Oct", label: "Palais des Congrès" }
+          primaryBtn: { text: "Reserve Your Pass", href: "#pricing" },
+          secondaryBtn: { text: "View Keynote Speakers", href: "#features" },
+          statsBadge: { count: "Oct 15-17", label: "Palais des Congrès" }
         }
       },
       {
         id: "countdown-4",
         type: "countdown",
         data: {
-          badge: "Ouverture Proche",
-          title: "Le Compte à Rebours est Lancé",
-          subtitle: "Rejoignez la communauté le 15 octobre 2026 dès 8h30 à Paris.",
+          badge: "Opening Soon",
+          title: "The Countdown Is On",
+          subtitle: "Join the pioneer tech community on October 15, 2026 starting at 8:30 AM in Paris.",
           targetDate: "2026-10-15T08:30:00",
-          note: "⚡ Attention : les places pour les masterclasses techniques sont limitées à 150 personnes.",
+          note: "⚡ Note: Seating for hands-on technical masterclasses is limited to 150 attendees.",
           ctaButton: {
-            text: "Bloquer mon tarif early bird",
+            text: "Lock In Early Bird Rate",
             href: "#pricing"
           }
         }
@@ -784,30 +785,30 @@ export const SEED_SITES = [
         id: "features-4",
         type: "features",
         data: {
-          badge: "Visionnaires",
-          title: "Intervenants & Keynotes d'Exception",
-          subtitle: "Des personnalités pionnières qui redéfinissent les standards technologiques mondiaux.",
+          badge: "Visionaries",
+          title: "World-Class Keynote Speakers",
+          subtitle: "Pioneering leaders actively redefining global technological frontiers.",
           layout: "4-cols",
           items: [
             {
               icon: "Cpu",
-              title: "Dr. Aurélie Chen",
-              description: "Directrice de la recherche IA chez QuantumScale, pionnière des architectures neuronales frugales."
+              title: "Dr. Aurelia Chen",
+              description: "VP of AI Research at QuantumScale, leading pioneer in energy-efficient neural model architectures."
             },
             {
               icon: "Shield",
               title: "Sarah Benali",
-              description: "Présidente de CyberDefense Alliance, experte en résilience des infrastructures critiques."
+              description: "President at CyberDefense Alliance, world authority on critical infrastructure cyber resilience."
             },
             {
               icon: "Rocket",
-              title: "Marc Delorme",
-              description: "Fondateur & CEO de NeoOrbit, premier lanceur spatial réutilisable européen."
+              title: "Marcus Delorme",
+              description: "Founder & CEO of NeoOrbit, Europe's first reusable orbital space launch system."
             },
             {
               icon: "Globe",
               title: "Thomas Valois",
-              description: "Chief Technology Officer chez CloudGlobal, bâtisseur d'infrastructures à 100M d'utilisateurs."
+              description: "Chief Technology Officer at CloudGlobal, architect behind 100M+ user distributed cloud clusters."
             }
           ]
         }
@@ -816,12 +817,12 @@ export const SEED_SITES = [
         id: "stats-4",
         type: "stats",
         data: {
-          title: "L'événement tech incontournable de l'automne",
+          title: "The Defining European Technology Event of the Year",
           items: [
-            { number: "4 000+", label: "Participants attendus" },
-            { number: "80+", label: "Speakers internationaux" },
-            { number: "40h", label: "De masterclasses & ateliers" },
-            { number: "150+", label: "Startups exposantes au village" }
+            { number: "4,000+", label: "Attendees & Tech Leaders" },
+            { number: "80+", label: "International Keynote Speakers" },
+            { number: "40h", label: "Deep-Dive Masterclasses" },
+            { number: "150+", label: "Frontier Startups Exhibiting" }
           ]
         }
       },
@@ -829,56 +830,56 @@ export const SEED_SITES = [
         id: "pricing-4",
         type: "pricing",
         data: {
-          badge: "Accréditations",
-          title: "Choisissez Votre Formule de Participation",
-          subtitle: "Tous les pass incluent l'accès à l'application mobile de networking et aux replays des keynotes.",
+          badge: "Accreditations",
+          title: "Select Your Summit Experience",
+          subtitle: "All passes include full access to the networking mobile app and complete HD keynote replays.",
           hasPeriodToggle: false,
           plans: [
             {
-              name: "Pass Découverte",
-              priceMonthly: "190 €",
-              priceYearly: "190 €",
-              description: "Accès plénières et village des startups pour découvrir les tendances.",
+              name: "Discovery Pass",
+              priceMonthly: "€190",
+              priceYearly: "€190",
+              description: "Access to mainstage plenary sessions and the startup innovation village.",
               popular: false,
-              buttonText: "Sélectionner Découverte",
+              buttonText: "Select Discovery",
               buttonHref: "#contact",
               features: [
-                "Accès aux 3 journées de conférences plénières",
-                "Entrée libre au village des 150 startups",
-                "Pauses café et animations partenaires",
-                "Application de networking entre participants"
+                "Full access to 3 days of mainstage keynotes",
+                "Admission to the 150+ startup pavilion",
+                "Barista coffee breaks & interactive showcases",
+                "Attendee networking mobile app"
               ]
             },
             {
-              name: "Pass Intégral Pro",
-              priceMonthly: "450 €",
-              priceYearly: "450 €",
-              description: "La formule la plus plébiscitée par les équipes tech et managers.",
+              name: "Full Pro Pass",
+              priceMonthly: "€450",
+              priceYearly: "€450",
+              description: "The gold standard pass for engineering leads, architects, and managers.",
               popular: true,
-              buttonText: "Prendre le Pass Intégral",
+              buttonText: "Get Full Pro Pass",
               buttonHref: "#contact",
               features: [
-                "Tous les avantages du Pass Découverte",
-                "Accès prioritaire aux 40h de Masterclasses",
-                "Déjeuners buffet networking inclus chaque midi",
-                "Accès à la soirée officielle Sommet Tech Night",
-                "Replays vidéo HD intégrals pendant 12 mois"
+                "All benefits from the Discovery Pass",
+                "Priority admission to 40 hours of Masterclasses",
+                "Gourmet networking lunch buffet included daily",
+                "Access to the official Summit Tech Night gala",
+                "12-month full HD on-demand video archive access"
               ]
             },
             {
-              name: "Pass VIP & Entreprise",
-              priceMonthly: "950 €",
-              priceYearly: "950 €",
-              description: "Pour les dirigeants souhaitant un accès exclusif aux conférenciers.",
+              name: "VIP & Executive Pass",
+              priceMonthly: "€950",
+              priceYearly: "€950",
+              description: "For founders and executives desiring private speaker access and boardroom networking.",
               popular: false,
-              buttonText: "Accès VIP Exclusif",
+              buttonText: "Get VIP Access",
               buttonHref: "#contact",
               features: [
-                "Tous les avantages du Pass Intégral",
-                "Lounge VIP privatif avec bar & conciergerie",
-                "Dîner de gala avec les conférenciers le jeudi soir",
-                "Session de pitch privée auprès des fonds VC partenaires",
-                "Prise en charge vestiaire & parking réservé"
+                "All benefits from the Full Pro Pass",
+                "Private VIP Executive Lounge with open bar & concierge",
+                "Speakers Gala Dinner on Thursday evening",
+                "Private closed-door pitch session with top VC funds",
+                "Fast-track registration & dedicated parking"
               ]
             }
           ]
@@ -888,43 +889,43 @@ export const SEED_SITES = [
         id: "newsletter-4",
         type: "newsletter",
         data: {
-          badge: "Alertes",
-          title: "Recevez les Nouvelles Révélations de Speakers",
-          subtitle: "Deux emails par mois maximum avec le programme détaillé et les actualités du sommet.",
-          buttonText: "S'abonner gratuitement",
-          placeholder: "Votre adresse e-mail professionnelle",
-          disclaimer: "Nous respectons votre vie privée. Désinscription en 1 clic."
+          badge: "Updates",
+          title: "Receive Speaker Drops & Schedule Updates",
+          subtitle: "Maximum two emails per month with exclusive program reveals and summit insights.",
+          buttonText: "Subscribe for Free",
+          placeholder: "Your corporate email address",
+          disclaimer: "We respect your inbox. 1-click unsubscribe anytime."
         }
       },
       {
         id: "contact-4",
         type: "contact",
         data: {
-          badge: "Informations & Sponsors",
-          title: "Accréditations Presse & Devenir Partenaire",
-          subtitle: "Notre équipe événementielle est à votre disposition pour toute demande de sponsoring ou d'interview.",
-          address: "Palais des Congrès, 2 Place de la Porte Maillot, 75017 Paris",
-          phone: "01 56 78 90 00",
-          email: "partenariats@sommet-tech2026.fr",
-          openingHours: "Standard ouvert 9h – 18h",
+          badge: "Sponsorship & Press",
+          title: "Media Accreditations & Corporate Partnerships",
+          subtitle: "Our event team is ready to assist with sponsorship packages, press credentials, and corporate delegations.",
+          address: "Palais des Congrès, 2 Place de la Porte Maillot, 75017 Paris, France",
+          phone: "+33 1 56 78 90 00",
+          email: "partnerships@techsummit2026.org",
+          openingHours: "Concierge open 9:00 AM – 6:00 PM CET",
           formFields: ["name", "email", "phone", "service", "message"],
-          servicesList: ["Devenir Sponsor de l'événement", "Accréditation Presse / Médias", "Réservation groupe entreprise (>5 pass)", "Question sur l'accessibilité"],
-          submitButtonText: "Envoyer ma demande",
-          successMessage: "Merci ! Notre responsable partenariats reviendra vers vous sous 24 heures."
+          servicesList: ["Become an Official Event Sponsor", "Press & Media Accreditation", "Corporate Group Delegation (>5 passes)", "Accessibility & Venue Inquiries"],
+          submitButtonText: "Submit Inquiry",
+          successMessage: "Thank you! Our partnerships coordinator will reply within 24 business hours."
         }
       },
       {
         id: "footer-4",
         type: "footer",
         data: {
-          logoText: "Sommet Tech 2026",
-          description: "L'événement de référence pour penser les technologies de demain.",
+          logoText: "Tech Summit 2026",
+          description: "The premier European conference shaping the technological architecture of tomorrow.",
           socialLinks: [
             { platform: "Twitter", url: "https://x.com" },
             { platform: "LinkedIn", url: "https://linkedin.com" },
             { platform: "YouTube", url: "https://youtube.com" }
           ],
-          copyright: "© 2026 Sommet Tech Paris. Événement produit par TechSummit Europe."
+          copyright: "© 2026 Global Tech Summit Paris. Event produced by TechSummit Europe."
         }
       }
     ]

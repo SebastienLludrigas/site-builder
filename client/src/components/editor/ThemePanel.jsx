@@ -39,7 +39,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
       <div>
         <div className="flex items-center gap-2 mb-3 text-slate-200 font-bold">
           <Palette className="w-4 h-4 text-indigo-400" />
-          <span>Palettes de couleurs harmonieuses</span>
+          <span>Curated Color Palettes</span>
         </div>
 
         <div className="grid grid-cols-2 gap-2.5">
@@ -62,10 +62,10 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
                 </div>
 
                 <div className="flex items-center gap-1.5 mt-1">
-                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.primaryColor }} title="Primaire" />
+                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.primaryColor }} title="Primary" />
                   <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.accentColor }} title="Accent" />
-                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.backgroundColor }} title="Fond" />
-                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.textColor }} title="Texte" />
+                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.backgroundColor }} title="Background" />
+                  <div className="w-5 h-5 rounded-full border border-black/20" style={{ backgroundColor: pal.textColor }} title="Text" />
                 </div>
               </button>
             );
@@ -75,11 +75,11 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
 
       {/* 2. CUSTOM COLOR PICKERS */}
       <div className="pt-4 border-t border-slate-800">
-        <label className="font-bold text-slate-200 block mb-3">Couleurs personnalisées</label>
+        <label className="font-bold text-slate-200 block mb-3">Custom Colors</label>
         <div className="space-y-2.5">
           
           <div className="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-            <span>Couleur Principale (Boutons, badges)</span>
+            <span>Primary Brand Color (Buttons, Badges)</span>
             <div className="flex items-center gap-2">
               <input
                 type="color"
@@ -92,7 +92,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
           </div>
 
           <div className="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-            <span>Couleur d'Accent (Éléments vifs)</span>
+            <span>Accent Highlight Color</span>
             <div className="flex items-center gap-2">
               <input
                 type="color"
@@ -105,7 +105,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
           </div>
 
           <div className="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-            <span>Arrière-plan du site</span>
+            <span>Page Background</span>
             <div className="flex items-center gap-2">
               <input
                 type="color"
@@ -118,7 +118,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
           </div>
 
           <div className="flex items-center justify-between bg-slate-900/60 p-2 rounded-lg border border-slate-800">
-            <span>Couleur du Texte principal</span>
+            <span>Primary Text Color</span>
             <div className="flex items-center gap-2">
               <input
                 type="color"
@@ -137,7 +137,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
       <div className="pt-4 border-t border-slate-800">
         <div className="flex items-center gap-2 mb-3 text-slate-200 font-bold">
           <Type className="w-4 h-4 text-indigo-400" />
-          <span>Typographie & Polices</span>
+          <span>Typography & Fonts</span>
         </div>
 
         <div className="space-y-2">
@@ -157,7 +157,7 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
                 <div>
                   <div className="text-xs font-semibold">{tp.name}</div>
                   <div className="text-[10px] text-slate-500 mt-0.5" style={{ fontFamily: tp.heading }}>
-                    Titre d'exemple — The quick brown fox
+                    Sample heading — The quick brown fox
                   </div>
                 </div>
                 {isSelected && <Check className="w-4 h-4 text-indigo-400 flex-shrink-0" />}
@@ -171,15 +171,15 @@ export default function ThemePanel({ theme = {}, onUpdateTheme }) {
       <div className="pt-4 border-t border-slate-800">
         <div className="flex items-center gap-2 mb-3 text-slate-200 font-bold">
           <Square className="w-4 h-4 text-indigo-400" />
-          <span>Arrondi des boutons & cartes</span>
+          <span>Corner Radius (Cards & Buttons)</span>
         </div>
 
         <div className="grid grid-cols-4 gap-2">
           {[
-            { label: "Droit", class: "rounded-none", radius: "0px" },
-            { label: "Discret", class: "rounded-lg", radius: "8px" },
-            { label: "Moderne", class: "rounded-xl", radius: "14px" },
-            { label: "Généreux", class: "rounded-2xl", radius: "22px" }
+            { label: "Sharp", class: "rounded-none", radius: "0px" },
+            { label: "Subtle", class: "rounded-lg", radius: "8px" },
+            { label: "Modern", class: "rounded-xl", radius: "14px" },
+            { label: "Rounded", class: "rounded-2xl", radius: "22px" }
           ].map(r => {
             const isSelected = theme.borderRadius === r.class;
             return (

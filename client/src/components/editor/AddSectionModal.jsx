@@ -20,13 +20,13 @@ const ICONS_MAP = {
 };
 
 export default function AddSectionModal({ isOpen, onClose, onAddSection, insertIndex = null }) {
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   if (!isOpen) return null;
 
-  const categories = ['Tous', 'Accroche', 'Contenu', 'Médias', 'Commerce', 'Interactivité', 'Social', 'Structure'];
+  const categories = ['All', 'Header', 'Content', 'Media', 'Commerce', 'Interactive', 'Social', 'Structure'];
 
-  const filteredSections = selectedCategory === 'Tous'
+  const filteredSections = selectedCategory === 'All'
     ? AVAILABLE_SECTIONS
     : AVAILABLE_SECTIONS.filter(s => s.category === selectedCategory);
 
@@ -51,8 +51,8 @@ export default function AddSectionModal({ isOpen, onClose, onAddSection, insertI
               <Plus className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-white">Ajouter un bloc / section</h3>
-              <p className="text-xs text-slate-400">Choisissez parmi nos composants riches et pré-configurés.</p>
+              <h3 className="text-base font-bold text-white">Add Section Component</h3>
+              <p className="text-xs text-slate-400">Choose from pre-built, fully responsive components.</p>
             </div>
           </div>
           <button
@@ -109,7 +109,7 @@ export default function AddSectionModal({ isOpen, onClose, onAddSection, insertI
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-700/40 flex items-center justify-between text-xs font-semibold text-indigo-400 group-hover:text-indigo-300">
-                  <span>Insérer cette section</span>
+                  <span>Insert this section</span>
                   <Plus className="w-4 h-4 transition transform group-hover:rotate-90" />
                 </div>
               </div>

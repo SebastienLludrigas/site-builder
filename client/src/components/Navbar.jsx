@@ -18,7 +18,7 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
                 Local Host
               </span>
             </div>
-            <p className="text-xs text-slate-400 hidden sm:block">Créateur de sites web intuitif & hébergé localement</p>
+            <p className="text-xs text-slate-400 hidden sm:block">Visual website builder & local hosting platform</p>
           </div>
         </div>
 
@@ -28,10 +28,10 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
           <button
             onClick={onOpenInbox}
             className="relative flex items-center gap-2 px-3 py-2 text-sm font-medium text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-800 rounded-lg border border-slate-700 transition"
-            title="Consulter tous les messages reçus depuis les formulaires de vos sites"
+            title="View all form submissions received across your websites"
           >
             <MessageSquare className="w-4 h-4 text-cyan-400" />
-            <span className="hidden md:inline">Boîte de réception</span>
+            <span className="hidden md:inline">Inbox</span>
             {unreadCount > 0 ? (
               <span className="px-1.5 py-0.5 text-xs font-bold bg-cyan-500 text-slate-950 rounded-full animate-pulse">
                 {unreadCount}
@@ -47,10 +47,10 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
           <button
             onClick={onResetDemos}
             className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg transition"
-            title="Restaurer les 4 sites d'exemple officiels"
+            title="Restore the 4 official showcase demo websites"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span>Exemples de démo</span>
+            <span>Reset Demos</span>
           </button>
 
           {/* New site button */}
@@ -59,7 +59,7 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
             className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 rounded-lg shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5"
           >
             <Plus className="w-4 h-4" />
-            <span>Créer un site</span>
+            <span>Create Website</span>
           </button>
         </div>
 
