@@ -374,7 +374,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
               </div>
 
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre</label>
+                <label className="block font-semibold text-slate-300 mb-1">Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -834,7 +834,7 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
           {section.type === 'countdown' && (
             <>
               <div>
-                <label className="block font-semibold text-slate-300 mb-1">Titre</label>
+                <label className="block font-semibold text-slate-300 mb-1">Title</label>
                 <input
                   type="text"
                   value={data.title || ''}
@@ -1025,6 +1025,209 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
                       />
                     </div>
                   ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Section: STATS */}
+          {section.type === 'stats' && (
+            <>
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Section Title</label>
+                <input
+                  type="text"
+                  value={data.title || ''}
+                  onChange={(e) => updateData({ title: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="font-semibold text-slate-300">Stats ({data.items?.length || 0})</label>
+                  <button
+                    type="button"
+                    onClick={() => updateData({
+                      items: [...(data.items || []), { number: '100%', label: 'New Metric' }]
+                    })}
+                    className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1"
+                  >
+                    <Plus className="w-3 h-3" /> Add Stat
+                  </button>
+                </div>
+
+                <div className="space-y-3">
+                  {(data.items || []).map((item, idx) => (
+                    <div key={idx} className="p-3 bg-slate-950/40 rounded-xl border border-slate-800 flex items-center gap-2">
+                      <input
+                        type="text"
+                        value={item.number}
+                        onChange={(e) => {
+                          const newItems = [...data.items];
+                          newItems[idx].number = e.target.value;
+                          updateData({ items: newItems });
+                        }}
+                        placeholder="98%"
+                        className="input-field font-semibold w-20"
+                      />
+                      <input
+                        type="text"
+                        value={item.label}
+                        onChange={(e) => {
+                          const newItems = [...data.items];
+                          newItems[idx].label = e.target.value;
+                          updateData({ items: newItems });
+                        }}
+                        placeholder="Metric label"
+                        className="input-field flex-1"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newItems = data.items.filter((_, i) => i !== idx);
+                          updateData({ items: newItems });
+                        }}
+                        className="text-slate-500 hover:text-red-400"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Section: NEWSLETTER */}
+          {section.type === 'newsletter' && (
+            <>
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Badge</label>
+                <input
+                  type="text"
+                  value={data.badge || ''}
+                  onChange={(e) => updateData({ badge: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Title</label>
+                <input
+                  type="text"
+                  value={data.title || ''}
+                  onChange={(e) => updateData({ title: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Subtitle</label>
+                <textarea
+                  rows={2}
+                  value={data.subtitle || ''}
+                  onChange={(e) => updateData({ subtitle: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Email Field Placeholder</label>
+                <input
+                  type="text"
+                  value={data.placeholder || ''}
+                  onChange={(e) => updateData({ placeholder: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Subscribe Button Label</label>
+                <input
+                  type="text"
+                  value={data.buttonText || ''}
+                  onChange={(e) => updateData({ buttonText: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Privacy Disclaimer</label>
+                <input
+                  type="text"
+                  value={data.disclaimer || ''}
+                  onChange={(e) => updateData({ disclaimer: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+            </>
+          )}
+
+          {/* Section: CTA BANNER */}
+          {section.type === 'ctaBanner' && (
+            <>
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Title</label>
+                <input
+                  type="text"
+                  value={data.title || ''}
+                  onChange={(e) => updateData({ title: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div>
+                <label className="block font-semibold text-slate-300 mb-1">Subtitle</label>
+                <textarea
+                  rows={2}
+                  value={data.subtitle || ''}
+                  onChange={(e) => updateData({ subtitle: e.target.value })}
+                  className="input-field"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-semibold text-slate-300 mb-1">Primary Button Label</label>
+                  <input
+                    type="text"
+                    value={data.buttonText || ''}
+                    onChange={(e) => updateData({ buttonText: e.target.value })}
+                    className="input-field"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold text-slate-300 mb-1">Primary Button Link</label>
+                  <input
+                    type="text"
+                    value={data.buttonHref || ''}
+                    onChange={(e) => updateData({ buttonHref: e.target.value })}
+                    placeholder="#contact"
+                    className="input-field font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block font-semibold text-slate-300 mb-1">Secondary Button Label</label>
+                  <input
+                    type="text"
+                    value={data.secondaryButtonText || ''}
+                    onChange={(e) => updateData({ secondaryButtonText: e.target.value })}
+                    className="input-field"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold text-slate-300 mb-1">Secondary Button Link</label>
+                  <input
+                    type="text"
+                    value={data.secondaryButtonHref || ''}
+                    onChange={(e) => updateData({ secondaryButtonHref: e.target.value })}
+                    placeholder="#features"
+                    className="input-field font-mono"
+                  />
                 </div>
               </div>
             </>
