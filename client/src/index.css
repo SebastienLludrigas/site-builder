@@ -6,11 +6,6 @@
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-
-  /* Ensure form controls have proper text and caret colors */
-  input, textarea, select {
-    color: #f8fafc;
-  }
 }
 
 @layer components {

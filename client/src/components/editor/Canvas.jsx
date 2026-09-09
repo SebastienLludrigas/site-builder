@@ -225,6 +225,7 @@ export default function Canvas({
                     accentColor,
                     textColor,
                     radiusClass,
+                    isDark: isColorDark(bgColor),
                     pricingPeriodYearly,
                     setPricingPeriodYearly,
                     openFaqIndexes,
@@ -288,16 +289,35 @@ export default function Canvas({
 // Specialized In-Canvas Section Component Renderers
 // -------------------------------------------------------------
 
+function isColorDark(hex) {
+  if (!hex || typeof hex !== 'string' || !hex.startsWith('#')) return false;
+  const c = hex.substring(1);
+  const rgb = parseInt(c.length === 3 ? c.split('').map(x => x + x).join('') : c, 16);
+  if (isNaN(rgb)) return false;
+  const r = (rgb >> 16) & 0xff;
+  const g = (rgb >> 8) & 0xff;
+  const b = (rgb >> 0) & 0xff;
+  const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luma < 128;
+}
+
 function renderSectionComponent(section, ctx) {
   const { type, data } = section;
   const d = data || {};
   const isMobile = ctx.isMobile;
   const isTablet = ctx.isTablet;
+  const isSiteDark = ctx.isDark;
 
   switch (type) {
     case 'navbar':
       return (
-        <header className="sticky top-0 z-30 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-black/10 px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        <header
+          className="sticky top-0 z-30 backdrop-blur-md border-b px-4 sm:px-6 py-3.5 flex items-center justify-between transition-colors"
+          style={{
+            backgroundColor: isSiteDark ? 'rgba(15, 23, 42, 0.92)' : 'rgba(255, 255, 255, 0.92)',
+            borderColor: isSiteDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.08)'
+          }}
+        >
           <div className="site-font-heading font-bold text-lg sm:text-xl tracking-tight truncate max-w-[200px]">
             {d.logoText || 'Site'}
           </div>
@@ -308,7 +328,7 @@ function renderSectionComponent(section, ctx) {
                   {d.ctaButton.text}
                 </button>
               )}
-              <div className="p-1.5 rounded-lg bg-black/5 flex items-center justify-center text-slate-700 dark:text-slate-300">
+              <div className="p-1.5 rounded-lg bg-black/5 flex items-center justify-center opacity-80">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
               </div>
             </div>
