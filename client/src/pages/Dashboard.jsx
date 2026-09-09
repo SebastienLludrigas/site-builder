@@ -229,8 +229,19 @@ export default function Dashboard({ onOpenEditor }) {
 
         {/* Sites Cards Grid */}
         {loading ? (
-          <div className="py-20 text-center text-slate-500 text-sm">
-            Loading your websites...
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Loading your websites" role="status">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden animate-pulse">
+                <div className="h-44 bg-slate-800" />
+                <div className="p-5 space-y-3">
+                  <div className="h-3 w-24 bg-slate-800 rounded" />
+                  <div className="h-4 w-3/4 bg-slate-800 rounded" />
+                  <div className="h-3 w-full bg-slate-800 rounded" />
+                  <div className="h-3 w-2/3 bg-slate-800 rounded" />
+                </div>
+                <div className="px-5 py-3.5 border-t border-slate-800 h-14 bg-slate-950/40" />
+              </div>
+            ))}
           </div>
         ) : filteredSites.length === 0 ? (
           <div className="py-20 text-center bg-slate-900/40 rounded-2xl border border-slate-800 p-8">

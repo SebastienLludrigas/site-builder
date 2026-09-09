@@ -122,7 +122,18 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
           {/* List panel */}
           <div className="w-full md:w-2/5 border-b md:border-b-0 md:border-r border-slate-800 overflow-y-auto bg-slate-950/20 max-h-56 md:max-h-full shrink-0">
             {loading ? (
-              <div className="p-8 text-center text-slate-400 text-sm">Loading messages...</div>
+              <div className="divide-y divide-slate-800/60" aria-label="Loading messages" role="status">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="p-4 flex flex-col gap-2 animate-pulse">
+                    <div className="flex items-center justify-between">
+                      <div className="h-2.5 w-20 bg-slate-800 rounded" />
+                      <div className="h-2.5 w-12 bg-slate-800 rounded" />
+                    </div>
+                    <div className="h-3.5 w-1/2 bg-slate-800 rounded" />
+                    <div className="h-3 w-full bg-slate-800 rounded" />
+                  </div>
+                ))}
+              </div>
             ) : filteredSubmissions.length === 0 ? (
               <div className="p-8 text-center text-slate-500 text-sm">
                 <MessageSquare className="w-8 h-8 mx-auto mb-2 opacity-40" />
