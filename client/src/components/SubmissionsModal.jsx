@@ -65,30 +65,30 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
       <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-5xl h-[85vh] flex flex-col shadow-2xl overflow-hidden">
         
         {/* Modal Header */}
-        <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/40">
+        <div className="px-4 sm:px-6 py-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950/40">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
               <Inbox className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <span>Local Dashboard Inbox</span>
                 <span className="text-xs font-semibold px-2 py-0.5 bg-slate-800 text-slate-400 rounded-full">
-                  {filteredSubmissions.length} message(s)
+                  {filteredSubmissions.length}
                 </span>
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-400 hidden xs:block">
                 All form submissions captured from your locally hosted websites are archived here.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto">
             {/* Site Filter dropdown */}
             <select
               value={selectedSiteFilter}
               onChange={(e) => setSelectedSiteFilter(e.target.value)}
-              className="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-1.5 outline-none focus:border-indigo-500"
+              className="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-1.5 outline-none focus:border-indigo-500 max-w-[200px]"
             >
               <option value="all">All Websites ({submissions.length})</option>
               {sites.map(site => (
@@ -100,7 +100,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
 
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition"
+              className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition shrink-0"
             >
               <X className="w-5 h-5" />
             </button>
@@ -108,9 +108,9 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
         </div>
 
         {/* Modal Body: Split view (List on left, Detail on right) */}
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* List panel */}
-          <div className="w-2/5 border-r border-slate-800 overflow-y-auto bg-slate-950/20">
+          <div className="w-full md:w-2/5 border-b md:border-b-0 md:border-r border-slate-800 overflow-y-auto bg-slate-950/20 max-h-56 md:max-h-full shrink-0">
             {loading ? (
               <div className="p-8 text-center text-slate-400 text-sm">Loading messages...</div>
             ) : filteredSubmissions.length === 0 ? (
@@ -159,7 +159,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
           </div>
 
           {/* Detail panel */}
-          <div className="w-3/5 p-6 overflow-y-auto flex flex-col justify-between bg-slate-900">
+          <div className="flex-1 w-full md:w-3/5 p-4 sm:p-6 overflow-y-auto flex flex-col justify-between bg-slate-900">
             {activeMessage ? (
               <div className="flex flex-col gap-6">
                 {/* Header */}
@@ -186,7 +186,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                 </div>
 
                 {/* Contact info cards */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {activeMessage.data?.email && (
                     <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex items-center gap-3">
                       <Mail className="w-4 h-4 text-indigo-400 flex-shrink-0" />
@@ -218,7 +218,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                   )}
 
                   {activeMessage.data?.service && (
-                    <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex items-center gap-3 col-span-2">
+                    <div className="p-3 bg-slate-800/60 rounded-xl border border-slate-700/60 flex items-center gap-3 sm:col-span-2">
                       <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                       <div>
                         <div className="text-[11px] text-slate-400">Subject / Requested Service</div>

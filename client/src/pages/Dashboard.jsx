@@ -138,29 +138,27 @@ export default function Dashboard({ onOpenEditor }) {
             </div>
 
             {/* Quick Metrics */}
-            <div className="flex gap-4 sm:gap-6 bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80">
-              <div className="text-center px-2">
-                <div className="text-2xl font-extrabold text-indigo-400">{sites.length}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Websites</div>
+            <div className="grid grid-cols-3 divide-x divide-slate-800 bg-slate-950/60 p-3 sm:p-4 rounded-2xl border border-slate-800/80 w-full md:w-auto">
+              <div className="text-center px-2 sm:px-4">
+                <div className="text-xl sm:text-2xl font-extrabold text-indigo-400">{sites.length}</div>
+                <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Websites</div>
               </div>
-              <div className="w-px bg-slate-800" />
-              <div className="text-center px-2">
-                <div className="text-2xl font-extrabold text-emerald-400">{publishedCount}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Live & Online</div>
+              <div className="text-center px-2 sm:px-4">
+                <div className="text-xl sm:text-2xl font-extrabold text-emerald-400">{publishedCount}</div>
+                <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Live & Online</div>
               </div>
-              <div className="w-px bg-slate-800" />
-              <div className="text-center px-2">
-                <div className="text-2xl font-extrabold text-cyan-400">{totalSubmissions}</div>
-                <div className="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Messages Received</div>
+              <div className="text-center px-2 sm:px-4">
+                <div className="text-xl sm:text-2xl font-extrabold text-cyan-400">{totalSubmissions}</div>
+                <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Messages</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
           {/* Tabs */}
-          <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 w-full sm:w-auto">
+          <div className="flex bg-slate-900 p-1 rounded-xl border border-slate-800 w-full sm:w-auto overflow-x-auto whitespace-nowrap">
             <button
               onClick={() => setFilterTab('all')}
               className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition ${

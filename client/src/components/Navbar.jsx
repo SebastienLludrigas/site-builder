@@ -56,10 +56,11 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
           {/* New site button */}
           <button
             onClick={onNewSite}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 rounded-lg shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5"
+            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 rounded-lg shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5 shrink-0"
           >
             <Plus className="w-4 h-4" />
-            <span>Create Website</span>
+            <span className="hidden sm:inline">Create Website</span>
+            <span className="sm:hidden">New Site</span>
           </button>
         </div>
 

@@ -75,7 +75,7 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
         </div>
 
         {/* Tab switcher */}
-        <div className="flex border-b border-slate-800 px-6 bg-slate-950/20">
+        <div className="flex border-b border-slate-800 px-4 sm:px-6 bg-slate-950/20 overflow-x-auto whitespace-nowrap">
           <button
             onClick={() => setActiveTab('library')}
             className={`py-3 px-4 text-xs font-semibold border-b-2 flex items-center gap-2 transition ${

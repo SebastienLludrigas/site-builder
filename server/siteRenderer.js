@@ -89,8 +89,8 @@ export function renderSiteHtml(site, isExport = false) {
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: clamp(16px, 4vw, 32px);
+      padding-right: clamp(16px, 4vw, 32px);
     }
 
     .btn {
@@ -107,6 +107,8 @@ export function renderSiteHtml(site, isExport = false) {
       text-decoration: none;
       border: none;
       box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      white-space: normal;
+      text-align: center;
     }
 
     .btn-primary {
@@ -145,23 +147,25 @@ export function renderSiteHtml(site, isExport = false) {
     }
 
     .section-padding {
-      padding-top: 80px;
-      padding-bottom: 80px;
+      padding-top: clamp(48px, 8vw, 84px);
+      padding-bottom: clamp(48px, 8vw, 84px);
     }
 
     .section-header {
       text-align: center;
       max-width: 680px;
-      margin: 0 auto 56px auto;
+      margin: 0 auto clamp(32px, 5vw, 56px) auto;
     }
     .section-header h2 {
-      font-size: 36px;
-      margin-bottom: 16px;
+      font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.5rem);
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
+      word-break: break-word;
     }
     .section-header p {
-      font-size: 17px;
+      font-size: clamp(0.95rem, 1.5vw + 0.2rem, 1.15rem);
       opacity: 0.8;
+      line-height: 1.6;
     }
 
     /* Cards */
@@ -169,8 +173,9 @@ export function renderSiteHtml(site, isExport = false) {
       background: rgba(125,125,125,0.05);
       border: 1px solid rgba(125,125,125,0.12);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: clamp(20px, 3.5vw, 32px);
       transition: all 0.25s ease;
+      word-break: break-word;
     }
     .card:hover {
       border-color: rgba(125,125,125,0.25);
@@ -178,41 +183,46 @@ export function renderSiteHtml(site, isExport = false) {
       box-shadow: 0 12px 24px rgba(0,0,0,0.06);
     }
 
-    /* Grid Layouts */
+    /* Responsive Grid Layouts */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
     }
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      gap: 28px;
     }
 
     @media (max-width: 960px) {
-      .grid-3, .grid-4 {
+      .grid-3 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
-      .section-header h2 {
-        font-size: 30px;
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
     }
     @media (max-width: 640px) {
-      .grid-3, .grid-4, .grid-2 {
+      .grid-3, .grid-2 {
         grid-template-columns: 1fr;
+        gap: 16px;
       }
-      .section-padding {
-        padding-top: 56px;
-        padding-bottom: 56px;
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
-      .section-header h2 {
-        font-size: 26px;
+    }
+    @media (max-width: 440px) {
+      .grid-4 {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -222,38 +232,42 @@ export function renderSiteHtml(site, isExport = false) {
       top: 0;
       z-index: 100;
       backdrop-filter: blur(16px);
-      background-color: rgba(255, 255, 255, 0.85);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.9);
       border-bottom: 1px solid rgba(125,125,125,0.15);
       transition: all 0.2s ease;
     }
     body[data-dark="true"] .nav-bar {
-      background-color: rgba(15, 23, 42, 0.85);
+      background-color: rgba(15, 23, 42, 0.9);
     }
     .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: clamp(60px, 8vw, 72px);
     }
     .nav-logo {
-      font-size: 22px;
+      font-size: clamp(18px, 3vw, 22px);
       font-weight: 700;
       font-family: var(--font-heading);
       display: flex;
       align-items: center;
       gap: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
       list-style: none;
     }
     .nav-link {
       font-size: 14px;
       font-weight: 500;
-      opacity: 0.8;
-      transition: opacity 0.2s;
+      opacity: 0.85;
+      transition: opacity 0.2s, color 0.2s;
     }
     .nav-link:hover {
       opacity: 1;
@@ -266,13 +280,21 @@ export function renderSiteHtml(site, isExport = false) {
       cursor: pointer;
       padding: 8px;
       color: var(--text);
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(125,125,125,0.1);
     }
     @media (max-width: 860px) {
       .nav-links, .nav-cta {
-        display: none;
+        display: none !important;
       }
       .mobile-menu-btn {
-        display: block;
+        display: flex !important;
       }
     }
     .mobile-drawer {
@@ -282,9 +304,133 @@ export function renderSiteHtml(site, isExport = false) {
       background: var(--bg);
       border-bottom: 1px solid rgba(125,125,125,0.15);
       gap: 16px;
+      animation: fadeIn 0.2s ease-out forwards;
     }
     .mobile-drawer.open {
       display: flex;
+    }
+    .mobile-drawer .nav-link {
+      padding: 8px 0;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(125,125,125,0.1);
+    }
+    .mobile-drawer .btn {
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    /* About Responsive Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: center;
+    }
+    .about-grid.image-left {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .about-image-wrapper {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+    }
+    .about-image-wrapper img {
+      width: 100%;
+      height: clamp(240px, 35vw, 420px);
+      object-fit: cover;
+    }
+    @media (max-width: 860px) {
+      .about-grid, .about-grid.image-left {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .about-grid.image-left .about-image-wrapper {
+        order: 2;
+      }
+    }
+
+    /* Contact Responsive Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(24px, 4vw, 48px);
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .contact-inputs-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+    @media (max-width: 520px) {
+      .contact-inputs-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    /* Newsletter Responsive Form */
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    @media (max-width: 540px) {
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .newsletter-form .btn {
+        width: 100%;
+      }
+    }
+
+    /* Menu item responsive */
+    .menu-item-card {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    @media (max-width: 480px) {
+      .menu-item-card {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    /* Footer responsive */
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      .footer-content > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-content p {
+        text-align: center;
+      }
     }
 
     /* Hero */
@@ -328,14 +474,15 @@ export function renderSiteHtml(site, isExport = false) {
       z-index: 2;
     }
     .hero-title {
-      font-size: 52px;
+      font-size: clamp(2.2rem, 5vw + 0.5rem, 3.5rem);
       font-weight: 800;
       letter-spacing: -0.025em;
       line-height: 1.15;
       margin-bottom: 20px;
+      word-break: break-word;
     }
     .hero-subtitle {
-      font-size: 19px;
+      font-size: clamp(1rem, 2vw + 0.2rem, 1.25rem);
       opacity: 0.85;
       margin-bottom: 32px;
       line-height: 1.6;
@@ -353,19 +500,36 @@ export function renderSiteHtml(site, isExport = false) {
     }
     .hero-image-wrapper img {
       width: 100%;
-      height: 480px;
+      height: clamp(240px, 40vw, 480px);
       object-fit: cover;
     }
     @media (max-width: 960px) {
       .hero-split {
         grid-template-columns: 1fr;
         min-height: auto;
+        padding: 40px 0;
+        gap: 32px;
       }
-      .hero-title {
-        font-size: 38px;
+    }
+    @media (max-width: 640px) {
+      .hero-split {
+        padding: 24px 0;
+        gap: 24px;
       }
-      .hero-image-wrapper img {
-        height: 340px;
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+      }
+      .hero-centered {
+        padding: 48px 0 32px 0;
+        min-height: auto;
+      }
+      .hero-full-bg {
+        padding: 64px 0;
+        min-height: auto;
       }
     }
 
@@ -431,6 +595,12 @@ export function renderSiteHtml(site, isExport = false) {
       .pricing-card.popular {
         transform: none;
       }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     .popular-tag {
       position: absolute;
@@ -469,11 +639,11 @@ export function renderSiteHtml(site, isExport = false) {
       background: rgba(125,125,125,0.08);
       border: 1px solid rgba(125,125,125,0.15);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: clamp(14px, 2.5vw, 20px);
       text-align: center;
     }
     .countdown-number {
-      font-size: 44px;
+      font-size: clamp(28px, 6vw, 44px);
       font-weight: 800;
       font-family: var(--font-heading);
       color: var(--primary);
@@ -486,6 +656,22 @@ export function renderSiteHtml(site, isExport = false) {
       letter-spacing: 0.05em;
       opacity: 0.7;
       margin-top: 8px;
+    }
+    @media (max-width: 640px) {
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 320px;
+      }
+    }
+
+    /* Stats fluid font */
+    .stats-number {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      font-family: var(--font-heading);
+      color: var(--primary);
+      line-height: 1;
     }
 
     /* Forms */
@@ -922,21 +1108,21 @@ function renderAbout(d, ctx) {
   return `
   <section id="about" class="section-padding">
     <div class="container">
-      <div style="display: grid; grid-template-columns: ${isLeft ? '0.9fr 1.1fr' : '1.1fr 0.9fr'}; gap: 48px; align-items: center;">
+      <div class="about-grid ${isLeft ? 'image-left' : 'image-right'}">
         ${isLeft ? `
-        <div style="position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: 0 16px 32px rgba(0,0,0,0.1);">
-          <img src="${escapeHtml(d.image || '')}" alt="${escapeHtml(d.title || '')}" style="width: 100%; height: 420px; object-fit: cover;">
+        <div class="about-image-wrapper">
+          <img src="${escapeHtml(d.image || '')}" alt="${escapeHtml(d.title || '')}" loading="lazy">
           ${d.highlightCard?.number ? `
-          <div style="position: absolute; bottom: 20px; left: 20px; background: var(--primary); color: #fff; padding: 14px 22px; border-radius: 14px;">
-            <div style="font-size: 26px; font-weight: 800; line-height: 1;">${escapeHtml(d.highlightCard.number)}</div>
-            <div style="font-size: 12px; font-weight: 500; opacity: 0.9;">${escapeHtml(d.highlightCard.label)}</div>
+          <div style="position: absolute; bottom: 20px; left: 20px; background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+            <div style="font-size: 24px; font-weight: 800; line-height: 1;">${escapeHtml(d.highlightCard.number)}</div>
+            <div style="font-size: 11px; font-weight: 500; opacity: 0.9;">${escapeHtml(d.highlightCard.label)}</div>
           </div>
           ` : ''}
         </div>
         ` : ''}
         <div>
           ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-          <h2 style="font-size: 34px; margin-bottom: 20px; letter-spacing: -0.02em;">${escapeHtml(d.title || '')}</h2>
+          <h2 style="font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin-bottom: 20px; letter-spacing: -0.02em;">${escapeHtml(d.title || '')}</h2>
           <p style="font-size: 16px; opacity: 0.85; line-height: 1.7; margin-bottom: 24px;">${escapeHtml(d.text || '')}</p>
           ${bullets.length > 0 ? `
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
@@ -950,12 +1136,12 @@ function renderAbout(d, ctx) {
           ` : ''}
         </div>
         ${!isLeft ? `
-        <div style="position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: 0 16px 32px rgba(0,0,0,0.1);">
-          <img src="${escapeHtml(d.image || '')}" alt="${escapeHtml(d.title || '')}" style="width: 100%; height: 420px; object-fit: cover;">
+        <div class="about-image-wrapper">
+          <img src="${escapeHtml(d.image || '')}" alt="${escapeHtml(d.title || '')}" loading="lazy">
           ${d.highlightCard?.number ? `
-          <div style="position: absolute; bottom: 20px; right: 20px; background: var(--primary); color: #fff; padding: 14px 22px; border-radius: 14px;">
-            <div style="font-size: 26px; font-weight: 800; line-height: 1;">${escapeHtml(d.highlightCard.number)}</div>
-            <div style="font-size: 12px; font-weight: 500; opacity: 0.9;">${escapeHtml(d.highlightCard.label)}</div>
+          <div style="position: absolute; bottom: 20px; right: 20px; background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+            <div style="font-size: 24px; font-weight: 800; line-height: 1;">${escapeHtml(d.highlightCard.number)}</div>
+            <div style="font-size: 11px; font-weight: 500; opacity: 0.9;">${escapeHtml(d.highlightCard.label)}</div>
           </div>
           ` : ''}
         </div>
@@ -1017,9 +1203,9 @@ function renderMenu(d, ctx) {
             </h3>
             <div class="grid-2">
               ${(cat.items || []).map(item => `
-                <div class="card" style="padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+                <div class="card menu-item-card">
                   <div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                       <h4 style="font-size: 17px;">${escapeHtml(item.name)}</h4>
                       ${item.tag ? `<span class="badge" style="margin-bottom: 0; padding: 2px 8px; font-size: 11px;">${escapeHtml(item.tag)}</span>` : ''}
                     </div>
@@ -1062,7 +1248,7 @@ function renderPricing(d, ctx) {
         ` : ''}
       </div>
 
-      <div class="grid-3" style="align-items: stretch;">
+      <div class="grid-3 pricing-grid" style="align-items: stretch;">
         ${plans.map(p => `
           <div class="card pricing-card ${p.popular ? 'popular' : ''}">
             ${p.popular ? `<span class="popular-tag">Popular</span>` : ''}
@@ -1210,10 +1396,10 @@ function renderStats(d, ctx) {
   <section id="stats" class="section-padding" style="border-top: 1px solid rgba(125,125,125,0.1); border-bottom: 1px solid rgba(125,125,125,0.1);">
     <div class="container">
       ${d.title ? `<h3 style="text-align: center; font-size: 20px; opacity: 0.85; margin-bottom: 40px;">${escapeHtml(d.title)}</h3>` : ''}
-      <div class="grid-4" style="text-align: center;">
+      <div class="grid-4 stats-grid" style="text-align: center;">
         ${items.map(item => `
           <div>
-            <div style="font-size: 46px; font-weight: 800; font-family: var(--font-heading); color: var(--primary); line-height: 1;">
+            <div class="stats-number">
               ${escapeHtml(item.number)}
             </div>
             <div style="font-size: 14px; opacity: 0.8; margin-top: 8px;">
@@ -1240,7 +1426,7 @@ function renderContact(d, ctx) {
         ${d.subtitle ? `<p>${escapeHtml(d.subtitle)}</p>` : ''}
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; max-width: 1040px; margin: 0 auto;">
+      <div class="contact-grid">
         <div class="card" style="height: fit-content;">
           <h3 style="font-size: 20px; margin-bottom: 20px;">Contact Information</h3>
           <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -1280,7 +1466,7 @@ function renderContact(d, ctx) {
               </div>
             ` : ''}
 
-            <div style="display: grid; grid-template-columns: ${fields.includes('phone') ? '1fr 1fr' : '1fr'}; gap: 16px;">
+            <div class="contact-inputs-row">
               ${fields.includes('email') ? `
                 <div class="form-group">
                   <label class="form-label" for="contact-email">Email Address *</label>
@@ -1327,10 +1513,10 @@ function renderNewsletter(d, ctx) {
   <section id="newsletter" class="section-padding" style="background: rgba(125,125,125,0.03);">
     <div class="container" style="max-width: 700px; text-align: center;">
       ${d.badge ? `<span class="badge">${escapeHtml(d.badge)}</span>` : ''}
-      <h2 style="font-size: 32px; margin-bottom: 12px;">${escapeHtml(d.title || 'Stay in the Loop')}</h2>
+      <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px;">${escapeHtml(d.title || 'Stay in the Loop')}</h2>
       <p style="font-size: 16px; opacity: 0.85; margin-bottom: 28px;">${escapeHtml(d.subtitle || '')}</p>
 
-      <form onsubmit="handleSiteFormSubmit(event, '${escapeHtml(ctx.slug)}')" style="display: flex; gap: 12px; max-width: 480px; margin: 0 auto;">
+      <form onsubmit="handleSiteFormSubmit(event, '${escapeHtml(ctx.slug)}')" class="newsletter-form">
         <input type="hidden" name="service" value="Newsletter">
         <input type="email" name="email" class="form-input" placeholder="${escapeHtml(d.placeholder || 'Your email address')}" required style="flex: 1;">
         <button type="submit" class="btn btn-primary" style="white-space: nowrap;">
@@ -1347,7 +1533,7 @@ function renderCtaBanner(d, ctx) {
   return `
   <section class="section-padding" style="background: var(--primary); color: #fff; text-align: center;">
     <div class="container" style="max-width: 800px;">
-      <h2 style="color: #fff; font-size: 36px; margin-bottom: 16px;">${escapeHtml(d.title || "Take Action Today")}</h2>
+      <h2 style="color: #fff; font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 16px;">${escapeHtml(d.title || "Take Action Today")}</h2>
       <p style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 32px;">${escapeHtml(d.subtitle || '')}</p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         ${d.buttonText ? `<a href="${escapeHtml(d.buttonHref || '#contact')}" class="btn" style="background: #fff; color: var(--primary); font-weight: 700;">${escapeHtml(d.buttonText)}</a>` : ''}
@@ -1362,9 +1548,9 @@ function renderFooter(d, ctx) {
   const socials = d.socialLinks || [];
 
   return `
-  <footer style="border-top: 1px solid rgba(125,125,125,0.15); padding: 50px 0 30px 0; background: rgba(125,125,125,0.02);">
+  <footer style="border-top: 1px solid rgba(125,125,125,0.15); padding: clamp(32px, 6vw, 50px) 0 30px 0; background: rgba(125,125,125,0.02);">
     <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div class="footer-content">
         <div>
           <div style="font-size: 20px; font-weight: 700; font-family: var(--font-heading); margin-bottom: 6px;">
             ${escapeHtml(d.logoText || '')}
@@ -1374,7 +1560,7 @@ function renderFooter(d, ctx) {
           </p>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
           ${socials.map(s => `
             <a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer" style="font-size: 14px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
               ${escapeHtml(s.platform)}

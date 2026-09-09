@@ -33,7 +33,14 @@ export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdate
 
   return (
     <>
-      <div className="fixed inset-y-0 right-0 z-40 w-full max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col animate-fade-in">
+      {/* Mobile backdrop */}
+      <div 
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      <div className="fixed inset-y-0 right-0 z-40 w-full sm:max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col animate-fade-in">
         {/* Drawer Header */}
         <div className="px-5 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
           <div>
