@@ -52,15 +52,19 @@ The application comes preloaded with **4 complete and realistic showcase website
 ## 🛠️ Application Features
 
 ### 1. Dashboard
-- Comprehensive overview of all created sites with live thumbnail preview, last modified date, and publication status (Published / Draft).
+- Comprehensive overview of all created sites with live thumbnail preview (framed as a mini browser window with its own `/site/:slug` address bar), last modified date, publication status (Published / Draft), and total page views.
+- **Search, sort & filter**: full-text search across title/slug/description, filter by All / Published / Drafts, and sort by last updated, name, or view count.
 - **One-Click Actions**:
   - 👁️ **Visit**: Opens the live hosted site (`/site/:slug`) in a new tab.
   - ✏️ **Edit**: Opens the visual WYSIWYG editor.
   - 📬 **Inbox**: View all contact messages and leads received via the site's forms, with an unread badge indicator.
+  - 🔗 **Copy Link**: Copies the site's live URL to the clipboard.
   - 📋 **Duplicate**: Instantly clone an existing site.
   - 📥 **Export to ZIP**: Download a standalone, zero-dependency ZIP archive (`index.html` + assets) ready to be opened in any browser or hosted anywhere.
-  - 🗑️ **Delete**: Safe removal with confirmation.
+  - 🗑️ **Delete**: Safe removal with an in-app confirmation dialog (no jarring native browser popups).
   - 🔄 **Restore Demos**: Reset the 4 official showcase websites at any time.
+- **Page view analytics**: every visit to a hosted site increments a per-site counter, rolled up into a "Total Views" metric on the dashboard.
+- Toast notifications confirm every action (success or failure) instead of failing silently.
 
 ### 2. Intuitive Visual Editor (WYSIWYG)
 - **Responsive Viewport Switcher**:
@@ -69,6 +73,7 @@ The application comes preloaded with **4 complete and realistic showcase website
   - 📱 **Mobile** (375px)
 - **Preview / Edit Mode**: Toggle instantly between editor controls and a clean visitor browsing preview.
 - **Undo / Redo History Stack**: Experiment freely with full state rollback.
+- **Keyboard Shortcuts**: `Ctrl/Cmd+S` to save, `Ctrl/Cmd+Z` to undo, `Ctrl/Cmd+Shift+Z` or `Ctrl/Cmd+Y` to redo, `Esc` to close any open modal or drawer.
 - **Rich Section Library**:
   - Navbar / Header with sticky branding, nav links, and CTA button.
   - Hero section (Split layout, Centered, Fullscreen background).
@@ -99,6 +104,23 @@ The application comes preloaded with **4 complete and realistic showcase website
 - Every site is served locally by the application on `http://localhost:3001/site/:slug`.
 - Contact and booking forms actively submit data to the local server without third-party dependencies.
 - Site owners can view all received inquiries in the **Local Inbox** (name, email, phone, requested service, message, timestamp) with quick email reply links.
+- Every hosted page includes Open Graph / Twitter Card meta tags (using the hero image when available), so links preview nicely when shared in Slack, iMessage, etc.
+
+---
+
+## ✅ Testing
+
+The project has a full automated test suite covering both the backend and the frontend.
+
+```bash
+# Server tests (db, routes, HTML renderer) — from the project root
+npm test
+
+# Client tests (pages, components, hooks) — from client/
+cd client && npm test
+```
+
+Server tests run against an isolated temp data directory (never the real `data/` folder) using Vitest + Supertest. Client tests use Vitest + React Testing Library, including smoke tests that render every section type through both the live editor canvas and its content-editing drawer — the kind of test that caught real gaps (a missing section renderer, three section types with no edit form) during development.
 
 ---
 
@@ -112,18 +134,23 @@ site-builder/
 ├── uploads/                # Locally uploaded image files
 ├── server/
 │   ├── index.js            # Express server (API, local site host, SPA static fallback)
-│   ├── db.js               # File-based JSON persistence layer with slug generation
+│   ├── db.js               # File-based JSON persistence layer with slug generation & view counts
 │   ├── seedSites.js        # Detailed data for the 4 showcase demo sites
 │   ├── siteRenderer.js     # Standalone responsive HTML/CSS/JS renderer for hosted sites & exports
-│   └── routes/
-│       ├── sites.js        # CRUD, duplicate, and standalone ZIP export routes
-│       ├── submit.js       # Form submission handling and inbox API
-│       └── upload.js       # Local image upload handler (Multer)
+│   ├── routes/
+│   │   ├── sites.js        # CRUD, duplicate, and standalone ZIP export routes
+│   │   ├── submit.js       # Form submission handling and inbox API
+│   │   ├── upload.js       # Local image upload handler (Multer)
+│   │   └── hosting.js      # /site/:slug live hosting route + view tracking
+│   └── tests/              # Vitest + Supertest suite (isolated temp data dir)
 ├── client/                 # React + Vite + Tailwind CSS frontend
 │   ├── src/
-│   │   ├── components/     # UI components, modals, editor drawer
-│   │   ├── pages/          # Dashboard and visual Editor pages
-│   │   └── data/           # Theme palettes and curated stock images
+│   │   ├── components/     # UI components, modals, editor drawer (+ colocated *.test.jsx)
+│   │   ├── pages/          # Dashboard and visual Editor pages (+ colocated *.test.jsx)
+│   │   ├── context/        # ToastContext (app-wide notifications)
+│   │   ├── hooks/          # useEscapeKey and other shared hooks
+│   │   └── data/           # Theme palettes, curated stock images, section templates
 │   └── dist/               # Compiled client bundle served by Express
+├── vitest.config.js        # Server test runner config (root)
 └── README.md
 ```
