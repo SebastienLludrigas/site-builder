@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Mail, Phone, Calendar, Trash2, CheckCircle2, MessageSquare, ExternalLink, Inbox } from 'lucide-react';
 import ConfirmDialog from './ConfirmDialog';
 import { useToast } from '../context/ToastContext';
+import { useEscapeKey } from '../hooks/useEscapeKey';
 
 export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null, sites = [] }) {
   const { showToast } = useToast();
@@ -55,6 +56,8 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
       showToast(err.message || 'Could not delete this message.', 'error');
     }
   };
+
+  useEscapeKey(isOpen, onClose);
 
   if (!isOpen) return null;
 

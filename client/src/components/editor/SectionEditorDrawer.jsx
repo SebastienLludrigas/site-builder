@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { X, Plus, Trash2, Image as ImageIcon, ChevronDown, ChevronUp, Save, Check } from 'lucide-react';
 import ImagePickerModal from './ImagePickerModal';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 
 export default function SectionEditorDrawer({ isOpen, onClose, section, onUpdateSection }) {
   const [imagePickerOpen, setImagePickerOpen] = useState(false);
   const [imagePickerTarget, setImagePickerTarget] = useState(null); // callback or path
+
+  // Only listen for Escape here while the nested image picker isn't the one on top.
+  useEscapeKey(isOpen && !imagePickerOpen, onClose);
 
   if (!isOpen || !section) return null;
 

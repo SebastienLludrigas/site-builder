@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AlertTriangle } from 'lucide-react';
+import { useEscapeKey } from '../hooks/useEscapeKey';
 
 export default function ConfirmDialog({
   isOpen,
@@ -11,14 +12,7 @@ export default function ConfirmDialog({
   onConfirm,
   onCancel
 }) {
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onCancel();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onCancel]);
+  useEscapeKey(isOpen, onCancel);
 
   if (!isOpen) return null;
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Plus, Sparkles, LayoutTemplate, Image as ImageIcon, UtensilsCrossed, BadgeCheck, Star, HelpCircle, Timer, Mail, BarChart3, Send, Flame, PanelBottom, FileText } from 'lucide-react';
 import { AVAILABLE_SECTIONS } from '../../data/defaultTemplates';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 
 const ICONS_MAP = {
   LayoutTemplate,
@@ -21,6 +22,8 @@ const ICONS_MAP = {
 
 export default function AddSectionModal({ isOpen, onClose, onAddSection, insertIndex = null }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useEscapeKey(isOpen, onClose);
 
   if (!isOpen) return null;
 

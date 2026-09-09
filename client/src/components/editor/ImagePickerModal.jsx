@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Upload, Image as ImageIcon, Link as LinkIcon, Check, Loader2 } from 'lucide-react';
 import { CURATED_IMAGES } from '../../data/curatedImages';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
 
 export default function ImagePickerModal({ isOpen, onClose, onSelectImage, currentImage = '' }) {
   const [activeTab, setActiveTab] = useState('library'); // 'library' | 'upload' | 'url'
@@ -8,6 +9,8 @@ export default function ImagePickerModal({ isOpen, onClose, onSelectImage, curre
   const [customUrl, setCustomUrl] = useState(currentImage || '');
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState(null);
+
+  useEscapeKey(isOpen, onClose);
 
   if (!isOpen) return null;
 

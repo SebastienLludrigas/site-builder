@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Sparkles, Globe, FileText, Check } from 'lucide-react';
+import { useEscapeKey } from '../hooks/useEscapeKey';
 
 const TEMPLATES = [
   {
@@ -51,6 +52,8 @@ export default function CreateSiteModal({ isOpen, onClose, onSiteCreated }) {
   const [selectedTemplate, setSelectedTemplate] = useState('blank');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  useEscapeKey(isOpen, onClose);
 
   if (!isOpen) return null;
 
