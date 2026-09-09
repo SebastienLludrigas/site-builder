@@ -137,6 +137,32 @@ export default function Editor({ siteId, onBackToDashboard }) {
     }
   };
 
+  // Keyboard shortcuts: Cmd/Ctrl+S to save, Cmd/Ctrl+Z to undo, Cmd/Ctrl+Shift+Z to redo
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const isModifier = e.metaKey || e.ctrlKey;
+      if (!isModifier) return;
+
+      const tag = document.activeElement?.tagName;
+      const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable;
+
+      if (e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        handleSave();
+      } else if (!isTyping && e.key.toLowerCase() === 'z') {
+        e.preventDefault();
+        if (e.shiftKey) handleRedo();
+        else handleUndo();
+      } else if (!isTyping && e.key.toLowerCase() === 'y') {
+        e.preventDefault();
+        handleRedo();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleSave, handleUndo, handleRedo]);
+
   // Section manipulation helpers
   const handleAddSection = (newSection, atIndex = null) => {
     const currentSections = [...(site.sections || [])];
@@ -547,6 +573,7 @@ export default function Editor({ siteId, onBackToDashboard }) {
           <button
             onClick={handleSave}
             disabled={isSaving}
+            title="Save (Ctrl+S / Cmd+S)"
             className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 text-xs font-semibold rounded-lg shadow-md transition ${
               hasUnsavedChanges
                 ? 'bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white shadow-indigo-600/30'
