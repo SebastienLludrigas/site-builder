@@ -30,11 +30,15 @@ import AddSectionModal from '../components/editor/AddSectionModal';
 import SectionEditorDrawer from '../components/editor/SectionEditorDrawer';
 import ThemePanel from '../components/editor/ThemePanel';
 import SettingsPanel from '../components/editor/SettingsPanel';
+import ConfirmDialog from '../components/ConfirmDialog';
+import { useToast } from '../context/ToastContext';
 
 export default function Editor({ siteId, onBackToDashboard }) {
+  const { showToast } = useToast();
   const [site, setSite] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [confirmState, setConfirmState] = useState(null);
 
   // History stack for Undo / Redo
   const [history, setHistory] = useState([]);
@@ -120,14 +124,14 @@ export default function Editor({ siteId, onBackToDashboard }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(site)
       });
-      if (res.ok) {
-        const updated = await res.json();
-        setSite(updated);
-        setHasUnsavedChanges(false);
-        setLastSaved(new Date());
-      }
+      if (!res.ok) throw new Error('The server rejected the save.');
+      const updated = await res.json();
+      setSite(updated);
+      setHasUnsavedChanges(false);
+      setLastSaved(new Date());
     } catch (err) {
       console.error('Error saving site:', err);
+      showToast("Couldn't save your changes. Check your connection and try again.", 'error', 6000);
     } finally {
       setIsSaving(false);
     }
@@ -183,13 +187,21 @@ export default function Editor({ siteId, onBackToDashboard }) {
   };
 
   const handleDeleteSection = (sectionId) => {
-    if (!window.confirm('Are you sure you want to delete this section?')) return;
-    const currentSections = (site.sections || []).filter(s => s.id !== sectionId);
-    const updated = { ...site, sections: currentSections };
-    updateSiteState(updated);
-    if (editingSection?.id === sectionId) {
-      setEditingSection(null);
-    }
+    setConfirmState({
+      title: 'Delete section',
+      message: "This section will be removed from the page. You can undo this from the editor's undo button until you save.",
+      confirmLabel: 'Delete section',
+      danger: true,
+      onConfirm: () => {
+        setConfirmState(null);
+        const currentSections = (site.sections || []).filter(s => s.id !== sectionId);
+        const updated = { ...site, sections: currentSections };
+        updateSiteState(updated);
+        if (editingSection?.id === sectionId) {
+          setEditingSection(null);
+        }
+      }
+    });
   };
 
   // Settings & Theme updates
@@ -625,6 +637,16 @@ export default function Editor({ siteId, onBackToDashboard }) {
         onClose={() => setEditingSection(null)}
         section={editingSection}
         onUpdateSection={handleUpdateSection}
+      />
+
+      <ConfirmDialog
+        isOpen={!!confirmState}
+        title={confirmState?.title}
+        message={confirmState?.message}
+        confirmLabel={confirmState?.confirmLabel}
+        danger={confirmState?.danger}
+        onConfirm={confirmState?.onConfirm}
+        onCancel={() => setConfirmState(null)}
       />
 
     </div>

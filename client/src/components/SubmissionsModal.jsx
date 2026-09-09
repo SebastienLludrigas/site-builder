@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { X, Mail, Phone, Calendar, Trash2, CheckCircle2, MessageSquare, ExternalLink, Inbox } from 'lucide-react';
+import ConfirmDialog from './ConfirmDialog';
+import { useToast } from '../context/ToastContext';
 
 export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null, sites = [] }) {
+  const { showToast } = useToast();
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedSiteFilter, setSelectedSiteFilter] = useState(initialSiteId || 'all');
   const [activeMessage, setActiveMessage] = useState(null);
+  const [pendingDeleteId, setPendingDeleteId] = useState(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -36,16 +40,19 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this message?')) return;
+    setPendingDeleteId(null);
     try {
-      await fetch(`/api/submissions/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/submissions/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('The server could not delete this message.');
       const updated = submissions.filter(s => s.id !== id);
       setSubmissions(updated);
       if (activeMessage?.id === id) {
         setActiveMessage(updated[0] || null);
       }
+      showToast('Message deleted.', 'success');
     } catch (err) {
       console.error('Error deleting submission:', err);
+      showToast(err.message || 'Could not delete this message.', 'error');
     }
   };
 
@@ -177,7 +184,7 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
                   </div>
 
                   <button
-                    onClick={() => handleDelete(activeMessage.id)}
+                    onClick={() => setPendingDeleteId(activeMessage.id)}
                     className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition"
                     title="Delete message"
                   >
@@ -262,6 +269,16 @@ export default function SubmissionsModal({ isOpen, onClose, initialSiteId = null
         </div>
 
       </div>
+
+      <ConfirmDialog
+        isOpen={!!pendingDeleteId}
+        title="Delete message"
+        message="This message will be permanently removed from the inbox. This can't be undone."
+        confirmLabel="Delete message"
+        danger
+        onConfirm={() => handleDelete(pendingDeleteId)}
+        onCancel={() => setPendingDeleteId(null)}
+      />
     </div>
   );
 }

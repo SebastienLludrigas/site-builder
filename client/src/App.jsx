@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Dashboard from './pages/Dashboard';
 import Editor from './pages/Editor';
+import { ToastProvider } from './context/ToastContext';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -50,18 +51,18 @@ export default function App() {
     setCurrentRoute({ page: 'dashboard', siteId: null });
   };
 
-  if (currentRoute.page === 'editor' && currentRoute.siteId) {
-    return (
-      <Editor
-        siteId={currentRoute.siteId}
-        onBackToDashboard={navigateToDashboard}
-      />
-    );
-  }
-
   return (
-    <Dashboard
-      onOpenEditor={navigateToEditor}
-    />
+    <ToastProvider>
+      {currentRoute.page === 'editor' && currentRoute.siteId ? (
+        <Editor
+          siteId={currentRoute.siteId}
+          onBackToDashboard={navigateToDashboard}
+        />
+      ) : (
+        <Dashboard
+          onOpenEditor={navigateToEditor}
+        />
+      )}
+    </ToastProvider>
   );
 }

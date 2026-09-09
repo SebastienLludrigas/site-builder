@@ -20,16 +20,20 @@ import {
 import Navbar from '../components/Navbar';
 import CreateSiteModal from '../components/CreateSiteModal';
 import SubmissionsModal from '../components/SubmissionsModal';
+import ConfirmDialog from '../components/ConfirmDialog';
+import { useToast } from '../context/ToastContext';
 
 export default function Dashboard({ onOpenEditor }) {
+  const { showToast } = useToast();
   const [sites, setSites] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterTab, setFilterTab] = useState('all'); // 'all' | 'published' | 'draft'
-  
+
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isInboxModalOpen, setIsInboxModalOpen] = useState(false);
   const [inboxInitialSiteId, setInboxInitialSiteId] = useState(null);
+  const [confirmState, setConfirmState] = useState(null); // { title, message, danger, onConfirm }
 
   useEffect(() => {
     fetchSites();
@@ -51,36 +55,55 @@ export default function Dashboard({ onOpenEditor }) {
   const handleDuplicate = async (siteId) => {
     try {
       const res = await fetch(`/api/sites/${siteId}/duplicate`, { method: 'POST' });
-      if (res.ok) {
-        fetchSites();
-      }
+      if (!res.ok) throw new Error('The server could not duplicate this website.');
+      await fetchSites();
+      showToast('Website duplicated.', 'success');
     } catch (err) {
       console.error('Error duplicating site:', err);
+      showToast(err.message || 'Could not duplicate this website.', 'error');
     }
   };
 
-  const handleDelete = async (siteId, siteTitle) => {
-    if (!window.confirm(`Are you sure you want to delete the website "${siteTitle}"?`)) return;
-    try {
-      const res = await fetch(`/api/sites/${siteId}`, { method: 'DELETE' });
-      if (res.ok) {
-        setSites(prev => prev.filter(s => s.id !== siteId));
+  const handleDelete = (siteId, siteTitle) => {
+    setConfirmState({
+      title: 'Delete website',
+      message: `"${siteTitle}" and all of its pages, submissions, and uploaded media will be permanently removed. This can't be undone.`,
+      confirmLabel: 'Delete website',
+      danger: true,
+      onConfirm: async () => {
+        setConfirmState(null);
+        try {
+          const res = await fetch(`/api/sites/${siteId}`, { method: 'DELETE' });
+          if (!res.ok) throw new Error('The server could not delete this website.');
+          setSites(prev => prev.filter(s => s.id !== siteId));
+          showToast(`"${siteTitle}" was deleted.`, 'success');
+        } catch (err) {
+          console.error('Error deleting site:', err);
+          showToast(err.message || 'Could not delete this website.', 'error');
+        }
       }
-    } catch (err) {
-      console.error('Error deleting site:', err);
-    }
+    });
   };
 
-  const handleResetDemos = async () => {
-    if (!window.confirm("Do you want to restore the 4 official showcase demo websites (Atelier Pastry, NovaPulse AI, Elena Vance Photo, Tech Summit)?")) return;
-    try {
-      const res = await fetch('/api/sites/reset-demos', { method: 'POST' });
-      if (res.ok) {
-        fetchSites();
+  const handleResetDemos = () => {
+    setConfirmState({
+      title: 'Restore showcase demos',
+      message: 'This resets Atelier Pastry, NovaPulse AI, Elena Vance Photo, and Tech Summit back to their original content, discarding any edits made to them.',
+      confirmLabel: 'Restore demos',
+      danger: false,
+      onConfirm: async () => {
+        setConfirmState(null);
+        try {
+          const res = await fetch('/api/sites/reset-demos', { method: 'POST' });
+          if (!res.ok) throw new Error('The server could not restore the demo websites.');
+          await fetchSites();
+          showToast('Showcase demos restored.', 'success');
+        } catch (err) {
+          console.error('Error resetting demos:', err);
+          showToast(err.message || 'Could not restore the demo websites.', 'error');
+        }
       }
-    } catch (err) {
-      console.error('Error resetting demos:', err);
-    }
+    });
   };
 
   const handleSiteCreated = (newSite) => {
@@ -402,6 +425,16 @@ export default function Dashboard({ onOpenEditor }) {
         onClose={() => { setIsInboxModalOpen(false); fetchSites(); }}
         initialSiteId={inboxInitialSiteId}
         sites={sites}
+      />
+
+      <ConfirmDialog
+        isOpen={!!confirmState}
+        title={confirmState?.title}
+        message={confirmState?.message}
+        confirmLabel={confirmState?.confirmLabel}
+        danger={confirmState?.danger}
+        onConfirm={confirmState?.onConfirm}
+        onCancel={() => setConfirmState(null)}
       />
     </div>
   );
