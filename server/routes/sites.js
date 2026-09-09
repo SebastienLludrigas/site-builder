@@ -20,6 +20,7 @@ sitesRouter.get('/', (req, res) => {
       createdAt: s.createdAt,
       updatedAt: s.updatedAt,
       sectionsCount: s.sections ? s.sections.length : 0,
+      views: s.views || 0,
       submissionsCount: submissions.length,
       unreadSubmissionsCount: submissions.filter(sub => !sub.read).length,
       theme: s.theme,

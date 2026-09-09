@@ -10,11 +10,12 @@ import {
   Globe, 
   Clock, 
   Layers, 
-  Search, 
+  Search,
   RotateCcw,
   Sparkles,
   CheckCircle2,
-  Inbox
+  Inbox,
+  Eye
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import CreateSiteModal from '../components/CreateSiteModal';
@@ -105,6 +106,7 @@ export default function Dashboard({ onOpenEditor }) {
 
   const totalSubmissions = sites.reduce((sum, s) => sum + (s.submissionsCount || 0), 0);
   const totalUnread = sites.reduce((sum, s) => sum + (s.unreadSubmissionsCount || 0), 0);
+  const totalViews = sites.reduce((sum, s) => sum + (s.views || 0), 0);
   const publishedCount = sites.filter(s => s.published !== false).length;
 
   return (
@@ -138,7 +140,7 @@ export default function Dashboard({ onOpenEditor }) {
             </div>
 
             {/* Quick Metrics */}
-            <div className="grid grid-cols-3 divide-x divide-slate-800 bg-slate-950/60 p-3 sm:p-4 rounded-2xl border border-slate-800/80 w-full md:w-auto">
+            <div className="grid grid-cols-4 divide-x divide-slate-800 bg-slate-950/60 p-3 sm:p-4 rounded-2xl border border-slate-800/80 w-full md:w-auto">
               <div className="text-center px-2 sm:px-4">
                 <div className="text-xl sm:text-2xl font-extrabold text-indigo-400">{sites.length}</div>
                 <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Websites</div>
@@ -146,6 +148,10 @@ export default function Dashboard({ onOpenEditor }) {
               <div className="text-center px-2 sm:px-4">
                 <div className="text-xl sm:text-2xl font-extrabold text-emerald-400">{publishedCount}</div>
                 <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Live & Online</div>
+              </div>
+              <div className="text-center px-2 sm:px-4">
+                <div className="text-xl sm:text-2xl font-extrabold text-amber-400">{totalViews}</div>
+                <div className="text-[10px] sm:text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-0.5">Total Views</div>
               </div>
               <div className="text-center px-2 sm:px-4">
                 <div className="text-xl sm:text-2xl font-extrabold text-cyan-400">{totalSubmissions}</div>
@@ -296,6 +302,10 @@ export default function Dashboard({ onOpenEditor }) {
                         <span className="flex items-center gap-1">
                           <Layers className="w-3.5 h-3.5 text-slate-500" />
                           {site.sectionsCount || 0} sections
+                        </span>
+                        <span className="flex items-center gap-1" title="Total page views">
+                          <Eye className="w-3.5 h-3.5 text-slate-500" />
+                          {site.views || 0} views
                         </span>
                         <span className="flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5 text-slate-500" />

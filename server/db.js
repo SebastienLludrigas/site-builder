@@ -233,6 +233,15 @@ export const db = {
     return SEED_SITES;
   },
 
+  incrementViews(id) {
+    const sites = readSites();
+    const index = sites.findIndex(s => s.id === id);
+    if (index === -1) return null;
+    sites[index].views = (sites[index].views || 0) + 1;
+    writeSites(sites);
+    return sites[index].views;
+  },
+
   // Submissions
   getAllSubmissions() {
     return readSubmissions();

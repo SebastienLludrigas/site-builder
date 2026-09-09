@@ -104,6 +104,19 @@ describe('db.js', () => {
     expect(db.getSubmissionsBySite(site.id)).toHaveLength(0);
   });
 
+  it('incrementViews bumps the view counter without touching updatedAt', () => {
+    const site = db.createSite({ title: 'Popular Site' });
+    expect(db.incrementViews(site.id)).toBe(1);
+    expect(db.incrementViews(site.id)).toBe(2);
+    const reloaded = db.getSiteById(site.id);
+    expect(reloaded.views).toBe(2);
+    expect(reloaded.updatedAt).toBe(site.updatedAt);
+  });
+
+  it('incrementViews returns null for an unknown site', () => {
+    expect(db.incrementViews('nope')).toBeNull();
+  });
+
   it('resetToDefault restores the original showcase seed sites', () => {
     db.createSite({ title: 'Junk' });
     const reset = db.resetToDefault();

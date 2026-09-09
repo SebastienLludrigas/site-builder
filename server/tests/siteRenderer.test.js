@@ -48,6 +48,25 @@ describe('renderSiteHtml', () => {
     expect(html).toContain(site.title);
   });
 
+  it('emits Open Graph tags, using the hero image when one is set', () => {
+    const withHero = minimalSite({
+      title: 'Hero Site',
+      description: 'A site with a hero image',
+      sections: [{ id: 'h1', type: 'hero', data: { image: '/uploads/banner.jpg' } }]
+    });
+    const html = renderSiteHtml(withHero, false);
+    expect(html).toContain('<meta property="og:title" content="Hero Site">');
+    expect(html).toContain('<meta property="og:image" content="/uploads/banner.jpg">');
+    expect(html).toContain('<meta name="twitter:card" content="summary_large_image">');
+  });
+
+  it('falls back to a plain summary card when there is no hero image', () => {
+    const noHero = minimalSite({ sections: [] });
+    const html = renderSiteHtml(noHero, false);
+    expect(html).toContain('<meta name="twitter:card" content="summary">');
+    expect(html).not.toContain('og:image');
+  });
+
   it('wires the AJAX contact form handler to the site slug', () => {
     const site = minimalSite({
       slug: 'my-cool-site',

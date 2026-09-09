@@ -13,6 +13,7 @@ export function renderSiteHtml(site, isExport = false) {
   const fontHeading = t.fontHeading || 'Inter';
   const fontBody = t.fontBody || 'Inter';
   const favicon = s.favicon || '🌐';
+  const heroImage = (sections || []).find(sec => sec.type === 'hero')?.data?.image || null;
 
   // Compute radius
   let radiusClass = '12px';
@@ -33,6 +34,13 @@ export function renderSiteHtml(site, isExport = false) {
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description || '')}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>${favicon}</text></svg>">
+
+  <!-- Open Graph / social link previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description || '')}">
+  <meta name="twitter:card" content="${heroImage ? 'summary_large_image' : 'summary'}">
+  ${heroImage ? `<meta property="og:image" content="${escapeHtml(heroImage)}">\n  <meta name="twitter:image" content="${escapeHtml(heroImage)}">` : ''}
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
