@@ -73,6 +73,53 @@ describe('Dashboard', () => {
     expect(screen.getByText('Photo Studio')).toBeInTheDocument();
   });
 
+  it('defaults to sorting by last updated, most recent first', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [
+        makeSite({ id: 's1', title: 'Older', updatedAt: '2026-01-01T00:00:00.000Z' }),
+        makeSite({ id: 's2', title: 'Newer', updatedAt: '2026-06-01T00:00:00.000Z' })
+      ]
+    });
+    renderDashboard();
+    await screen.findByText('Older');
+
+    const titles = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent);
+    expect(titles).toEqual(['Newer', 'Older']);
+  });
+
+  it('sorts alphabetically when "Name A–Z" is selected', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [
+        makeSite({ id: 's1', title: 'Zebra Site' }),
+        makeSite({ id: 's2', title: 'Alpha Site' })
+      ]
+    });
+    renderDashboard();
+    await screen.findByText('Zebra Site');
+
+    fireEvent.change(screen.getByLabelText('Sort websites by'), { target: { value: 'name' } });
+    const titles = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent);
+    expect(titles).toEqual(['Alpha Site', 'Zebra Site']);
+  });
+
+  it('sorts by view count when "Most views" is selected', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [
+        makeSite({ id: 's1', title: 'Quiet Site', views: 3 }),
+        makeSite({ id: 's2', title: 'Popular Site', views: 200 })
+      ]
+    });
+    renderDashboard();
+    await screen.findByText('Quiet Site');
+
+    fireEvent.change(screen.getByLabelText('Sort websites by'), { target: { value: 'views' } });
+    const titles = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent);
+    expect(titles).toEqual(['Popular Site', 'Quiet Site']);
+  });
+
   it('filters sites by published/draft tab', async () => {
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,

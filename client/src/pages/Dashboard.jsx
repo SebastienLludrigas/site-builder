@@ -29,6 +29,7 @@ export default function Dashboard({ onOpenEditor }) {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterTab, setFilterTab] = useState('all'); // 'all' | 'published' | 'draft'
+  const [sortBy, setSortBy] = useState('updated'); // 'updated' | 'name' | 'views'
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isInboxModalOpen, setIsInboxModalOpen] = useState(false);
@@ -116,16 +117,22 @@ export default function Dashboard({ onOpenEditor }) {
     setIsInboxModalOpen(true);
   };
 
-  // Filtered sites
-  const filteredSites = sites.filter(site => {
-    const matchesSearch = site.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          site.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          (site.description && site.description.toLowerCase().includes(searchQuery.toLowerCase()));
-    if (!matchesSearch) return false;
-    if (filterTab === 'published') return site.published !== false;
-    if (filterTab === 'draft') return site.published === false;
-    return true;
-  });
+  // Filtered & sorted sites
+  const filteredSites = sites
+    .filter(site => {
+      const matchesSearch = site.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            site.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            (site.description && site.description.toLowerCase().includes(searchQuery.toLowerCase()));
+      if (!matchesSearch) return false;
+      if (filterTab === 'published') return site.published !== false;
+      if (filterTab === 'draft') return site.published === false;
+      return true;
+    })
+    .sort((a, b) => {
+      if (sortBy === 'name') return a.title.localeCompare(b.title);
+      if (sortBy === 'views') return (b.views || 0) - (a.views || 0);
+      return new Date(b.updatedAt || b.createdAt) - new Date(a.updatedAt || a.createdAt);
+    });
 
   const totalSubmissions = sites.reduce((sum, s) => sum + (s.submissionsCount || 0), 0);
   const totalUnread = sites.reduce((sum, s) => sum + (s.unreadSubmissionsCount || 0), 0);
@@ -214,16 +221,30 @@ export default function Dashboard({ onOpenEditor }) {
             </button>
           </div>
 
-          {/* Search box */}
-          <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search websites..."
-              className="w-full bg-slate-900 border border-slate-800 text-slate-200 pl-10 pr-4 py-2 rounded-xl text-xs outline-none focus:border-indigo-500 transition"
-            />
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            {/* Sort selector */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              aria-label="Sort websites by"
+              className="bg-slate-900 border border-slate-800 text-slate-300 pl-3 pr-2 py-2 rounded-xl text-xs outline-none focus:border-indigo-500 transition"
+            >
+              <option value="updated">Last updated</option>
+              <option value="name">Name A–Z</option>
+              <option value="views">Most views</option>
+            </select>
+
+            {/* Search box */}
+            <div className="relative w-full sm:w-72">
+              <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search websites..."
+                className="w-full bg-slate-900 border border-slate-800 text-slate-200 pl-10 pr-4 py-2 rounded-xl text-xs outline-none focus:border-indigo-500 transition"
+              />
+            </div>
           </div>
         </div>
 
