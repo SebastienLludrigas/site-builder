@@ -42,3 +42,6 @@ Thumbs.db
 .idea/
 *.sublime-workspace
 *.sublime-project
+
+# Local Claude Code state
+.claude/

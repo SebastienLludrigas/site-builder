@@ -6,7 +6,9 @@ import { SEED_SITES } from './seedSites.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../data');
+const DATA_DIR = process.env.SITECRAFT_DATA_DIR
+  ? path.resolve(process.env.SITECRAFT_DATA_DIR)
+  : path.resolve(__dirname, '../data');
 const SITES_FILE = path.join(DATA_DIR, 'sites.json');
 const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
 

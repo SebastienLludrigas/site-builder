@@ -34,15 +34,21 @@ const upload = multer({
   }
 });
 
-uploadRouter.post('/', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'No file received' });
-  }
+uploadRouter.post('/', (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err) {
+      const status = err instanceof multer.MulterError ? 400 : 415;
+      return res.status(status).json({ error: err.message });
+    }
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file received' });
+    }
 
-  const fileUrl = `/uploads/${req.file.filename}`;
-  res.json({
-    url: fileUrl,
-    filename: req.file.filename,
-    size: req.file.size
+    const fileUrl = `/uploads/${req.file.filename}`;
+    res.json({
+      url: fileUrl,
+      filename: req.file.filename,
+      size: req.file.size
+    });
   });
 });
