@@ -13,7 +13,7 @@ export default function Navbar({ onNewSite, onOpenInbox, onResetDemos, totalSubm
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg tracking-tight text-white">SiteCraft</span>
+              <span className="font-display font-bold text-lg tracking-tight text-white">SiteCraft</span>
               <span className="px-2 py-0.5 text-[10px] font-semibold bg-indigo-500/20 text-indigo-400 rounded-full border border-indigo-500/30">
                 Local Host
               </span>
