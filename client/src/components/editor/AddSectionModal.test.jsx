@@ -34,6 +34,22 @@ describe('AddSectionModal', () => {
     }
   });
 
+  it('gives every distinct AVAILABLE_SECTIONS category a working filter pill', () => {
+    // Regression guard: the category pill list is a hardcoded array separate
+    // from AVAILABLE_SECTIONS, so a new/renamed category could silently make
+    // some sections unreachable by filter (though still visible under "All").
+    const categories = [...new Set(AVAILABLE_SECTIONS.map(s => s.category))];
+    for (const category of categories) {
+      const { unmount } = render(<AddSectionModal isOpen={true} onClose={vi.fn()} onAddSection={vi.fn()} />);
+      fireEvent.click(screen.getByRole('button', { name: category }));
+      const expected = AVAILABLE_SECTIONS.filter(s => s.category === category);
+      for (const sec of expected) {
+        expect(screen.getByText(sec.name), `category "${category}" should show "${sec.name}"`).toBeInTheDocument();
+      }
+      unmount();
+    }
+  });
+
   it('adds a deep-cloned section with a fresh id at the requested index and closes', () => {
     const onAddSection = vi.fn();
     const onClose = vi.fn();
